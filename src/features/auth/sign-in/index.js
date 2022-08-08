@@ -12,14 +12,9 @@ import { Entypo } from "@expo/vector-icons";
 import Button from "../sign-up/component/button";
 import Input from "../sign-up/component/input";
 import Loader from "../../../components/loader";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import Spinner from "react-native-loading-spinner-overlay";
 import { AuthContext } from "../../../context/AuthContext";
 
 const SignInScreen = (props) => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
   const context = useContext(AuthContext);
   const { login, isLoading } = context;
   console.log(isLoading);
@@ -199,10 +194,5 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 40,
-  },
-
-  inputTitle: {
-    color: "#3F3E3C",
-    margin: 3,
   },
 });
