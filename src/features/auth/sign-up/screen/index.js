@@ -1,9 +1,7 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Checkbox } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 import {
   View,
   StyleSheet,
@@ -12,15 +10,17 @@ import {
   Image,
   Keyboard,
   ScrollView,
-  Alert,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { Picker } from "@react-native-picker/picker";
 import Input from "../component/input";
 import Button from "../component/button";
 import Loader from "../../../../components/loader";
+import { AuthContext } from "../../../../context/AuthContext";
 
 const SignUpScreen = (props) => {
+  const context = useContext(AuthContext);
+  const { register, isLoading } = context;
   const [loading, setLoading] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState();
   const [checked, setChecked] = React.useState(false);
@@ -28,6 +28,7 @@ const SignUpScreen = (props) => {
     email: "",
     password: "",
     fullName: "",
+    role: "",
   });
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
@@ -58,22 +59,19 @@ const SignUpScreen = (props) => {
       isValid = false;
     }
     if (isValid) {
-      register();
+      SignUp();
     }
   };
 
-  const register = () => {
+  const SignUp = async () => {
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      try {
-        AsyncStorage.setItem("user", JSON.stringify(inputs));
-        props.navigation.navigate("signIn");
-      } catch (error) {
-        Alert.alert("Error", "Something went wrong");
-      }
-    }, 3000);
+    register(inputs.email, inputs.password, inputs.fullName, inputs.role);
+    props.navigation.navigate("signIn");
   };
+
+  useEffect(() => {
+    setLoading(isLoading);
+  }, [isLoading]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -136,6 +134,7 @@ const SignUpScreen = (props) => {
                 <Picker
                   selectedValue={selectedProgram}
                   onValueChange={(itemValue) => setSelectedProgram(itemValue)}
+                  onChangeText={(text) => handleOnChange(text, "role")}
                 >
                   <Picker.Item
                     label="Company"

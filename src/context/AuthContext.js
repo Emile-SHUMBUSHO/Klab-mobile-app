@@ -3,33 +3,29 @@ import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { BASE_URL } from "../config";
 
-export const AuthContext = createContext({
-  login: (email, password) => {},
-});
+export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [splashLoading, setSplashLoading] = useState(false);
 
-  const register = (name, email, password) => {
+  const register = (fullName, email, password, role) => {
     setIsLoading(true);
 
-    axios
-      .post(`${BASE_URL}/Registration`, {
-        name,
-        email,
-        password,
-      })
+    axios({
+      method: "POST",
+      url: `${BASE_URL}/register`,
+      data: { fullName, email, password, role },
+    })
       .then((res) => {
         let userInfo = res.data;
         setUserInfo(userInfo);
         AsyncStorage.setItem("userInfo", JSON.stringify(userInfo));
         setIsLoading(false);
-        console.log(userInfo);
       })
       .catch((e) => {
-        console.log(`register error ${e}`);
+        console.log(`register error ${JSON.stringify(e)}`);
         setIsLoading(false);
       });
   };
@@ -43,9 +39,7 @@ export const AuthProvider = ({ children }) => {
       data: { email, password },
     })
       .then((res) => {
-        console.log(res);
         let userInfo = res.data;
-        console.log(userInfo);
         setUserInfo(userInfo);
         AsyncStorage.setItem("userInfo", JSON.stringify(userInfo));
         setIsLoading(false);
