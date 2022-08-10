@@ -12,67 +12,46 @@ import TermsAndConditionsScreen from "../features/terms&conditions/screens/terms
 import PaymentScreen from "../features/payment/screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Loader from "../components/loader";
-
+import { AuthContext } from "../context/AuthContext";
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
-  const [initialRouteName, setInitialRouteName] = useState("");
-
+  const { getToken } = useContext(AuthContext);
+  const [isLoggedIn, setIsLoggedIn] = useState({});
   useEffect(() => {
-    setTimeout(() => {
-      authUser();
-    }, 2000);
+    getToken("token").then((res) => {
+      setIsLoggedIn(res);
+    });
   }, []);
 
-  const authUser = async () => {
-    try {
-      let userData = await AsyncStorage.getItem("user");
-      if (userData) {
-        userData = JSON.parse(userData);
-        if (userData.loggedIn) {
-          setInitialRouteName("home");
-        } else {
-          setInitialRouteName("signIn");
-        }
-      } else {
-        setInitialRouteName("signUp");
-      }
-    } catch (error) {
-      setInitialRouteName("signUp");
-    }
-  };
   return (
     <NavigationContainer>
-      {!initialRouteName ? (
-        <Loader visible={true} />
-      ) : (
-        <>
-          <Stack.Navigator
-            initialRouteName={initialRouteName}
-            screenOptions={{ headerShown: false }}
-          >
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {isLoggedIn ? (
+          <>
+            <Stack.Screen name="home" component={MainNavigator} />
+            <Stack.Screen name="notifications" component={Notifications} />
+          </>
+        ) : (
+          <>
             <Stack.Screen name="Onboarding" component={OnboardingScreen} />
             <Stack.Screen name="signUp" component={SignUpScreen} />
             <Stack.Screen name="policy" component={PrivacyPolicyScreen} />
             <Stack.Screen name="terms" component={TermsAndConditionsScreen} />
             <Stack.Screen name="signIn" component={SignInScreen} />
             <Stack.Screen name="profile" component={CompleteProfileScreen} />
-            <Stack.Screen name="home" component={MainNavigator} />
             <Stack.Screen name="payment" component={PaymentScreen} />
-            <Stack.Screen name="notifications" component={Notifications} />
             <Stack.Screen name="register" component={RegisterScreen} />
             <Stack.Screen
               name="codeVerification"
               component={CodeVerificationScreen}
             />
             <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
-          </Stack.Navigator>
-        </>
-      )}
+          </>
+        )}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Image,
   Keyboard,
-  Alert,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Button from "../sign-up/component/button";
@@ -56,7 +55,6 @@ const SignInScreen = (props) => {
   const SingIn = async () => {
     setLoading(true);
     login(inputs.email, inputs.password);
-    props.navigation.navigate("home");
   };
 
   useEffect(() => {

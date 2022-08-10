@@ -1,28 +1,10 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Feather, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProfileScreen = (props) => {
-  const [userDetails, setUserDetails] = useState();
-  useEffect(() => {
-    getUserData();
-  }, []);
-
-  const getUserData = async () => {
-    const userData = await AsyncStorage.getItem("user");
-    if (userData) {
-      setUserDetails(JSON.parse(userData));
-    }
-  };
-  const logout = () => {
-    AsyncStorage.setItem(
-      "user",
-      JSON.stringify({ ...userDetails, loggedIn: false })
-    );
-    props.navigation.navigate("signIn");
-  };
+  const { logout } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>

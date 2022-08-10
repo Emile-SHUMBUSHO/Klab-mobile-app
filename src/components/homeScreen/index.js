@@ -7,9 +7,11 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import * as React from "react";
+import { useContext, useState, useEffect } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { AuthContext } from "../../context/AuthContext";
 const HomeScreen = (props) => {
+  const { userInfo, isLoading, logout } = useContext(AuthContext);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -33,7 +35,7 @@ const HomeScreen = (props) => {
               source={require("../../../assets/man.png")}
               style={{ width: 50, height: 50 }}
             />
-            <Text style={{ padding: 10, color: "#fff" }}>Ryan Fabrice</Text>
+            <Text style={{ padding: 10, color: "#fff" }}>Emile</Text>
           </View>
 
           <TouchableOpacity

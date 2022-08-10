@@ -3,7 +3,10 @@ import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { BASE_URL } from "../config";
 
-export const AuthContext = createContext({});
+export const AuthContext = createContext({
+  getToken: (token) => {},
+  logout: (token) => {},
+});
 
 export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
@@ -39,9 +42,13 @@ export const AuthProvider = ({ children }) => {
       data: { email, password },
     })
       .then((res) => {
-        let userInfo = res.data;
+        let userInfo = {
+          token: res.data.Token.original.access_token,
+          ...res.data.data,
+        };
+        console.log(userInfo);
         setUserInfo(userInfo);
-        AsyncStorage.setItem("userInfo", JSON.stringify(userInfo));
+        AsyncStorage.setItem("token", userInfo.token);
         setIsLoading(false);
       })
       .catch((e) => {
@@ -50,17 +57,21 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
-  const logout = () => {
-    setIsLoading(true);
+  const getToken = async (token) => {
+    const res = await AsyncStorage.getItem(token);
+    if (res) return res;
+    else null;
+  };
 
+  const logout = async () => {
+    const token = await AsyncStorage.getItem("token");
+    setIsLoading(true);
     axios
-      .post(
-        `${BASE_URL}/logout`,
-        {},
-        {
-          headers: { Authorization: `Bearer ${userInfo.access_token}` },
-        }
-      )
+      .post({
+        method: "POST",
+        url: `${BASE_URL}/logout`,
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((res) => {
         console.log(res.data);
         AsyncStorage.removeItem("userInfo");
@@ -104,6 +115,7 @@ export const AuthProvider = ({ children }) => {
         register,
         login,
         logout,
+        getToken,
       }}
     >
       {children}

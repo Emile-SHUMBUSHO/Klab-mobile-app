@@ -1,7 +1,8 @@
-import * as React from "react";
 import { useState, useContext, useEffect } from "react";
 import { Checkbox } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar } from "expo-status-bar";
+import DropDownPicker from "react-native-dropdown-picker";
+
 import {
   View,
   StyleSheet,
@@ -19,17 +20,28 @@ import Loader from "../../../../components/loader";
 import { AuthContext } from "../../../../context/AuthContext";
 
 const SignUpScreen = (props) => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: "parent", value: "parent" },
+    { label: "member", value: "member" },
+    { label: "guest", value: "guest" },
+    { label: "company", value: "company" },
+  ]);
+
+  const [selectedProgram, setSelectedProgram] = useState();
+  const [checked, setChecked] = useState(false);
   const context = useContext(AuthContext);
   const { register, isLoading } = context;
+  console.log(isLoading);
   const [loading, setLoading] = useState(false);
-  const [selectedProgram, setSelectedProgram] = useState();
-  const [checked, setChecked] = React.useState(false);
   const [inputs, setInputs] = useState({
-    email: "",
-    password: "",
     fullName: "",
+    email: "",
     role: "",
+    password: "",
   });
+
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
@@ -65,8 +77,8 @@ const SignUpScreen = (props) => {
 
   const SignUp = async () => {
     setLoading(true);
-    register(inputs.email, inputs.password, inputs.fullName, inputs.role);
-    props.navigation.navigate("signIn");
+    register(inputs.fullName, inputs.email, inputs.password, inputs.role);
+    // props.navigation.navigate("signIn");
   };
 
   useEffect(() => {
@@ -74,150 +86,122 @@ const SignUpScreen = (props) => {
   }, [isLoading]);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <Loader visible={loading} />
-        <View style={styles.top}>
-          <TouchableOpacity
-            style={{ margin: 10, right: 100 }}
-            onPress={() => {
-              props.navigation.navigate("Onboarding");
-            }}
-          >
-            <Entypo name="chevron-left" size={24} color="#FFFFFF" />
-          </TouchableOpacity>
-          <Image
-            source={require("../../../../../assets/logo.png")}
-            style={styles.logo}
-          />
-        </View>
-        <View style={styles.footer}>
-          <View
-            style={{
-              ...StyleSheet.absoluteFillObject,
-              backgroundColor: "black",
-            }}
-          />
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.content}>
-              <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-                Hello
-              </Text>
-              <Text style={{ fontSize: 15, color: "#BABBC3" }}>
-                Create an account to continue
-              </Text>
+    <View style={styles.container}>
+      <Loader visible={loading} />
+      <View style={styles.top}>
+        <TouchableOpacity
+          style={{ margin: 10, right: 100 }}
+          onPress={() => {
+            props.navigation.navigate("Onboarding");
+          }}
+        >
+          <Entypo name="chevron-left" size={24} color="#FFFFFF" />
+        </TouchableOpacity>
+        <Image
+          source={require("../../../../../assets/logo.png")}
+          style={styles.logo}
+        />
+      </View>
+      <View style={styles.footer}>
+        <View
+          style={{
+            ...StyleSheet.absoluteFillObject,
+            backgroundColor: "black",
+          }}
+        />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.content}>
+            <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
+              Hello
+            </Text>
+            <Text style={{ fontSize: 15, color: "#BABBC3" }}>
+              Create an account to continue
+            </Text>
 
-              <Input
-                style={styles.input}
-                label="Full name"
-                iconName="account-outline"
-                placeholder="Enter Your Full Name"
-                onChangeText={(text) => handleOnChange(text, "fullName")}
-                onFocus={() => handleErrors(null, "fullName")}
-                error={errors.fullName}
-              />
+            <Input
+              style={styles.input}
+              label="Full name"
+              iconName="account-outline"
+              placeholder="Enter Your Full Name"
+              onChangeText={(text) => handleOnChange(text, "fullName")}
+              onFocus={() => handleErrors(null, "fullName")}
+              error={errors.fullName}
+            />
 
-              <Input
-                style={styles.input}
-                label="Email Address"
-                placeholder="Enter your email address"
-                iconName="email-outline"
-                onChangeText={(text) => handleOnChange(text, "email")}
-                error={errors.email}
-                onFocus={() => {
-                  handleErrors(null, "email");
-                }}
-              />
+            <Input
+              style={styles.input}
+              label="Email Address"
+              placeholder="Enter your email address"
+              iconName="email-outline"
+              onChangeText={(text) => handleOnChange(text, "email")}
+              error={errors.email}
+              onFocus={() => {
+                handleErrors(null, "email");
+              }}
+            />
 
-              <Text style={styles.inputTitle}>Join As</Text>
-              <View style={styles.picker}>
-                <Picker
-                  selectedValue={selectedProgram}
-                  onValueChange={(itemValue) => setSelectedProgram(itemValue)}
-                  onChangeText={(text) => handleOnChange(text, "role")}
-                >
-                  <Picker.Item
-                    label="Company"
-                    style={styles.selectedValue}
-                    value="Company"
-                  />
-                  <Picker.Item
-                    style={styles.selectedValue}
-                    label="Parent"
-                    value="Parent"
-                  />
-                  <Picker.Item
-                    style={styles.selectedValue}
-                    label="Guest"
-                    value="Guest"
-                  />
-                  <Picker.Item
-                    style={styles.selectedValue}
-                    label="Member"
-                    value="Member"
-                  />
-                </Picker>
-              </View>
-
-              <Input
-                onChangeText={(text) => handleOnChange(text, "password")}
-                onFocus={() => handleErrors(null, "password")}
-                iconName="lock-outline"
-                label="Password"
-                placeholder="Enter your password"
-                error={errors.password}
-                password
-              />
-
-              <View style={styles.termsAndCondition}>
-                <Checkbox
-                  status={checked ? "checked" : "unchecked"}
-                  onPress={() => {
-                    setChecked(!checked);
-                  }}
-                />
-                <View>
-                  <Text style={{ color: "#BABBC3" }}>
-                    By creating an account you agree to our
-                  </Text>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "row",
-                    }}
-                  >
-                    <TouchableOpacity
-                      onPress={() => {
-                        props.navigation.navigate("terms");
-                      }}
-                    >
-                      <Text style={{ fontWeight: "bold", left: 5 }}>
-                        Terms of services
-                      </Text>
-                    </TouchableOpacity>
-                    <Text style={{ left: 10, color: "#BABBC3" }}>and</Text>
-                    <TouchableOpacity
-                      onPress={() => {
-                        props.navigation.navigate("policy");
-                      }}
-                    >
-                      <Text style={{ fontWeight: "bold", left: 15 }}>
-                        Privacy Policy
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </View>
-
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+            <Text style={styles.inputTitle}>Join As</Text>
+            <DropDownPicker
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+              zIndex={1000}
+              onChangeValue={(value) => {
+                handleOnChange(value, "role");
+              }}
+            />
+            {/* <View style={styles.picker}> */}
+            {/* <Picker
+                selectedValue={selectedProgram}
+                onValueChange={(itemValue) => setSelectedProgram(itemValue)}
               >
-                <Button title="Sign Up" onPress={validate} />
+                <Picker.Item
+                  label="company"
+                  style={styles.selectedValue}
+                  value="company"
+                />
+                <Picker.Item
+                  style={styles.selectedValue}
+                  label="parent"
+                  value="parent"
+                />
+                <Picker.Item
+                  style={styles.selectedValue}
+                  label="guest"
+                  value="guest"
+                />
+                <Picker.Item
+                  style={styles.selectedValue}
+                  label="member"
+                  value="member"
+                />
+              </Picker> */}
+            {/* </View> */}
 
+            <Input
+              onChangeText={(text) => handleOnChange(text, "password")}
+              onFocus={() => handleErrors(null, "password")}
+              iconName="lock-outline"
+              label="Password"
+              placeholder="Enter your password"
+              error={errors.password}
+              password
+            />
+
+            <View style={styles.termsAndCondition}>
+              <Checkbox
+                status={checked ? "checked" : "unchecked"}
+                onPress={() => {
+                  setChecked(!checked);
+                }}
+              />
+              <View>
+                <Text style={{ color: "#BABBC3" }}>
+                  By creating an account you agree to our
+                </Text>
                 <View
                   style={{
                     justifyContent: "center",
@@ -225,23 +209,61 @@ const SignUpScreen = (props) => {
                     flexDirection: "row",
                   }}
                 >
-                  <Text style={{ color: "#BABBC3" }}>
-                    Already have an account?
-                  </Text>
                   <TouchableOpacity
                     onPress={() => {
-                      props.navigation.navigate("signIn");
+                      props.navigation.navigate("terms");
                     }}
                   >
-                    <Text style={{ fontWeight: "bold", left: 5 }}>Sign In</Text>
+                    <Text style={{ fontWeight: "bold", left: 5 }}>
+                      Terms of services
+                    </Text>
+                  </TouchableOpacity>
+                  <Text style={{ left: 10, color: "#BABBC3" }}>and</Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      props.navigation.navigate("policy");
+                    }}
+                  >
+                    <Text style={{ fontWeight: "bold", left: 15 }}>
+                      Privacy Policy
+                    </Text>
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
-          </ScrollView>
-        </View>
+
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button title="Sign Up" onPress={validate} />
+
+              <View
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "row",
+                }}
+              >
+                <Text style={{ color: "#BABBC3" }}>
+                  Already have an account?
+                </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate("signIn");
+                  }}
+                >
+                  <Text style={{ fontWeight: "bold", left: 5 }}>Sign In</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
       </View>
-    </SafeAreaView>
+      <StatusBar style="light" />
+    </View>
   );
 };
 

@@ -27,6 +27,7 @@
     "react-native": "0.68.2",
     "react-native-app-intro-slider": "4.0.4",
     "react-native-confirmation-code-field": "^7.3.0",
+    "react-native-dropdown-picker": "^5.4.2",
     "react-native-gesture-handler": "~2.2.1",
     "react-native-loading-spinner-overlay": "^3.0.1",
     "react-native-pager-view": "5.4.15",
