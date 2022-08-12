@@ -7,9 +7,10 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { AuthContext } from "../../context/AuthContext";
+import { StatusBar } from "expo-status-bar";
 const HomeScreen = (props) => {
   const { userInfo, isLoading, logout } = useContext(AuthContext);
   return (
@@ -332,6 +333,7 @@ const HomeScreen = (props) => {
           </View>
         </View>
       </ScrollView>
+      <StatusBar style="light" />
     </View>
   );
 };

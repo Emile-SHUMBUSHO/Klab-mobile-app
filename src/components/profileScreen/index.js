@@ -1,5 +1,10 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Feather, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
+import {
+  Feather,
+  MaterialIcons,
+  FontAwesome5,
+  AntDesign,
+} from "@expo/vector-icons";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -9,10 +14,25 @@ const ProfileScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{ color: "white", fontSize: 18 }}>Stacy Karuama</Text>
+        <Text style={{ color: "white", fontSize: 18 }}>Ryan Fabrice</Text>
       </View>
       <View style={styles.content}>
-        <TouchableOpacity style={styles.touchableOpacity}>
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate("profile");
+          }}
+          style={styles.touchableOpacity}
+        >
+          <AntDesign name="profile" size={24} color="black" />
+          <Text style={{ left: 10 }}>Complete Profile</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate("edit");
+          }}
+          style={styles.touchableOpacity}
+        >
           <Feather name="edit" size={24} color="black" />
           <Text style={{ left: 10 }}>Edit Profile</Text>
         </TouchableOpacity>

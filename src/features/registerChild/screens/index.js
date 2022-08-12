@@ -13,7 +13,7 @@ const RegisterScreen = (props) => {
         {
           text: "Yes",
           onPress: () => {
-            props.navigation.navigate("home");
+            props.navigation.navigate("anotherChild");
           },
         },
         {
@@ -29,6 +29,7 @@ const RegisterScreen = (props) => {
     <View style={styles.container}>
       <View style={styles.top}>
         <TouchableOpacity
+          style={{ right: 120 }}
           onPress={() => {
             props.navigation.navigate("home");
           }}

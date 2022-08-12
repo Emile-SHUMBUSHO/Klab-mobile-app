@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../auth/sign-up/component/input";
-const CompleteProfileScreen = (props) => {
+const EditProfileScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -20,7 +20,7 @@ const CompleteProfileScreen = (props) => {
         >
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={{ color: "white", fontSize: 18 }}>Complete Profile</Text>
+        <Text style={{ color: "white", fontSize: 18 }}>Edit Profile</Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -39,33 +39,22 @@ const CompleteProfileScreen = (props) => {
             />
 
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              Ishimwe Aimable
+              Lissa Magrette
             </Text>
           </View>
 
           <Input
             style={styles.input}
-            label="Name"
-            placeholder="Registered Company Name"
+            label="Telphone"
+            placeholder="Change phone number"
           />
 
           <Input
             style={styles.input}
             label="Address"
-            placeholder="Company address"
+            placeholder="Email address"
           />
 
-          <Input
-            style={styles.input}
-            label="Field"
-            placeholder="Company Field"
-          />
-
-          <Input
-            style={styles.input}
-            label="Telephone"
-            placeholder="Company Telephone Number"
-          />
           <TouchableOpacity
             style={styles.submitBtn}
             onPress={() => {
@@ -80,7 +69,7 @@ const CompleteProfileScreen = (props) => {
   );
 };
 
-export default CompleteProfileScreen;
+export default EditProfileScreen;
 
 const styles = StyleSheet.create({
   container: {

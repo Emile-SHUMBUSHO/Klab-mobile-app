@@ -2,7 +2,6 @@ import { useState, useContext, useEffect } from "react";
 import { Checkbox } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 import DropDownPicker from "react-native-dropdown-picker";
-
 import {
   View,
   StyleSheet,
@@ -13,7 +12,6 @@ import {
   ScrollView,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { Picker } from "@react-native-picker/picker";
 import Input from "../component/input";
 import Button from "../component/button";
 import Loader from "../../../../components/loader";
@@ -28,8 +26,6 @@ const SignUpScreen = (props) => {
     { label: "guest", value: "guest" },
     { label: "company", value: "company" },
   ]);
-
-  const [selectedProgram, setSelectedProgram] = useState();
   const [checked, setChecked] = useState(false);
   const context = useContext(AuthContext);
   const { register, isLoading } = context;
@@ -153,33 +149,6 @@ const SignUpScreen = (props) => {
                 handleOnChange(value, "role");
               }}
             />
-            {/* <View style={styles.picker}> */}
-            {/* <Picker
-                selectedValue={selectedProgram}
-                onValueChange={(itemValue) => setSelectedProgram(itemValue)}
-              >
-                <Picker.Item
-                  label="company"
-                  style={styles.selectedValue}
-                  value="company"
-                />
-                <Picker.Item
-                  style={styles.selectedValue}
-                  label="parent"
-                  value="parent"
-                />
-                <Picker.Item
-                  style={styles.selectedValue}
-                  label="guest"
-                  value="guest"
-                />
-                <Picker.Item
-                  style={styles.selectedValue}
-                  label="member"
-                  value="member"
-                />
-              </Picker> */}
-            {/* </View> */}
 
             <Input
               onChangeText={(text) => handleOnChange(text, "password")}
