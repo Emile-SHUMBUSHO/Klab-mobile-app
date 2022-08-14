@@ -1,47 +1,26 @@
-import { useState } from "react";
-import Input from "../../../components/input";
 import {
   View,
   StyleSheet,
   Text,
   TouchableOpacity,
-  Alert,
   KeyboardAvoidingView,
   Keyboard,
   TouchableWithoutFeedback,
   Platform,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
+import { Entypo } from "@expo/vector-icons";
+import Input from "../../components/input";
 import DropDownPicker from "react-native-dropdown-picker";
+import { useState } from "react";
 
-const RegisterAnotherScreen = (props) => {
+const JoinScreen = (props) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
-    { label: "summer coding", value: "parent" },
-    { label: "vacational", value: "member" },
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
   ]);
-  const twoOptAlert = () => {
-    Alert.alert(
-      "Child Registered Succefully",
-      "Wants to Register other Child",
-      [
-        {
-          text: "Yes",
-          onPress: () => {
-            props.navigation.navigate("home");
-          },
-        },
-        {
-          text: "No",
-          onPress: () => {
-            props.navigation.navigate("home");
-          },
-        },
-      ]
-    );
-  };
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -58,7 +37,7 @@ const RegisterAnotherScreen = (props) => {
             >
               <Entypo name="chevron-left" size={24} color="white" />
             </TouchableOpacity>
-            <Text style={{ color: "white" }}>Register Child</Text>
+            <Text style={{ color: "white" }}>Join TechUpSkill</Text>
           </View>
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -69,15 +48,28 @@ const RegisterAnotherScreen = (props) => {
             }}
           >
             <View style={styles.content}>
-              <Input style={styles.input} placeholder="Child Names" />
+              <Input style={styles.input} placeholder="Enter Your Full Name" />
 
-              <Input style={styles.input} placeholder="Child Age" />
+              <Input
+                style={styles.input}
+                iconName="email"
+                placeholder="Enter Your Email"
+              />
 
-              <Input style={styles.input} placeholder="Child Email" />
-
+              <Input
+                style={styles.input}
+                iconName="phone"
+                placeholder="Enter Your Phone Number"
+              />
+              <Input style={styles.input} placeholder="Province" />
+              <Input style={styles.input} placeholder="District" />
+              <Input style={styles.input} placeholder="Sector" />
+              <Input style={styles.input} placeholder="Cell" />
+              <Input style={styles.input} placeholder="Village" />
+              <Input style={styles.input} placeholder="Age" />
               <DropDownPicker
                 style={styles.dropDownPicker}
-                placeholder="Choose Program"
+                placeholder="Choose your Gender"
                 open={open}
                 value={value}
                 items={items}
@@ -102,23 +94,24 @@ const RegisterAnotherScreen = (props) => {
                   borderRadius: 20,
                 }}
               />
+              <Input style={styles.input} placeholder="Academic Study" />
 
-              <Input style={styles.input} placeholder="Home Address" />
-              <Input
-                style={styles.input}
-                placeholder="Mother or Father Tel Number"
-              />
+              <Input style={styles.input} placeholder="Field of study" />
 
               <Input
                 style={styles.input}
-                placeholder="Guadian or Maide Tel Number"
+                placeholder="Tell us about your self"
               />
-              <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <TouchableOpacity
-                  style={styles.submitBtn}
-                  onPress={twoOptAlert}
-                >
-                  <Text style={{ color: "#FFFF" }}>Save Child Information</Text>
+
+              <Input style={styles.input} placeholder="Do you have a project" />
+
+              <Input style={styles.input} placeholder="Project GitHub Link" />
+
+              <Input style={styles.input} placeholder="Resume" />
+
+              <View style={{ justifyContent: "center", flexDirection: "row" }}>
+                <TouchableOpacity style={styles.submitBtn}>
+                  <Text style={{ color: "#FFFF" }}>Submit</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -129,7 +122,7 @@ const RegisterAnotherScreen = (props) => {
   );
 };
 
-export default RegisterAnotherScreen;
+export default JoinScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -145,7 +138,8 @@ const styles = StyleSheet.create({
   },
   content: {
     flexDirection: "column",
-    padding: 20,
+    justifyContent: "center",
+    margin: 20,
   },
 
   dropDownPicker: {
@@ -174,9 +168,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     margin: 20,
-  },
-  inputTitle: {
-    color: "#3F3E3C",
-    margin: 3,
   },
 });

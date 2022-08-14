@@ -5,10 +5,31 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Platform,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
+import * as ImagePicker from "expo-image-picker";
+import { useState, useEffect } from "react";
+import { Entypo, Feather } from "@expo/vector-icons";
 import Input from "../../auth/sign-up/component/input";
+
 const EditProfileScreen = (props) => {
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -33,10 +54,21 @@ const EditProfileScreen = (props) => {
         <View style={styles.content}>
           {/* Profile card info.. */}
           <View style={styles.profile_card}>
-            <Image
-              source={require("../../../../assets/man.png")}
-              style={{ width: 70, height: 70 }}
-            />
+            {image && (
+              <Image
+                source={{ uri: image }}
+                style={{ width: 70, height: 70, borderRadius: 50 }}
+              />
+            )}
+
+            <TouchableOpacity
+              onPress={pickImage}
+              style={{
+                top: -50,
+              }}
+            >
+              <Feather name="camera" size={24} color="black" />
+            </TouchableOpacity>
 
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>
               Lissa Magrette

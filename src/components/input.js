@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
-import COLORS from "../../../../infrastructure/theme/colors";
+import COLORS from "../infrastructure/theme/colors";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 const Input = ({
   label,
@@ -13,7 +13,7 @@ const Input = ({
   const [hidePassword, setHidePassword] = React.useState(password);
   const [isFocused, setIsFocused] = React.useState(false);
   return (
-    <View style={{ marginBottom: 5 }}>
+    <View>
       <Text style={style.label}>{label}</Text>
       <View
         style={[

@@ -7,12 +7,9 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { useContext } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
-import { AuthContext } from "../../context/AuthContext";
 import { StatusBar } from "expo-status-bar";
 const HomeScreen = (props) => {
-  const { userInfo, isLoading, logout } = useContext(AuthContext);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -133,6 +130,9 @@ const HomeScreen = (props) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate("join");
+                  }}
                   style={{
                     width: 50,
                     height: 25,
@@ -248,6 +248,9 @@ const HomeScreen = (props) => {
                 </TouchableOpacity>
 
                 <TouchableOpacity
+                  onPress={() => {
+                    props.navigation.navigate("join");
+                  }}
                   style={{
                     width: 50,
                     height: 25,

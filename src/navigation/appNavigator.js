@@ -17,6 +17,7 @@ import RegisterAnotherScreen from "../features/registerChild/screens/otherChild"
 import EditProfileScreen from "../features/edit-profile/screens";
 import Loader from "../components/loader";
 import { AuthContext } from "../context/AuthContext";
+import JoinScreen from "../features/joinProgram";
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,7 @@ function AppNavigator() {
               name="anotherChild"
               component={RegisterAnotherScreen}
             />
+            <Stack.Screen name="join" component={JoinScreen} />
           </>
         ) : (
           <>
