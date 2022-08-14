@@ -62,8 +62,6 @@ export const AuthProvider = ({ children }) => {
     else null;
   };
 
-  // eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8va2xhYmF0dGVuZGVlcy5oZXJva3VhcHAuY29tL2FwaS9sb2dpbi9Mb2dpbkluZm8iLCJpYXQiOjE2NjAwNTA2ODgsImV4cCI6MTY2MDA1NDI4OCwibmJmIjoxNjYwMDUwNjg4LCJqdGkiOiJ3ODltMHhqaW1pSHhlTzRlIiwic3ViIjoiMiIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.I-LPkkSQ4b6ip3cdqkuZmaGicM0Ij_q3P2IsRC8QPXw
-
   const logout = async () => {
     const token = await AsyncStorage.getItem("token");
     setIsLoading(true);
