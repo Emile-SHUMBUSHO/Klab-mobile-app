@@ -1,5 +1,5 @@
 import OnboardingScreen from "../features/onboarding_screen/screen";
-import SignUpScreen from "../features/auth/sign-up/screen";
+import SignUpScreen from "../features/auth/sign-up";
 import SignInScreen from "../features/auth/sign-in";
 import MainNavigator from "./mainNavigator";
 import CodeVerificationScreen from "../features/auth/code-verification";
@@ -15,25 +15,54 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useState, useEffect, useContext } from "react";
 import RegisterAnotherScreen from "../features/registerChild/screens/otherChild";
 import EditProfileScreen from "../features/edit-profile/screens";
-import Loader from "../components/loader";
-import { AuthContext } from "../context/AuthContext";
 import JoinScreen from "../features/joinProgram";
+
+import { useSelector, useDispatch } from "react-redux";
+import { ActivityIndicator } from "react-native-paper";
+import { View } from "react-native";
+import { Init } from "../redux/actions";
 
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
-  const { getToken } = useContext(AuthContext);
-  const [isLoggedIn, setIsLoggedIn] = useState({});
+  const token = useSelector((state) => state.Auth.authToken);
+  console.log(token);
+  const [loading, setLoading] = useState(true);
+
+  const dispatch = useDispatch();
+  const init = async () => {
+    await dispatch(Init());
+    setLoading(false);
+  };
+
   useEffect(() => {
-    getToken("token").then((res) => {
-      setIsLoggedIn(res);
-    });
+    init();
   }, []);
+
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <ActivityIndicator size="large" color={"red"} />
+      </View>
+    );
+  }
 
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {isLoggedIn ? (
+        {token === null ? (
+          <>
+            <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+            <Stack.Screen name="signUp" component={SignUpScreen} />
+            <Stack.Screen name="policy" component={PrivacyPolicyScreen} />
+            <Stack.Screen name="terms" component={TermsAndConditionsScreen} />
+            <Stack.Screen name="signIn" component={SignInScreen} />
+            <Stack.Screen
+              name="codeVerification"
+              component={CodeVerificationScreen}
+            />
+          </>
+        ) : (
           <>
             <Stack.Screen name="home" component={MainNavigator} />
             <Stack.Screen name="notifications" component={Notifications} />
@@ -46,19 +75,6 @@ function AppNavigator() {
               component={RegisterAnotherScreen}
             />
             <Stack.Screen name="join" component={JoinScreen} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-            <Stack.Screen name="signUp" component={SignUpScreen} />
-            <Stack.Screen name="policy" component={PrivacyPolicyScreen} />
-            <Stack.Screen name="terms" component={TermsAndConditionsScreen} />
-            <Stack.Screen name="signIn" component={SignInScreen} />
-
-            <Stack.Screen
-              name="codeVerification"
-              component={CodeVerificationScreen}
-            />
             <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
           </>
         )}
