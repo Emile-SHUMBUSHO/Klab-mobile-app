@@ -1,14 +1,17 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import RootNavigation from "./src/navigation/rootNavigator";
+import { AuthProvider } from "./src/context/AuthContext";
+import { Provider } from "react-redux";
+import { store } from "./src/redux/store";
 import { LogBox } from "react-native";
 LogBox.ignoreAllLogs();
-import { AuthProvider } from "./src/context/AuthContext";
+
 export default function App() {
   return (
     <SafeAreaProvider>
-      <AuthProvider>
+      <Provider store={store}>
         <RootNavigation />
-      </AuthProvider>
+      </Provider>
     </SafeAreaProvider>
   );
 }
