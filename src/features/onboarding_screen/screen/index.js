@@ -9,6 +9,7 @@ import { useState } from "react";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
+import { StatusBar } from "expo-status-bar";
 
 const OnboardingScreen = (props) => {
   const [showSlide, setShowSlide] = useState(false);
@@ -48,6 +49,7 @@ const OnboardingScreen = (props) => {
             ></TouchableOpacity>
           </View> */}
         </LinearGradient>
+        <StatusBar style="light" />
       </View>
     );
   };
