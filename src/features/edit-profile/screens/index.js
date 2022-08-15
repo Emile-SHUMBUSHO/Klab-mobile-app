@@ -10,7 +10,7 @@ import {
 import * as ImagePicker from "expo-image-picker";
 import { useState, useEffect } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
-import Input from "../../auth/sign-up/component/input";
+import Input from "../../../components/input";
 
 const EditProfileScreen = (props) => {
   const [image, setImage] = useState(null);
