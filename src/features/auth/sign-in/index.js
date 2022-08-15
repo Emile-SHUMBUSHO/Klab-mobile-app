@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -8,15 +8,14 @@ import {
   Keyboard,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import Button from "../sign-up/component/button";
-import Input from "../sign-up/component/input";
+import Button from "../../../components/button";
+import Input from "../../../components/input";
 import Loader from "../../../components/loader";
-import { AuthContext } from "../../../context/AuthContext";
+
+import { Login } from "../../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const SignInScreen = (props) => {
-  const context = useContext(AuthContext);
-  const { login, isLoading } = context;
-  console.log(isLoading);
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     email: "",
@@ -48,18 +47,14 @@ const SignInScreen = (props) => {
       isValid = false;
     }
     if (isValid) {
-      SingIn();
+      loginFunc();
     }
   };
 
-  const SingIn = async () => {
-    setLoading(true);
-    login(inputs.email, inputs.password);
+  const dispatch = useDispatch();
+  const loginFunc = () => {
+    dispatch(Login(inputs.email, inputs.password));
   };
-
-  useEffect(() => {
-    setLoading(isLoading);
-  }, [isLoading]);
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
