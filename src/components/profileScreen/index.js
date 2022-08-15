@@ -5,12 +5,14 @@ import {
   FontAwesome5,
   AntDesign,
 } from "@expo/vector-icons";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
 
+import { useDispatch } from "react-redux";
+import { Logout } from "../../redux/actions";
 const ProfileScreen = (props) => {
-  const { logout } = useContext(AuthContext);
-
+  const dispatch = useDispatch();
+  const logoutFunc = () => {
+    dispatch(Logout());
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -70,7 +72,7 @@ const ProfileScreen = (props) => {
           <Feather name="unlock" size={24} color="black" />
           <Text style={{ left: 10 }}>Change Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.touchableOpacity} onPress={logout}>
+        <TouchableOpacity style={styles.touchableOpacity} onPress={logoutFunc}>
           <MaterialIcons name="logout" size={24} color="black" />
           <Text style={{ left: 10 }}>Log Out</Text>
         </TouchableOpacity>
