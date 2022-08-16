@@ -1,7 +1,8 @@
 const initialState = {
   loading: false,
   error: null,
-  authToken: null,
+  authToken: "",
+  userInfo: {},
 };
 
 export default (state = initialState, action) => {
@@ -30,6 +31,11 @@ export default (state = initialState, action) => {
       return {
         ...state, //copy all previous states
         authToken: action.payload,
+      };
+    case "USERINFO":
+      return {
+        ...state, //copy all previous states
+        userInfo: action.payload,
       };
     case "LOGOUT":
       return {
