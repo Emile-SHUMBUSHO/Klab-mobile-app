@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../config";
 export const Init = () => {
   return async (dispatch) => {
@@ -56,12 +57,16 @@ export const Login = (email, password) => {
         "token",
         response.data.Token.original.access_token
       );
-      console.log(response);
-
+      var decoded = jwt_decode(response.data.Token.original.access_token);
       dispatch({
         type: "LOGIN",
         payload: response.data.Token.original.access_token,
       });
+      dispatch({
+        type: "USERINFO",
+        payload: decoded,
+      });
+      await AsyncStorage.setItem("user", decoded);
     } catch (err) {
       console.log(err);
     }
