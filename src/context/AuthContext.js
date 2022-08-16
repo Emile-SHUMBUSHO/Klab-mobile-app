@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
 
   const register = (fullName, email, password, role) => {
     setIsLoading(true);
-
     axios({
       method: "POST",
       url: `${BASE_URL}/register`,
