@@ -16,27 +16,25 @@ import { useState, useEffect, useContext } from "react";
 import RegisterAnotherScreen from "../features/registerChild/screens/otherChild";
 import EditProfileScreen from "../features/edit-profile/screens";
 import JoinScreen from "../features/joinProgram";
-
+import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
 import { Init } from "../redux/actions";
-
-import jwt_decode from "jwt-decode";
+import { UserInfo } from "../utils/userInfo";
 
 const Stack = createNativeStackNavigator();
 
 function AppNavigator() {
-  var tokenn =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8va2xhYmF0dGVuZGVlcy5oZXJva3VhcHAuY29tL2FwaS9sb2dpbi9Mb2dpbkluZm8iLCJpYXQiOjE2NjA2MzgyNjEsImV4cCI6MTY2MDY0MTg2MSwibmJmIjoxNjYwNjM4MjYxLCJqdGkiOiJwVWlLbjh6dGF3U3BueXppIiwic3ViIjoiOSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJpZCI6Im1lbWJlciIsImVtYWlsIjoibnR3YXJpQGdtYWlsLmNvbSJ9.9JVUV0CStFy2ItV8Xoy1v7umximAfUkZo7R1Vt1VjiI";
-  var decoded = jwt_decode(tokenn);
-  console.log("decoded data");
-  console.log(decoded);
-
+  const [user, setUser] = useState({});
   const token = useSelector((state) => state.Auth.authToken);
-  console.log(token);
-  const [loading, setLoading] = useState(true);
+  UserInfo(token).then((response) => {
+    setUser(response.id);
+  });
 
+  console.log(user);
+
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const init = async () => {
     await dispatch(Init());
