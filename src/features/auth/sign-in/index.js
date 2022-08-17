@@ -54,7 +54,9 @@ const SignInScreen = (props) => {
   const dispatch = useDispatch();
   const loginFunc = () => {
     dispatch(Login(inputs.email, inputs.password));
+    setLoading(true);
   };
+
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
