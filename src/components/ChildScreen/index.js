@@ -48,14 +48,6 @@ const ChildScreen = (props) => {
             </TouchableOpacity>
             <Text>From 09-07-2022 to 09-08-2022</Text>
           </View>
-          {/* <TouchableOpacity
-            style={styles.addBtn}
-            onPress={() => {
-              props.navigation.navigate("register");
-            }}
-          >
-            <Text style={{ color: "#FFFF" }}>Add Other Kid</Text>
-          </TouchableOpacity> */}
         </View>
       </ScrollView>
     </View>
