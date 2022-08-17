@@ -9,7 +9,16 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { UserInfo } from "../../utils/userInfo";
+
 const HomeScreen = (props) => {
+  const [user, setUser] = useState({});
+  const token = useSelector((state) => state.Auth.authToken);
+  UserInfo(token).then((response) => {
+    setUser(response.email);
+  });
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -33,7 +42,7 @@ const HomeScreen = (props) => {
               source={require("../../../assets/man.png")}
               style={{ width: 50, height: 50 }}
             />
-            <Text style={{ padding: 10, color: "#fff" }}>Emile</Text>
+            <Text style={{ padding: 10, color: "#fff" }}>Eric Malaba</Text>
           </View>
 
           <TouchableOpacity
@@ -178,6 +187,7 @@ const HomeScreen = (props) => {
               }}
             >
               <Text style={{ margin: 10 }}>Klab Events</Text>
+
               <View
                 style={{
                   flexDirection: "row",
