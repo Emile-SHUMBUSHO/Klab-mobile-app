@@ -12,11 +12,10 @@ import TermsAndConditionsScreen from "../features/terms&conditions/screens/terms
 import PaymentScreen from "../features/payment/screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import RegisterAnotherScreen from "../features/registerChild/screens/otherChild";
 import EditProfileScreen from "../features/edit-profile/screens";
 import JoinScreen from "../features/joinProgram";
-import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
@@ -31,8 +30,6 @@ function AppNavigator() {
   UserInfo(token).then((response) => {
     setUser(response.id);
   });
-
-  console.log(user);
 
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
