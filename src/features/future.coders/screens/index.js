@@ -78,7 +78,7 @@ const ParentScreen = (props) => {
         <View style={styles.programs}>
           <FlatGrid
             itemDimension={130}
-            data={[1, 2, 3, 4]}
+            data={[1, 2]}
             // spacing={0}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={twoOptAlert}>
