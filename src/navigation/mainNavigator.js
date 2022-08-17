@@ -4,9 +4,19 @@ import ProfileScreen from "../components/profileScreen";
 import HomeScreen from "../components/homeScreen";
 import ParentScreen from "../features/future.coders/screens";
 import ChildScreen from "../components/ChildScreen";
+import { useState } from "react";
+import { UserInfo } from "../utils/userInfo";
+import { useSelector } from "react-redux";
+
 const Tab = createBottomTabNavigator();
 
 function MainNavigator() {
+  const [user, setUser] = useState({});
+  const token = useSelector((state) => state.Auth.authToken);
+  UserInfo(token).then((response) => {
+    setUser(response.id);
+  });
+  console.log(user);
   return (
     <Tab.Navigator
       screenOptions={{
@@ -26,53 +36,83 @@ function MainNavigator() {
         tabBarShowLabel: true,
       }}
     >
-      <Tab.Screen
-        name="Home"
-        options={{
-          tabBarLabel: "Home",
-          tabBarIcon: ({ focused, size, color }) => (
-            <FontAwesome
-              name="home"
-              size={24}
-              color={focused ? "black" : "grey"}
-            />
-          ),
-        }}
-        component={HomeScreen}
-      />
+      {user === "parent" ? (
+        <>
+          <Tab.Screen
+            name="Home"
+            options={{
+              tabBarLabel: "Home",
+              tabBarIcon: ({ focused, size, color }) => (
+                <FontAwesome
+                  name="home"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
+              ),
+            }}
+            component={HomeScreen}
+          />
 
-      <Tab.Screen
-        name="Parent"
-        options={{
-          tabBarLabel: "Programs",
-          tabBarIcon: ({ size, color }) => (
-            <Entypo name="list" size={24} color="grey" />
-          ),
-        }}
-        component={ParentScreen}
-      />
+          <Tab.Screen
+            name="Parent"
+            options={{
+              tabBarLabel: "Programs",
+              tabBarIcon: ({ size, color }) => (
+                <Entypo name="list" size={24} color="grey" />
+              ),
+            }}
+            component={ParentScreen}
+          />
 
-      <Tab.Screen
-        name="Child"
-        options={{
-          tabBarLabel: "Child",
-          tabBarIcon: ({ size, color }) => (
-            <FontAwesome name="child" size={24} color="grey" />
-          ),
-        }}
-        component={ChildScreen}
-      />
-
-      <Tab.Screen
-        name="Profile"
-        options={{
-          tabBarLabel: "Me",
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="user-alt" size={24} color="grey" />
-          ),
-        }}
-        component={ProfileScreen}
-      />
+          <Tab.Screen
+            name="Child"
+            options={{
+              tabBarLabel: "Child",
+              tabBarIcon: ({ size, color }) => (
+                <FontAwesome name="child" size={24} color="grey" />
+              ),
+            }}
+            component={ChildScreen}
+          />
+          <Tab.Screen
+            name="Profile"
+            options={{
+              tabBarLabel: "Me",
+              tabBarIcon: ({ color, size }) => (
+                <FontAwesome5 name="user-alt" size={24} color="grey" />
+              ),
+            }}
+            component={ProfileScreen}
+          />
+        </>
+      ) : (
+        <>
+          <Tab.Screen
+            name="Home"
+            options={{
+              tabBarLabel: "Home",
+              tabBarIcon: ({ focused, size, color }) => (
+                <FontAwesome
+                  name="home"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
+              ),
+            }}
+            component={HomeScreen}
+          />
+          <Tab.Screen
+            name="Profile"
+            options={{
+              tabBarLabel: "Me",
+              tabBarIcon: ({ color, size }) => (
+                <FontAwesome5 name="user-alt" size={24} color="grey" />
+              ),
+            }}
+            component={ProfileScreen}
+          />
+        </>
+      )}
     </Tab.Navigator>
   );
 }
