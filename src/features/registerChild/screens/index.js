@@ -1,10 +1,16 @@
-import * as React from "react";
-import { TextInput } from "react-native-paper";
+import { useState } from "react";
+import DropDownPicker from "react-native-dropdown-picker";
 import { View, StyleSheet, Text, TouchableOpacity, Alert } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
-
+import Input from "../../../components/input";
 const RegisterScreen = (props) => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [items, setItems] = useState([
+    { label: "Male", value: "male" },
+    { label: "Female", value: "female" },
+  ]);
   const twoOptAlert = () => {
     Alert.alert(
       "Child Registered Succefully",
@@ -47,58 +53,44 @@ const RegisterScreen = (props) => {
         }}
       >
         <View style={styles.content}>
-          <TextInput
-            style={styles.input}
-            label="Child Names"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
+          <Input style={styles.input} placeholder="First Name" />
+          <Input style={styles.input} placeholder="Last Name" />
+          <DropDownPicker
+            style={styles.dropDownPicker}
+            placeholder="Choose your Gender"
+            open={open}
+            value={value}
+            items={items}
+            setOpen={setOpen}
+            setValue={setValue}
+            setItems={setItems}
+            zIndex={1000}
+            borderWidth={0}
+            dropDownContainerStyle={{
+              borderWidth: 0,
+              height: 100,
+              backgroundColor: "white",
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+              elevation: 2,
+              paddingHorizontal: 5,
+              borderRadius: 20,
+            }}
           />
-
-          <TextInput
-            style={styles.input}
-            label="Child Age"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TextInput
-            style={styles.input}
-            label="Child Email"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TextInput
-            style={styles.input}
-            label="summer code"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TextInput
-            style={styles.input}
-            label="Home Address"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TextInput
-            style={styles.input}
-            label="Mother or Father"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TextInput
-            style={styles.input}
-            label="Guadian or Maide"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
-
-          <TouchableOpacity style={styles.submitBtn} onPress={twoOptAlert}>
-            <Text style={{ color: "#FFFF" }}>Save Child Information</Text>
-          </TouchableOpacity>
+          <Input style={styles.input} placeholder="Age" />
+          <Input style={styles.input} placeholder="level of education" />
+          <Input style={styles.input} placeholder="School Name" />
+          <Input style={styles.input} placeholder="Email" />
+          <View style={{ justifyContent: "center", flexDirection: "row" }}>
+            <TouchableOpacity style={styles.submitBtn} onPress={twoOptAlert}>
+              <Text style={{ color: "#FFFF" }}>Save Child Information</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -122,17 +114,22 @@ const styles = StyleSheet.create({
   content: {
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
+
+    padding: 10,
   },
 
-  input: {
-    width: "100%",
+  submitBtn: {
+    width: "50%",
+    backgroundColor: "black",
     height: 50,
-    borderRadius: 30,
-    borderTopEndRadius: 30,
-    borderTopLeftRadius: 30,
-    margin: 5,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 20,
+  },
+  dropDownPicker: {
+    height: 50,
+    top: 10,
     backgroundColor: "white",
     shadowColor: "#000",
     shadowOffset: {
@@ -141,21 +138,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
-  },
-  elevation: {
-    elevation: 20,
-    shadowColor: "#52006A",
-  },
-
-  submitBtn: {
-    width: "70%",
-    backgroundColor: "black",
-    height: 50,
+    elevation: 2,
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    borderWidth: 0,
     borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
   },
   inputTitle: {
     color: "#3F3E3C",
