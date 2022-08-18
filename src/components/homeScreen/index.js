@@ -16,6 +16,7 @@ import { UserInfo } from "../../utils/userInfo";
 const HomeScreen = (props) => {
   const [user, setUser] = useState({});
   const token = useSelector((state) => state.Auth.authToken);
+
   UserInfo(token).then((response) => {
     setUser(response.email);
   });
