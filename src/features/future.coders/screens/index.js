@@ -7,10 +7,17 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { useEffect } from "react";
 import { Feather } from "@expo/vector-icons";
 import { FlatGrid } from "react-native-super-grid";
+import { fetchChildProgram } from "../../../redux/actions";
+import { useDispatch } from "react-redux";
 
 const ParentScreen = (props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchChildProgram());
+  }, []);
   const twoOptAlert = () => {
     Alert.alert("Summer Program", "Program fees: 50,000 RWF", [
       {
