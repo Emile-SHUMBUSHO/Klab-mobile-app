@@ -1,26 +1,29 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { BASE_URL } from "../../config";
-import { useSelector, useDispatch } from "react-redux";
+
 export const fetchChildProgram = () => {
   return async (dispatch) => {
     dispatch({ type: "FETCHPROGRAM" });
+    let token = await AsyncStorage.getItem("token");
+    console.log(token);
     try {
-      const token = useSelector((state) => state.Auth.authToken);
-
-      const response = await axios({
+      await axios({
         method: "GET",
         url: `${BASE_URL}/futurecoders/programInformation`,
-        headers: { Authorization: `bearer${token}` },
-      });
-      await AsyncStorage.setItem("program", response);
-      console.log(response);
-      dispatch({
-        type: "FETCHPROGRAM SUCCESS",
-        payload: response,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          accept: "application/json",
+        },
+      }).then((responseData) => {
+        const { data } = responseData;
+        dispatch({
+          type: "FETCHPROGRAM SUCCESS",
+          payload: data,
+        });
       });
     } catch (err) {
-      console.log(err);
+      console.log(JSON.stringfy(err));
       dispatch({ type: "FETCHPROGRAM FAILED", payload: err.message });
     }
   };
