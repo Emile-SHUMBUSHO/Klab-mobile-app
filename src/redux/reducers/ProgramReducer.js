@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
   error: null,
+  programs: [],
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         error: null,
+        programs: action.payload,
       };
 
     case "FETCHPROGRAM FAILED":
