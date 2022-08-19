@@ -46,26 +46,14 @@ const CompleteProfileScreen = (props) => {
 
           <Input
             style={styles.input}
-            label="Name"
-            placeholder="Registered Company Name"
-          />
-
-          <Input
-            style={styles.input}
             label="Address"
-            placeholder="Company address"
-          />
-
-          <Input
-            style={styles.input}
-            label="Field"
-            placeholder="Company Field"
+            placeholder="Home Address"
           />
 
           <Input
             style={styles.input}
             label="Telephone"
-            placeholder="Company Telephone Number"
+            placeholder="Telephone Number"
           />
           <TouchableOpacity
             style={styles.submitBtn}
