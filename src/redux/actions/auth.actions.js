@@ -29,7 +29,6 @@ export const Register = (name, email, role, password) => {
           password,
         },
       });
-      await AsyncStorage.setItem("name", response);
       console.log(response);
       dispatch({
         type: "REGISTER SUCCESS",
