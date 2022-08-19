@@ -7,16 +7,18 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { ChildPogramComponent } from "../components/childProgramComponent";
 import { useEffect } from "react";
-import { Feather } from "@expo/vector-icons";
-import { FlatGrid } from "react-native-super-grid";
 import { fetchChildProgram } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Feather } from "@expo/vector-icons";
 
 const ParentScreen = (props) => {
+  const { programs } = useSelector((state) => state.Program);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChildProgram());
+    console.log(programs);
   }, []);
   const twoOptAlert = () => {
     Alert.alert("Summer Program", "Program fees: 50,000 RWF", [
@@ -34,7 +36,6 @@ const ParentScreen = (props) => {
       },
     ]);
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -58,7 +59,9 @@ const ParentScreen = (props) => {
                 justifyContent: "space-between",
               }}
             >
-              <Text style={{ margin: 10 }}>Future Coders</Text>
+              <Text style={{ margin: 10, fontSize: 20, fontWeight: "bold" }}>
+                Future Coders
+              </Text>
               <View
                 style={{
                   flexDirection: "row",
@@ -77,29 +80,52 @@ const ParentScreen = (props) => {
             </View>
           </View>
         </View>
-        <Text style={{ margin: 10, left: 10 }}>Programs</Text>
+        <Text
+          style={{ margin: 10, left: 10, fontSize: 20, fontWeight: "bold" }}
+        >
+          Programs
+        </Text>
         <Text style={{ margin: 10, left: 10 }}>
           Future Coders we have different programs for children according to
           their availability, Please select one of the following options.
         </Text>
         <View style={styles.programs}>
-          <FlatGrid
-            itemDimension={130}
-            data={[1, 2]}
-            // spacing={0}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={twoOptAlert}>
-                <View style={styles.programCard}>
-                  <Text style={{ color: "white" }}>Summer</Text>
-                  <Text style={{ color: "white" }}>FRW 50,000</Text>
-                  <Feather name="plus-circle" size={24} color="white" />
-                  <Text style={{ fontSize: 10, color: "white" }}>
-                    12-03-2022 to 23-05-2022
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
+          <TouchableOpacity onPress={twoOptAlert}>
+            <View style={styles.programCard}>
+              <Text style={{ color: "white" }}>Vacatinal Program</Text>
+              <Text style={{ color: "white" }}>FRW: 50,000</Text>
+              <Feather
+                name="plus-circle"
+                size={34}
+                color="white"
+                style={{ margin: 10 }}
+              />
+              <Text style={{ fontSize: 10, color: "white" }}>
+                12-03-2022 to 23-05-2022
+              </Text>
+            </View>
+          </TouchableOpacity>
+          {/* {programs?.map((program, index) => {
+            console.log("programs to be attended");
+            return (
+              <ChildPogramComponent
+                key={program.id}
+                id={program.id}
+                date={program.programDate}
+                endDate={program.programEndDate}
+                time={program.duration}
+                fees={program.cost}
+                pId={program.fpro_id}
+                pStatus={program.fstatus}
+                title={program.title}
+                descption={program.description}
+                image={program.banner}
+                // navigation={() => {
+                //   props.navigation.navigate("DetailScreen", movies);
+                // }}
+              />
+            );
+          })} */}
         </View>
       </ScrollView>
     </View>
@@ -155,10 +181,13 @@ const styles = StyleSheet.create({
     elevation: 5,
     margin: 20,
     borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   programCard: {
-    width: 150,
-    height: 100,
+    width: 250,
+    height: 150,
     backgroundColor: "#fff",
     borderRadius: 10,
     alignItems: "center",
