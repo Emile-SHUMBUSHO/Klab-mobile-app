@@ -14,11 +14,12 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
-
+import Loader from "../../../components/loader";
 import { Register } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 
 const SignUpScreen = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -74,10 +75,14 @@ const SignUpScreen = (props) => {
     dispatch(
       Register(inputs.fullName, inputs.email, inputs.role, inputs.password)
     );
+    setIsLoading(true);
+    props.navigation.navigate("signIn");
+    setIsLoading(false);
   };
 
   return (
     <View style={styles.container}>
+      <Loader visible={isLoading} />
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
