@@ -63,10 +63,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   content: {
-    backgroundColor: "lightgrey",
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    height: "80%",
+    backgroundColor: "#fff",
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
   },
   termsContent: {
     margin: 20,
