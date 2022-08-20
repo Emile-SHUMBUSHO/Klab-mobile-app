@@ -16,9 +16,9 @@ const PrivacyPolicyScreen = (props) => {
             props.navigation.navigate("signUp");
           }}
         >
-          <Entypo name="chevron-left" size={24} color="black" left={20} />
+          <Entypo name="chevron-left" size={24} color="white" left={20} />
         </TouchableOpacity>
-        <Text style={{ color: "black", fontSize: 18, left: 100 }}>
+        <Text style={{ color: "#fff", fontSize: 18, left: 100 }}>
           Privacy Policy
         </Text>
       </View>
