@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: "#fff",
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
   },
 });
