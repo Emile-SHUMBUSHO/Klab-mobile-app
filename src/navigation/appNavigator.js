@@ -64,6 +64,7 @@ function AppNavigator() {
               name="codeVerification"
               component={CodeVerificationScreen}
             />
+            <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
           </>
         ) : (
           <>
@@ -78,7 +79,6 @@ function AppNavigator() {
               component={RegisterAnotherScreen}
             />
             <Stack.Screen name="join" component={JoinScreen} />
-            <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
           </>
         )}
       </Stack.Navigator>
