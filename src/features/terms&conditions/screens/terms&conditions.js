@@ -22,8 +22,8 @@ const TermsAndConditionsScreen = (props) => {
           Terms and Conditions
         </Text>
       </View>
-      <View style={styles.content}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <View>
+        <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
           <View style={styles.termsContent}>
             <Text>
               Terms of service also known as terms of use and terms and
