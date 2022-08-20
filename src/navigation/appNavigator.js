@@ -68,7 +68,7 @@ function AppNavigator() {
           </>
         ) : (
           <>
-            <Stack.Screen name="home" component={MainNavigator} />
+            {/* <Stack.Screen name="home" component={MainNavigator} /> */}
             <Stack.Screen name="notifications" component={Notifications} />
             <Stack.Screen name="profile" component={CompleteProfileScreen} />
             <Stack.Screen name="payment" component={PaymentScreen} />
