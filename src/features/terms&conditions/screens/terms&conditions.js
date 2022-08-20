@@ -3,12 +3,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  ImageBackground,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { TextInput } from "react-native-paper";
 
 const TermsAndConditionsScreen = (props) => {
   return (
