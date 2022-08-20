@@ -3,12 +3,9 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  ImageBackground,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { TextInput } from "react-native-paper";
 
 const PrivacyPolicyScreen = (props) => {
   return (
@@ -64,11 +61,11 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    backgroundColor: "#fff",
+    backgroundColor: "black",
     alignItems: "center",
   },
   top: {
-    height: "20%",
+    height: "15%",
     width: "100%",
     flexDirection: "row",
     justifyContent: "flex-start",
@@ -76,9 +73,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   content: {
-    backgroundColor: "lightgrey",
+    backgroundColor: "#fff",
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    height: "80%",
   },
 });
