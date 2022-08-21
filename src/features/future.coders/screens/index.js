@@ -14,6 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const ParentScreen = (props) => {
   const { programs } = useSelector((state) => state.Program);
+  console.log("programs are here");
+  console.log(programs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChildProgram());
