@@ -16,14 +16,15 @@ export const fetchChildProgram = () => {
         },
       }).then((responseData) => {
         const { data } = responseData;
-
+        console.log("Program data");
+        console.log(data[0]);
         dispatch({
           type: "FETCHPROGRAM SUCCESS",
           payload: data[0],
         });
       });
     } catch (err) {
-      console.log(JSON.stringfy(err));
+      console.log(err);
       dispatch({ type: "FETCHPROGRAM FAILED", payload: err.message });
     }
   };
