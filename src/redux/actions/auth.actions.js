@@ -6,7 +6,6 @@ export const Init = () => {
   return async (dispatch) => {
     let token = await AsyncStorage.getItem("token");
     if (token !== null) {
-      console.log("token fetched");
       dispatch({
         type: "LOGIN",
         payload: token,
@@ -29,7 +28,6 @@ export const Register = (name, email, role, password) => {
           password,
         },
       });
-      console.log(response);
       dispatch({
         type: "REGISTER SUCCESS",
         payload: response,
