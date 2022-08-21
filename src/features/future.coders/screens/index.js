@@ -13,7 +13,7 @@ import { fetchChildProgram } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const ParentScreen = (props) => {
-  const { programs } = useSelector((state) => state.Program);
+  const { programs } = useSelector((state) => state.program);
   console.log("programs are here");
   console.log(programs);
   const dispatch = useDispatch();
