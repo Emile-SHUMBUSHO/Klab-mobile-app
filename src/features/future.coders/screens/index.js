@@ -104,7 +104,7 @@ const ParentScreen = (props) => {
               </Text>
             </View>
           </TouchableOpacity> */}
-          {programs?.map((program, index) => {
+          {/* {programs?.map((program, index) => {
             console.log("programs to be attended");
             return (
               <ChildPogramComponent
@@ -124,7 +124,7 @@ const ParentScreen = (props) => {
                 // }}
               />
             );
-          })}
+          })} */}
         </View>
       </ScrollView>
     </View>
