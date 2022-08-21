@@ -19,7 +19,6 @@ const ParentScreen = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchChildProgram());
-    console.log(programs);
   }, []);
   const twoOptAlert = () => {
     Alert.alert("Summer Program", "Program fees: 50,000 RWF", [

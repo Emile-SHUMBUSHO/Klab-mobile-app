@@ -4,7 +4,7 @@ import { BASE_URL } from "../../config";
 
 export const fetchChildProgram = () => {
   return async (dispatch) => {
-    dispatch(actions(FETCHPROGRAM));
+    dispatch({ type: "FETCHPROGRAM" });
     let token = await AsyncStorage.getItem("token");
     try {
       await axios({
@@ -19,10 +19,14 @@ export const fetchChildProgram = () => {
         console.log("Program data");
         console.log(data);
         dispatch(actions(FETCH_PROGRAM_SUCCESS, data));
+        dispatch({
+          type: "FETCHPROGRAM SUCCESS",
+          payload: data,
+        });
       });
     } catch (err) {
       console.log(err);
-      dispatch(actions(FETCH_PROGRAM_FAILED, err.message));
+      dispatch({ type: "FETCHPROGRAM FAILED", payload: err.message });
     }
   };
 };
