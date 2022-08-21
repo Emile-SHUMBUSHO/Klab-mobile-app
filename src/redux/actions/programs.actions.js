@@ -17,10 +17,10 @@ export const fetchChildProgram = () => {
       }).then((responseData) => {
         const { data } = responseData;
         console.log("Program data");
-        console.log(data[0]);
+        console.log(data);
         dispatch({
           type: "FETCHPROGRAM SUCCESS",
-          payload: data[0],
+          payload: data,
         });
       });
     } catch (err) {
