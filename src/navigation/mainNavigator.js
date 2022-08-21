@@ -16,7 +16,6 @@ function MainNavigator() {
   UserInfo(token).then((response) => {
     setUser(response.id);
   });
-  console.log(user);
   return (
     <Tab.Navigator
       screenOptions={{
