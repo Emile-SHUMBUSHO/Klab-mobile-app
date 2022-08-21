@@ -19,7 +19,7 @@ export const fetchChildProgram = () => {
         const { data } = responseData;
         dispatch({
           type: "FETCHPROGRAM SUCCESS",
-          payload: data,
+          payload: data[0],
         });
       });
     } catch (err) {
