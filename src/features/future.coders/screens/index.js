@@ -11,7 +11,6 @@ import { ChildPogramComponent } from "../components/childProgramComponent";
 import { useEffect } from "react";
 import { fetchChildProgram } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Feather } from "@expo/vector-icons";
 
 const ParentScreen = (props) => {
   const { programs } = useSelector((state) => state.Program);
@@ -105,7 +104,7 @@ const ParentScreen = (props) => {
               </Text>
             </View>
           </TouchableOpacity> */}
-          {/* {programs?.map((program, index) => {
+          {programs?.map((program, index) => {
             console.log("programs to be attended");
             return (
               <ChildPogramComponent
@@ -125,7 +124,7 @@ const ParentScreen = (props) => {
                 // }}
               />
             );
-          })} */}
+          })}
         </View>
       </ScrollView>
     </View>
