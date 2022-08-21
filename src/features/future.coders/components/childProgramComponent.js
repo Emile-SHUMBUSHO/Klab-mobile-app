@@ -25,7 +25,7 @@ export const ChildPogramComponent = (props, navigate) => {
     <TouchableOpacity onPress={twoOptAlert}>
       <View style={styles.programCard}>
         <Text style={{ color: "white" }}>Vacatinal Program</Text>
-        <Text style={{ color: "white" }}>FRW: 50,000</Text>
+        <Text style={{ color: "white" }}>FRW: {fees}</Text>
         <Feather
           name="plus-circle"
           size={34}
