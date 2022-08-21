@@ -69,7 +69,7 @@ function AppNavigator() {
         ) : (
           <>
             {/* <Stack.Screen name="home" component={MainNavigator} /> */}
-            <Stack.Screen name="notifications" component={Notifications} />
+
             <Stack.Screen name="profile" component={CompleteProfileScreen} />
             <Stack.Screen name="payment" component={PaymentScreen} />
             <Stack.Screen name="register" component={RegisterScreen} />
@@ -79,6 +79,7 @@ function AppNavigator() {
               component={RegisterAnotherScreen}
             />
             <Stack.Screen name="join" component={JoinScreen} />
+            <Stack.Screen name="notifications" component={Notifications} />
           </>
         )}
       </Stack.Navigator>
