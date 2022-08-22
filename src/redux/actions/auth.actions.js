@@ -46,6 +46,8 @@ export const PasswordRest = (email) => {
         url: `${BASE_URL}/password/email`,
         data: { email },
       });
+      console.log("here is a data to reset");
+      console.log(response);
       dispatch({
         type: "EMAIL SENT SUCCESSFUL",
         payload: response,
