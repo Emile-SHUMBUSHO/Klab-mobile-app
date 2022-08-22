@@ -89,14 +89,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 40,
   },
-  input: {
-    width: "100%",
-    height: 45,
-    borderRadius: 50,
-    borderTopEndRadius: 50,
-    borderTopLeftRadius: 50,
-    color: "white",
-  },
+
   submitBtn: {
     width: "70%",
     backgroundColor: "black",
