@@ -12,7 +12,7 @@ import Input from "../../../components/input";
 import Button from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
-import ResetPassword from "../../../redux/actions";
+import { PasswordRest } from "../../../redux/actions";
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
@@ -42,7 +42,7 @@ const ForgotPasswordScreen = (props) => {
 
   const dispatch = useDispatch();
   const RestPasswordFunc = () => {
-    dispatch(ResetPassword(inputs.email));
+    dispatch(PasswordRest(inputs.email));
     setLoading(true);
     props.navigation.navigate("codeVerification");
     setLoading(false);
