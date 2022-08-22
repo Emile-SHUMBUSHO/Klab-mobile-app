@@ -6,6 +6,7 @@ export const fetchChildProgram = () => {
   return async (dispatch) => {
     dispatch({ type: "FETCHPROGRAM" });
     let token = await AsyncStorage.getItem("token");
+    console.log("token from async storage");
     try {
       await axios({
         method: "GET",
