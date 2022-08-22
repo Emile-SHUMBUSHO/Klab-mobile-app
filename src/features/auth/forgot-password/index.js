@@ -36,13 +36,16 @@ const ForgotPasswordScreen = (props) => {
       isValid = false;
     }
     if (isValid) {
-      props.navigation.navigate("codeVerification");
+      RestPasswordFunc();
     }
   };
 
   const dispatch = useDispatch();
   const RestPasswordFunc = () => {
     dispatch(ResetPassword(inputs.email));
+    setLoading(true);
+    props.navigation.navigate("codeVerification");
+    setLoading(false);
   };
   return (
     <View style={styles.container}>
