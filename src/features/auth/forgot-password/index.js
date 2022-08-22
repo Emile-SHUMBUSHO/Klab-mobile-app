@@ -127,14 +127,4 @@ const styles = StyleSheet.create({
     width: 100,
     height: 40,
   },
-
-  submitBtn: {
-    width: "70%",
-    backgroundColor: "black",
-    height: 50,
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-  },
 });
