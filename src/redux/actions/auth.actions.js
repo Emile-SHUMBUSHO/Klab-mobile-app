@@ -33,7 +33,6 @@ export const Register = (name, email, role, password) => {
         payload: response,
       });
     } catch (err) {
-      console.log(err);
       dispatch({ type: "REGISTER FAILED", payload: err.message });
     }
   };
@@ -46,8 +45,12 @@ export const ResetPassword = (email) => {
         url: `${BASE_URL}/password/email`,
         data: { email },
       });
+      dispatch({
+        type: "EMAIL SENT SUCCESSFUL",
+        payload: response,
+      });
     } catch (err) {
-      console.log(err);
+      dispatch({ type: "EMAIL NOT SENT", payload: err.message });
     }
   };
 };
