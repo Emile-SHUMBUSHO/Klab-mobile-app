@@ -34,12 +34,6 @@ const ForgotPasswordScreen = (props) => {
           <Text style={{ fontSize: 15, margin: 1 }}>
             We will send password recovery code on this email
           </Text>
-          <TextInput
-            style={styles.input}
-            label="Your Email Address"
-            activeUnderlineColor="transparent"
-            underlineColor="transparent"
-          />
 
           <View
             style={{
