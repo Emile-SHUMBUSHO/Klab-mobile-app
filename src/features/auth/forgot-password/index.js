@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-
+import { Input } from "../../../components/input";
 const ForgotPasswordScreen = (props) => {
   return (
     <View style={styles.container}>
