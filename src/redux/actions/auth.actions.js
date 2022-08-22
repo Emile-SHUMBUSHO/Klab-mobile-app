@@ -37,6 +37,7 @@ export const Register = (name, email, role, password) => {
     }
   };
 };
+
 export const ResetPassword = (email) => {
   return async (dispatch) => {
     try {
@@ -54,6 +55,7 @@ export const ResetPassword = (email) => {
     }
   };
 };
+
 export const Login = (email, password) => {
   return async (dispatch) => {
     try {
