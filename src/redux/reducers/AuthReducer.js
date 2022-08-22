@@ -41,6 +41,19 @@ export default (state = initialState, action) => {
       return {
         authToken: null,
       };
+
+    case "EMAIL SENT SUCCESSFUL":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case "EMAIL NOT SENT":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
