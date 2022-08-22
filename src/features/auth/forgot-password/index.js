@@ -2,6 +2,7 @@ import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
+import Button from "../../../components/button";
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
