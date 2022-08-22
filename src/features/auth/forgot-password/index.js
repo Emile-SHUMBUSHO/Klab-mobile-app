@@ -32,6 +32,7 @@ const ForgotPasswordScreen = (props) => {
   };
   return (
     <View style={styles.container}>
+      <Loader visible={loading} />
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
