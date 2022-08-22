@@ -60,6 +60,11 @@ function AppNavigator() {
             <Stack.Screen name="policy" component={PrivacyPolicyScreen} />
             <Stack.Screen name="terms" component={TermsAndConditionsScreen} />
             <Stack.Screen name="signIn" component={SignInScreen} />
+            <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
+            <Stack.Screen
+              name="codeVerification"
+              component={CodeVerificationScreen}
+            />
           </>
         ) : (
           <>
@@ -74,11 +79,6 @@ function AppNavigator() {
             />
             <Stack.Screen name="join" component={JoinScreen} />
             <Stack.Screen name="notifications" component={Notifications} />
-            <Stack.Screen name="recovery" component={ForgotPasswordScreen} />
-            <Stack.Screen
-              name="codeVerification"
-              component={CodeVerificationScreen}
-            />
           </>
         )}
       </Stack.Navigator>
