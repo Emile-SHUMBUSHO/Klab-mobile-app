@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
+import Loader from "../../../components/loader";
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
