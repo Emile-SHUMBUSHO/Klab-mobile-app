@@ -1,11 +1,11 @@
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
+import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     email: "",
-    password: "",
   });
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
@@ -24,16 +24,8 @@ const ForgotPasswordScreen = (props) => {
       handleErrors("please input valid email address", "email");
       isValid = false;
     }
-
-    if (!inputs.password) {
-      handleErrors("please input password", "password");
-      isValid = false;
-    } else if (inputs.password.length < 5) {
-      handleErrors("Weak password", "password");
-      isValid = false;
-    }
     if (isValid) {
-      loginFunc();
+      props.navigation.navigate("codeVerification");
     }
   };
   return (
@@ -82,12 +74,7 @@ const ForgotPasswordScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity
-              style={styles.submitBtn}
-              onPress={() => {
-                props.navigation.navigate("codeVerification");
-              }}
-            >
+            <TouchableOpacity style={styles.submitBtn} onPress={() => {}}>
               <Text style={{ color: "#FFFF" }}>Send Code Recovery</Text>
             </TouchableOpacity>
           </View>
