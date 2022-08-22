@@ -38,7 +38,7 @@ export const Register = (name, email, role, password) => {
   };
 };
 
-export const ResetPassword = (email) => {
+export const PasswordRest = (email) => {
   return async (dispatch) => {
     try {
       const response = await axios({
