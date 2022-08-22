@@ -36,6 +36,11 @@ const ForgotPasswordScreen = (props) => {
             style={styles.input}
             placeholder="Enter Your Email"
             iconName="email-outline"
+            onChangeText={(text) => handleOnChange(text, "email")}
+            error={Errors.email}
+            onFocus={() => {
+              handleErrors(null, "email");
+            }}
           />
           <View
             style={{
