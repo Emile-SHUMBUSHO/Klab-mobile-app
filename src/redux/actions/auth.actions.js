@@ -38,17 +38,19 @@ export const Register = (name, email, role, password) => {
     }
   };
 };
-export const ResetPassword = (email) =>{
+export const ResetPassword = (email) => {
   return async (dispatch) => {
     try {
       const response = await axios({
         method: "POST",
-        url: `${BASE_URL}/`,
-        data: {email}
-      })
+        url: `${BASE_URL}/password/email`,
+        data: { email },
+      });
+    } catch (err) {
+      console.log(err);
     }
-  }
-}
+  };
+};
 export const Login = (email, password) => {
   return async (dispatch) => {
     try {
