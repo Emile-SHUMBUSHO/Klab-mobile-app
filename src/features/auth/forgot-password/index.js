@@ -1,5 +1,3 @@
-import * as React from "react";
-import { TextInput } from "react-native-paper";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
@@ -34,7 +32,7 @@ const ForgotPasswordScreen = (props) => {
           <Text style={{ fontSize: 15, margin: 1 }}>
             We will send password recovery code on this email
           </Text>
-
+          <Input />
           <View
             style={{
               justifyContent: "center",
