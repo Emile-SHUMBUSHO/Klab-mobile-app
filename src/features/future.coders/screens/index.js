@@ -90,21 +90,6 @@ const ParentScreen = (props) => {
           their availability, Please select one of the following options.
         </Text>
         <View style={styles.programs}>
-          {/* <TouchableOpacity onPress={twoOptAlert}>
-            <View style={styles.programCard}>
-              <Text style={{ color: "white" }}>Vacatinal Program</Text>
-              <Text style={{ color: "white" }}>FRW: 50,000</Text>
-              <Feather
-                name="plus-circle"
-                size={34}
-                color="white"
-                style={{ margin: 10 }}
-              />
-              <Text style={{ fontSize: 10, color: "white" }}>
-                12-03-2022 to 23-05-2022
-              </Text>
-            </View>
-          </TouchableOpacity> */}
           {programs?.map((program, index) => {
             console.log("programs to be attended");
             return (
