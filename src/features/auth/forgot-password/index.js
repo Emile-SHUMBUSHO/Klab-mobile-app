@@ -63,7 +63,7 @@ const ForgotPasswordScreen = (props) => {
             placeholder="Enter Your Email"
             iconName="email-outline"
             onChangeText={(text) => handleOnChange(text, "email")}
-            error={Errors.email}
+            error={errors.email}
             onFocus={() => {
               handleErrors(null, "email");
             }}
@@ -74,9 +74,7 @@ const ForgotPasswordScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <TouchableOpacity style={styles.submitBtn} onPress={() => {}}>
-              <Text style={{ color: "#FFFF" }}>Send Code Recovery</Text>
-            </TouchableOpacity>
+            <Button title="Send Code Recovery" onPress={validate} />
           </View>
         </View>
       </View>
