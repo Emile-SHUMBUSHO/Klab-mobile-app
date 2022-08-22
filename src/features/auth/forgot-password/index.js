@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { Input } from "../../../components/input";
+import Input from "../../../components/input";
 const ForgotPasswordScreen = (props) => {
   return (
     <View style={styles.container}>
@@ -32,7 +32,7 @@ const ForgotPasswordScreen = (props) => {
           <Text style={{ fontSize: 15, margin: 1 }}>
             We will send password recovery code on this email
           </Text>
-          <Input />
+          <Input style={styles.input} />
           <View
             style={{
               justifyContent: "center",
