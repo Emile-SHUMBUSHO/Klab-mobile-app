@@ -11,6 +11,8 @@ import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
 import Loader from "../../../components/loader";
+import { useDispatch } from "react-redux";
+
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
@@ -37,6 +39,8 @@ const ForgotPasswordScreen = (props) => {
       props.navigation.navigate("codeVerification");
     }
   };
+
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
