@@ -14,7 +14,7 @@ const PrivacyPolicyScreen = (props) => {
         <TouchableOpacit
           onPress={() => {
             props.navigation.navigate("signUp");
-          }}
+          }
         >
           <Entypo name="chevron-left" size={24} color="white" left={20} />
         </TouchableOpacity>
