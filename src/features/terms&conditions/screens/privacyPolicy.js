@@ -23,7 +23,7 @@ const PrivacyPolicyScreen = (props) => {
         </Text>
       </View>
       <View>
-        <ScrollView style={styles.content} showsVerticalScrollIndicator={false}
+        <ScrollView style={styles.content} showsVerticalSrollIndicator={false}
           <View style={{ marin: 20 }}>
             <Text>
               A privacy policy is a document that explains how an organization
