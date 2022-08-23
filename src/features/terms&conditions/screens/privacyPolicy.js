@@ -28,13 +28,13 @@ const PrivacyPolicyScreen = (props) => {
             <Text>
               A privacy policy is a document that explains how an organization
               handles any customer, client or employee information gathered in
-              its operations . Most websites make their privacy policies
+              its operations . Mot websites make their privacy policies
               available to site visitors.
             </Text>
             <Text>what information do we collect about you?</Text>
             <Text>
               Personal Information from you, such as your first and last name,
-              profile picture, photos or avatar, gener, age, ethnicity,
+              profile picture, photos or aatar, gener, age, ethnicity,
               religion, marital status, eucational level, intrests, hobbies,
               precise location-based information, e-mail and mailing addresses,
               phone numbers, device ID numers and passwords when you create an
