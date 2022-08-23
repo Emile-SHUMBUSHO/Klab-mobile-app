@@ -37,8 +37,8 @@ const PrivacyPolicyScreen = (props) => {
               profile picture, photos or avatar, gener, age, ethnicity,
               religion, marital status, eucational level, intrests, hobbies,
               precise location-based information, e-mail and mailing addresses,
-              phone numbers, device ID numbers and passwords when you create an
-              account for our Services “Boost Account”, and any other
+              phone numbers, device ID numers and passwords when you create an
+              account for our Servces “Boost Account”, and any other
               information you directly give us through the Services including,
               but not limited to messages that you send through the Services.
             </Text>
