@@ -103,9 +103,9 @@ function MainNavigator() {
           <Tab.Screen
             name="Profile"
             options={{
-              tabBarLabel: "Me",
+              tabBarLabel: "Company",
               tabBarIcon: ({ color, size }) => (
-                <FontAwesome5 name="user-alt" size={24} color="grey" />
+                <FontAwesome5 name="business-time" size={24} color="black" />
               ),
             }}
             component={ProfileScreen}
