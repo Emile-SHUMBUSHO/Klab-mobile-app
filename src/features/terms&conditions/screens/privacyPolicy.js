@@ -10,11 +10,11 @@ import { Entypo } from "@expo/vector-icons";
 const PrivacyPolicyScreen = (props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.top}
-        <TouchableOpacit
+      <View style={styles.top}>
+        <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("signUp")
-          }
+            props.navigation.navigate("signUp");
+          }}
         >
           <Entypo name="chevron-left" size={24} color="white" left={20} />
         </TouchableOpacity>
@@ -23,22 +23,22 @@ const PrivacyPolicyScreen = (props) => {
         </Text>
       </View>
       <View>
-        <ScrollView style={styles.content} showsVerticalSrollIndicator={false}
-          <View style={{ marin: 20 }}>
+        <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+          <View style={{ margin: 20 }}>
             <Text>
               A privacy policy is a document that explains how an organization
               handles any customer, client or employee information gathered in
-              its operations . Mot websites make their privacy policies
+              its operations . Most websites make their privacy policies
               available to site visitors.
             </Text>
             <Text>what information do we collect about you?</Text>
             <Text>
               Personal Information from you, such as your first and last name,
-              profile picture, photos or aatar, gener, age, ethnicity,
-              religion, marital status, eucational level, intrests, hobbies,
+              profile picture, photos or avatar, gender, age, ethnicity,
+              religion, marital status, educational level, interests, hobbies,
               precise location-based information, e-mail and mailing addresses,
-              phone numbers, device ID numers and passwords when you create an
-              account for our Servces “Boost Account”, and any other
+              phone numbers, device ID numbers and passwords when you create an
+              account for our Services “Boost Account”, and any other
               information you directly give us through the Services including,
               but not limited to messages that you send through the Services.
             </Text>
