@@ -10,7 +10,7 @@ import { Entypo } from "@expo/vector-icons";
 const PrivacyPolicyScreen = (props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
+      <View style={styles.top}
         <TouchableOpacit
           onPress={() => {
             props.navigation.navigate("signUp");
