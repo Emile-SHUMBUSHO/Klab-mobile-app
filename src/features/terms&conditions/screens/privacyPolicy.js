@@ -13,7 +13,7 @@ const PrivacyPolicyScreen = (props) => {
       <View style={styles.top}>
         <TouchableOpacity
           onPress={() => {
-            props.navigationvigate("signUp"
+            props.navigationigate("signUp"
           }}
         >
           <Entypo name="chevron-leftsize=4} color="white" left={20} />
