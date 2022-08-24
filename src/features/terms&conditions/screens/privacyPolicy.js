@@ -11,7 +11,7 @@ const PrivacyPolicyScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <TouchableOpacit
+        <TouchableOpaci
           onPress={() => {
             props.navigatonigate("signUp"
           }}
