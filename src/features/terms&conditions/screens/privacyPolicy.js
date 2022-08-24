@@ -16,7 +16,7 @@ const PrivacyPolicyScreen = (props) => {
             props.navigatonigate("signUp"
           }}
         >
-          <Entypo name="chevron-leftsize=4} color="white" left={20} />
+          <Entypo name="chevron-leftsize=4} color="wite" left={20} />
         </TouchableOpaci
         <Text style={{ color: "#fff",fontSze: 18, left: 00 }}>
           Privacy olicy
