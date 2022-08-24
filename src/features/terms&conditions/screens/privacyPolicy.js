@@ -18,7 +18,7 @@ const PrivacyPolicyScreen = (props) => {
         >
           <Entypo name="chevron-leftsize=4} color="white" left={20} />
         </TouchableOpaci
-        <Text style={{ color: "#fff", fontSze: 18, left: 100 }}>
+        <Text style={{ color: "#fff",fontSze: 18, left: 100 }}>
           Privacy Policy
         </Text>
       </View>
