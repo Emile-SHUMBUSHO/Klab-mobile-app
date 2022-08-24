@@ -11,15 +11,15 @@ const PrivacyPolicyScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <TouchableOpac
+        <TouchableOpacity
           onPress={() => {
-            props.navigatonigate("signUp"
+            props.navigation.navigate("signUp");
           }}
         >
-          <Entypo name="chevron-leftsize=4} color="wite" left={20} />
-        </TouchableOpaci
-        <Text style={{ color: "#fff",fontSze: 18, left: 00 }}>
-          Privacy olicy
+          <Entypo name="chevron-left" size={24} color="white" left={20} />
+        </TouchableOpacity>
+        <Text style={{ color: "#fff", fontSize: 18, left: 100 }}>
+          Privacy Policy
         </Text>
       </View>
       <View>
