@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../../config";
 
-export const Register = (
+export const register = (
   firstName,
   lastName,
   gender,
