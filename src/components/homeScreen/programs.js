@@ -1,3 +1,4 @@
+import {View, ImageBackground, Text } from "react-native";
 const Programs = () =>{
     return(
         <View style={styles.content}>
