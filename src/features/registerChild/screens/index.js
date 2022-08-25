@@ -20,28 +20,6 @@ const RegisterScreen = ({ route, navigation }) => {
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
   ]);
-
-  // const twoOptAlert = () => {
-  //   Alert.alert(
-  //     "Child Registered Succefully",
-  //     "Wants to Register other Child",
-  //     [
-  //       {
-  //         text: "Yes",
-  //         onPress: () => {
-  //           props.navigation.navigate("anotherChild");
-  //         },
-  //       },
-  //       {
-  //         text: "No",
-  //         onPress: () => {
-  //           props.navigation.navigate("home");
-  //         },
-  //       },
-  //     ]
-  //   );
-  // };
-
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",
