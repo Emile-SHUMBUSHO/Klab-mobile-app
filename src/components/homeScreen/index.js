@@ -127,7 +127,7 @@ const HomeScreen = (props) => {
           );
         })}
 
-        <View style={styles.content}>
+        {/* <View style={styles.content}>
           <ImageBackground
             source={require("../../../assets/s1.jpg")}
             borderTopRightRadius={20}
@@ -301,7 +301,7 @@ const HomeScreen = (props) => {
               </Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </ScrollView>
       <StatusBar style="light" />
     </View>
