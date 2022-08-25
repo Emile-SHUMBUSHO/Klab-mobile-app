@@ -88,7 +88,6 @@ const ParentScreen = (props) => {
         </Text>
         <View style={styles.programs}>
           {programs?.map((program, index) => {
-            console.log("programs to be attended");
             return (
               <ChildPogramComponent
                 key={program.id}
