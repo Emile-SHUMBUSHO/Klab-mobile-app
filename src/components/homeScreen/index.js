@@ -117,7 +117,14 @@ const HomeScreen = (props) => {
           </Text>
         </View>
         {programs?.map((program, index) => {
-          return <Programs />;
+          return (
+            <Programs
+              key={program.id}
+              id={program.id}
+              title={program.title}
+              descrption={program.description}
+            />
+          );
         })}
 
         <View style={styles.content}>
