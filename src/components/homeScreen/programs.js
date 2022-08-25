@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 export const Programs = (props) => {
+  const { title, description } = props;
   return (
     <View style={styles.content}>
       <ImageBackground
@@ -24,7 +25,7 @@ export const Programs = (props) => {
             justifyContent: "space-between",
           }}
         >
-          <Text style={{ margin: 10 }}>Klab start up</Text>
+          <Text style={{ margin: 10 }}>{title}</Text>
           <View
             style={{
               flexDirection: "row",
@@ -54,10 +55,7 @@ export const Programs = (props) => {
         </View>
         <View>
           <Text style={{ margin: 10 }}>
-            kLab Rwanda is hosting an info session to present to the
-            entrepreneurs about alibaba's ecosystem and training programs that
-            they have in place. The participants can be tech entrepreneurs. they
-            are not only focusing on ecommerce...
+            {description}
             <TouchableOpacity>
               <Text>Read More</Text>
             </TouchableOpacity>
