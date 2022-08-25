@@ -71,27 +71,27 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
     if (!inputs.firstName) {
-      handleErrors("please input kids first name");
+      handleErrors("please input kids first name", "firstName");
       isValid = false;
     }
     if (!inputs.lastName) {
-      handleErrors("please input kids last name");
+      handleErrors("please input kids last name", "lastName");
       isValid = false;
     }
     if (!inputs.gender) {
-      handleErrors("please input kids gender");
+      handleErrors("please input kids gender", "gender");
       isValid = false;
     }
     if (!inputs.age) {
-      handleErrors("please input kids age");
+      handleErrors("please input kids age", "age");
       isValid = false;
     }
     if (!inputs.educationLevel) {
-      handleErrors("please input kids education level");
+      handleErrors("please input kids education level", "educationLevel");
       isValid = false;
     }
     if (!inputs.schoolName) {
-      handleErrors("please input kids school name");
+      handleErrors("please input kids school name", "schoolName");
       isValid = false;
     }
     if (isValid) {
@@ -125,10 +125,19 @@ const RegisterScreen = ({ route, navigation }) => {
             onFocus={() => handleErrors(null, "firstName")}
             error={errors.firstName}
           />
-          <Input style={styles.input} placeholder="Last Name" />
+          <Input
+            style={styles.input}
+            placeholder="Last Name"
+            onChangeText={(text) => handleOnChange(text, "lastName")}
+            onFocus={() => handleErrors(null, "lastName")}
+            error={errors.lastName}
+          />
           <DropDownPicker
             style={styles.dropDownPicker}
             placeholder="Choose your Gender"
+            onChangeValue={(text) => handleOnChange(text, "gender")}
+            onFocus={() => handleErrors(null, "gender")}
+            error={errors.gender}
             open={open}
             value={value}
             items={items}
@@ -153,7 +162,13 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          <Input style={styles.input} placeholder="Age" />
+          <Input
+            style={styles.input}
+            placeholder="Age"
+            onChangeValue={(text) => handleOnChange(text, "age")}
+            onFocus={() => handleErrors(null, "age")}
+            error={errors.age}
+          />
           <Input
             style={styles.input}
             placeholder="level of education"
