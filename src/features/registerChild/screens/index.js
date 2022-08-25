@@ -155,7 +155,15 @@ const RegisterScreen = ({ route, navigation }) => {
           />
           <Input style={styles.input} placeholder="Age" />
           <Input style={styles.input} placeholder="level of education" />
-          <Input style={styles.input} placeholder="School Name" />
+          <Input
+            style={styles.input}
+            placeholder="School Name"
+            onChangeText={(text) => handleOnChange(text, "schoolName")}
+            error={errors.email}
+            onFocus={() => {
+              handleErrors(null, "schoolName");
+            }}
+          />
           <Input
             style={styles.input}
             placeholder="Email"
