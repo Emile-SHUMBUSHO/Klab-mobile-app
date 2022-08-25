@@ -17,6 +17,9 @@ export const Register = (
       const response = await axios({
         method: "POST",
         url: `${BASE_URL}/futureCodersregister`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         data: {
           firstName,
           lastName,
