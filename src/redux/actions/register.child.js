@@ -1,9 +1,5 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../config";
-export const Init = () => {
-  return async (dispatch) => {};
-};
 
 export const Register = (name, email, role, password) => {
   return async (dispatch) => {
