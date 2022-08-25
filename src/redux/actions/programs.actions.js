@@ -33,7 +33,7 @@ export const fetchAllProgram = () => {
     try {
       await axios({
         method: "GET",
-        url: `${BASE_URL}/futurecoders/programInformation`,
+        url: `${BASE_URL}/programs/programInformation`,
       }).then((responseData) => {
         const { data } = responseData;
         console.log("program data");
