@@ -97,10 +97,10 @@ const RegisterScreen = ({ route, navigation }) => {
     }
   };
 
-  const dispatch = useDispacth();
-  useEffect(() => {
-    dispatch(register());
-  }, []);
+  // const dispatch = useDispacth();
+  // useEffect(() => {
+  //   dispatch(register());
+  // }, []);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -161,7 +161,7 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input style={styles.input} placeholder="School Name" />
           <Input style={styles.input} placeholder="Email" />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            <TouchableOpacity style={styles.submitBtn} onPress={twoOptAlert}>
+            <TouchableOpacity style={styles.submitBtn} onPress={validate}>
               <Text style={{ color: "#FFFF" }}>Save Child Information</Text>
             </TouchableOpacity>
           </View>
