@@ -22,8 +22,6 @@ const HomeScreen = (props) => {
     setUser(response.email);
   });
   const { programs } = useSelector((state) => state.program);
-  console.log("all programs here");
-  console.log(programs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllProgram());
@@ -118,7 +116,10 @@ const HomeScreen = (props) => {
             kLab| Open Innovation Space | Tech |Creativity.
           </Text>
         </View>
-        <Programs />
+        {programs?.map((program, index) => {
+          return <Programs />;
+        })}
+
         <View style={styles.content}>
           <ImageBackground
             source={require("../../../assets/s1.jpg")}
