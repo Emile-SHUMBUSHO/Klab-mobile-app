@@ -81,7 +81,18 @@ const RegisterScreen = ({ route, navigation }) => {
 
   const dispatch = useDispatch();
   const registerChild = () => {
-    dispatch(register());
+    dispatch(
+      register(
+        inputs.firstName,
+        inputs.lastName,
+        inputs.gender,
+        inputs.age,
+        inputs.educationLevel,
+        inputs.schoolName,
+        inputs.email,
+        inputs.id
+      )
+    );
   };
   return (
     <View style={styles.container}>
@@ -148,7 +159,7 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input
             style={styles.input}
             placeholder="Age"
-            onChangeValue={(text) => handleOnChange(text, "age")}
+            onChangeText={(text) => handleOnChange(text, "age")}
             onFocus={() => handleErrors(null, "age")}
             error={errors.age}
           />
