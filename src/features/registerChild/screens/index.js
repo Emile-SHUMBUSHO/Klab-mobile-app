@@ -20,26 +20,27 @@ const RegisterScreen = ({ route, navigation }) => {
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
   ]);
-  const twoOptAlert = () => {
-    Alert.alert(
-      "Child Registered Succefully",
-      "Wants to Register other Child",
-      [
-        {
-          text: "Yes",
-          onPress: () => {
-            props.navigation.navigate("anotherChild");
-          },
-        },
-        {
-          text: "No",
-          onPress: () => {
-            props.navigation.navigate("home");
-          },
-        },
-      ]
-    );
-  };
+
+  // const twoOptAlert = () => {
+  //   Alert.alert(
+  //     "Child Registered Succefully",
+  //     "Wants to Register other Child",
+  //     [
+  //       {
+  //         text: "Yes",
+  //         onPress: () => {
+  //           props.navigation.navigate("anotherChild");
+  //         },
+  //       },
+  //       {
+  //         text: "No",
+  //         onPress: () => {
+  //           props.navigation.navigate("home");
+  //         },
+  //       },
+  //     ]
+  //   );
+  // };
 
   const [inputs, setInputs] = useState({
     firstName: "",
@@ -158,7 +159,7 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input style={styles.input} placeholder="School Name" />
           <Input style={styles.input} placeholder="Email" />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            <Button title="Save Child Information" />
+            <Button title="Save Child Information" onPress={validate} />
           </View>
         </View>
       </ScrollView>
