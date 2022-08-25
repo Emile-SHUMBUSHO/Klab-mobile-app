@@ -5,13 +5,13 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case "":
+    case "REGISTERCHILD SUCCESS":
       return {
         ...state,
         loading: false,
         error: null,
       };
-    case "":
+    case "FETCHPROGRAM FAILED":
       return {
         ...state,
         loading: false,
