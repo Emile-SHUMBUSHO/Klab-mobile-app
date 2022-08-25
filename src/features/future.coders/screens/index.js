@@ -109,7 +109,7 @@ const ParentScreen = (props) => {
             );
           })}
         </ScrollView>
-        <View>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text>View More</Text>
           <MaterialIcons name="navigate-next" size={24} color="black" />
         </View>
