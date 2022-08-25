@@ -24,6 +24,7 @@ export const Register = (
           firstName,
           lastName,
           gender,
+          age,
           educationLevel,
           schoolName,
           email,
