@@ -67,6 +67,11 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
 
+    if (!inputs.lastName) {
+      handleErrors("please input kids last name");
+      isValid = false;
+    }
+
     if (isValid) {
       SignUp();
     }
