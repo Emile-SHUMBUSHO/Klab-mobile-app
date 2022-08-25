@@ -36,16 +36,16 @@ export const fetchAllProgram = () => {
         url: `${BASE_URL}/programs/programInformation`,
       }).then((responseData) => {
         const { data } = responseData;
-        console.log("program data");
+        console.log("All programs data");
         console.log(data.data);
         dispatch({
-          type: "FETCHPROGRAM SUCCESS",
+          type: "FETCHALLPROGRAM SUCCESS",
           payload: data.data,
         });
       });
     } catch (err) {
       console.log(err);
-      dispatch({ type: "FETCHPROGRAM FAILED", payload: err.message });
+      dispatch({ type: "FETCHALLPROGRAM FAILED", payload: err.message });
     }
   };
 };
