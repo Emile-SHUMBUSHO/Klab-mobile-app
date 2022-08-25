@@ -50,7 +50,7 @@ const RegisterScreen = ({ route, navigation }) => {
     educationLevel: "",
     schoolName: "",
     email: "",
-    id: "",
+    id: id,
   });
 
   const [errors, setErrors] = useState({});
@@ -107,7 +107,7 @@ const RegisterScreen = ({ route, navigation }) => {
         >
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={{ color: "white" }}>Register Child{id}</Text>
+        <Text style={{ color: "white" }}>Register Child</Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -135,9 +135,7 @@ const RegisterScreen = ({ route, navigation }) => {
           <DropDownPicker
             style={styles.dropDownPicker}
             placeholder="Choose your Gender"
-            onChangeValue={(text) => handleOnChange(text, "gender")}
-            onFocus={() => handleErrors(null, "gender")}
-            error={errors.gender}
+            onChangeValue={(value) => handleOnChange(value, "gender")}
             open={open}
             value={value}
             items={items}
