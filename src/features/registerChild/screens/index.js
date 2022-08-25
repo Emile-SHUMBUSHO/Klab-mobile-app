@@ -97,10 +97,6 @@ const RegisterScreen = ({ route, navigation }) => {
     }
   };
 
-  // const dispatch = useDispacth();
-  // useEffect(() => {
-  //   dispatch(register());
-  // }, []);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
