@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import { UserInfo } from "../../utils/userInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProgram } from "../../redux/actions";
+import { Programs } from "./programs";
 
 const HomeScreen = (props) => {
   const [user, setUser] = useState({});
@@ -117,7 +118,7 @@ const HomeScreen = (props) => {
             kLab| Open Innovation Space | Tech |Creativity.
           </Text>
         </View>
-
+        <Programs />
         <View style={styles.content}>
           <ImageBackground
             source={require("../../../assets/s1.jpg")}
