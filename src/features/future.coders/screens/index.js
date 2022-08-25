@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   programs: {
-    height: 300,
+    height: 250,
     width: "90%",
     backgroundColor: "white",
     shadowColor: "#000",
@@ -167,15 +167,5 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-  },
-  programCard: {
-    width: 250,
-    height: 150,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    alignItems: "center",
-    flexDirection: "column",
-    padding: 10,
-    backgroundColor: "#3F3E3C",
   },
 });
