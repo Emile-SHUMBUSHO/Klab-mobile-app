@@ -66,13 +66,7 @@ const RegisterScreen = ({ route, navigation }) => {
       handleErrors("please input kids first name");
       isValid = false;
     }
-    if (!inputs.password) {
-      handleErrors("please input password", "password");
-      isValid = false;
-    } else if (inputs.password.length < 5) {
-      handleErrors("Weak password", "password");
-      isValid = false;
-    }
+
     if (isValid) {
       SignUp();
     }
