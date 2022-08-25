@@ -13,6 +13,8 @@ export const register = (
 ) => {
   return async (dispatch) => {
     let token = await AsyncStorage.getItem("token");
+    console.log("token to be authorized");
+    console.log(token);
     try {
       const response = await axios({
         method: "POST",
