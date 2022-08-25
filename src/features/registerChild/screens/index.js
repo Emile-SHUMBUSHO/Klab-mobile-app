@@ -98,7 +98,6 @@ const RegisterScreen = ({ route, navigation }) => {
   };
 
   const dispatch = useDispacth();
-
   useEffect(() => {
     dispatch(register());
   }, []);
