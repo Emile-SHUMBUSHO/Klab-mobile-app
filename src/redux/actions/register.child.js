@@ -1,5 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../config";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const register = (
   firstName,
@@ -34,12 +35,14 @@ export const register = (
           id,
         },
       });
+      console.log("child data");
       console.log(response);
       dispatch({
         type: "REGISTERCHILD SUCCESS",
         payload: response,
       });
     } catch (err) {
+      console.log(err);
       dispatch({ type: "REGISTERCHILD FAILED", payload: err.message });
     }
   };
