@@ -27,6 +27,11 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case "":
+      return {
+        ...state,
+      };
+
     default:
       return state;
   }
