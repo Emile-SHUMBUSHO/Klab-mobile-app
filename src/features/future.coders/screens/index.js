@@ -109,8 +109,9 @@ const ParentScreen = (props) => {
             );
           })}
         </ScrollView>
-
-        <Text>View More</Text>
+        <View>
+          <Text>View More</Text>
+        </View>
       </ScrollView>
     </View>
   );
