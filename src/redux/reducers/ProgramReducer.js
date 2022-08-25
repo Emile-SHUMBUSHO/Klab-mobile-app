@@ -2,6 +2,7 @@ const initialState = {
   loading: false,
   error: null,
   programs: [],
+  allPrograms: [],
 };
 
 export default (state = initialState, action) => {
