@@ -51,7 +51,6 @@ const RegisterScreen = ({ route, navigation }) => {
   const handleErrors = (errorMessage, input) => {
     setErrors((prevState) => ({ ...prevState, [input]: errorMessage }));
   };
-
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
@@ -66,32 +65,26 @@ const RegisterScreen = ({ route, navigation }) => {
       handleErrors("please input kids first name");
       isValid = false;
     }
-
     if (!inputs.lastName) {
       handleErrors("please input kids last name");
       isValid = false;
     }
-
     if (!inputs.gender) {
       handleErrors("please input kids gender");
       isValid = false;
     }
-
     if (!inputs.age) {
       handleErrors("please input kids age");
       isValid = false;
     }
-
     if (!inputs.educationLevel) {
       handleErrors("please input kids education level");
       isValid = false;
     }
-
     if (!inputs.schoolName) {
       handleErrors("please input kids school name");
       isValid = false;
     }
-
     if (isValid) {
       register();
     }
