@@ -16,11 +16,11 @@ export const Register = (name, email, role, password) => {
         },
       });
       dispatch({
-        type: "REGISTER SUCCESS",
+        type: "REGISTERCHILD SUCCESS",
         payload: response,
       });
     } catch (err) {
-      dispatch({ type: "REGISTER FAILED", payload: err.message });
+      dispatch({ type: "REGISTERCHILD FAILED", payload: err.message });
     }
   };
 };
