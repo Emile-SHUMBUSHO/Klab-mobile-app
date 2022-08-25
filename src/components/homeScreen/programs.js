@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-export const Programs = () => {
+export const Programs = (props) => {
   return (
     <View style={styles.content}>
       <ImageBackground
@@ -38,9 +38,6 @@ export const Programs = () => {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={() => {
-                props.navigation.navigate("join");
-              }}
               style={{
                 width: 50,
                 height: 25,
