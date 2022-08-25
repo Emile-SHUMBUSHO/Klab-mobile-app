@@ -2,14 +2,12 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../config";
 export const Init = () => {
-  return async (dispatch) => {
-    let token = await AsyncStorage.getItem("token");
-  };
+  return async (dispatch) => {};
 };
 
 export const Register = (name, email, role, password) => {
   return async (dispatch) => {
-    dispatch({ type: "REGISTER" });
+    let token = await AsyncStorage.getItem("token");
     try {
       const response = await axios({
         method: "POST",
