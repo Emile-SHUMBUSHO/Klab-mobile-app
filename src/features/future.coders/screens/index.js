@@ -10,7 +10,7 @@ import { ChildPogramComponent } from "../components/childProgramComponent";
 import { useEffect } from "react";
 import { fetchChildProgram } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-
+import { MaterialIcons } from "@expo/vector-icons";
 const ParentScreen = (props) => {
   const { programs } = useSelector((state) => state.program);
   const dispatch = useDispatch();
@@ -111,6 +111,7 @@ const ParentScreen = (props) => {
         </ScrollView>
         <View>
           <Text>View More</Text>
+          <MaterialIcons name="navigate-next" size={24} color="black" />
         </View>
       </ScrollView>
     </View>
