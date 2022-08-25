@@ -4,7 +4,6 @@ import {
   StyleSheet,
   ScrollView,
   ImageBackground,
-  TouchableOpacity,
   Alert,
 } from "react-native";
 import { ChildPogramComponent } from "../components/childProgramComponent";
