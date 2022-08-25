@@ -34,10 +34,6 @@ export const fetchAllProgram = () => {
       await axios({
         method: "GET",
         url: `${BASE_URL}/futurecoders/programInformation`,
-        headers: {
-          Authorization: `Bearer ${token}`,
-          accept: "application/json",
-        },
       }).then((responseData) => {
         const { data } = responseData;
         console.log("program data");
