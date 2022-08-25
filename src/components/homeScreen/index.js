@@ -12,14 +12,16 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { UserInfo } from "../../utils/userInfo";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchAllProgram } from "../../redux/actions";
 
 const HomeScreen = (props) => {
   const [user, setUser] = useState({});
   const token = useSelector((state) => state.Auth.authToken);
-
   UserInfo(token).then((response) => {
     setUser(response.email);
   });
+
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <View style={styles.top}>
