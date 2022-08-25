@@ -51,6 +51,32 @@ const RegisterScreen = ({ route, navigation }) => {
   const handleErrors = (errorMessage, input) => {
     setErrors((prevState) => ({ ...prevState, [input]: errorMessage }));
   };
+
+  const validate = () => {
+    Keyboard.dismiss();
+    let isValid = true;
+    if (!inputs.email) {
+      handleErrors("please input email address", "email");
+      isValid = false;
+    } else if (!inputs.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+      handleErrors("please input valid email address", "email");
+      isValid = false;
+    }
+    if (!inputs.firstName) {
+      handleErrors("please input kids first name");
+      isValid = false;
+    }
+    if (!inputs.password) {
+      handleErrors("please input password", "password");
+      isValid = false;
+    } else if (inputs.password.length < 5) {
+      handleErrors("Weak password", "password");
+      isValid = false;
+    }
+    if (isValid) {
+      SignUp();
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
