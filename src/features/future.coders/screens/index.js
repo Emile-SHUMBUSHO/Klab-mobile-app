@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   programs: {
-    height: 250,
+    height: 220,
     width: "90%",
     backgroundColor: "white",
     shadowColor: "#000",
