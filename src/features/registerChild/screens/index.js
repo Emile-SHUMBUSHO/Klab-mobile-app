@@ -82,8 +82,18 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
 
+    if (!inputs.educationLevel) {
+      handleErrors("please input kids education level");
+      isValid = false;
+    }
+
+    if (!inputs.schoolName) {
+      handleErrors("please input kids school name");
+      isValid = false;
+    }
+
     if (isValid) {
-      SignUp();
+      register();
     }
   };
   return (
