@@ -102,9 +102,9 @@ const ParentScreen = (props) => {
                 title={program.title}
                 descption={program.description}
                 image={program.banner}
-                // navigation={() => {
-                //   props.navigation.navigate("DetailScreen", movies);
-                // }}
+                navigation={() => {
+                  props.navigation.navigate("register", program);
+                }}
               />
             );
           })}
