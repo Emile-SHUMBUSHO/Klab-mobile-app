@@ -72,6 +72,16 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
 
+    if (!inputs.gender) {
+      handleErrors("please input kids gender");
+      isValid = false;
+    }
+
+    if (!inputs.age) {
+      handleErrors("please input kids age");
+      isValid = false;
+    }
+
     if (isValid) {
       SignUp();
     }
