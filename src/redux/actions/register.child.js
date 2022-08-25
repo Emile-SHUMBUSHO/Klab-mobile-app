@@ -21,6 +21,7 @@ export const register = (
         url: `${BASE_URL}/futureCodersregister`,
         headers: {
           Authorization: `Bearer ${token}`,
+          accept: "application/json",
         },
         data: {
           firstName,
