@@ -5,13 +5,14 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Alert,
   Keyboard,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
+import { useDispatch } from "react-redux";
+
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const [open, setOpen] = useState(false);
@@ -75,6 +76,8 @@ const RegisterScreen = ({ route, navigation }) => {
     if (isValid) {
     }
   };
+
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
