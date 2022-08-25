@@ -27,9 +27,12 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
-    case "":
+    case "FETCHALLPROGRAM SUCCESS":
       return {
         ...state,
+        loading: false,
+        error: null,
+        programs: action.payload,
       };
 
     default:
