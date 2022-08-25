@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Feather } from "@expo/vector-icons";
-export const ChildPogramComponent = (props, navigate) => {
-  const { fees } = props;
+export const ChildPogramComponent = (props) => {
+  const { fees, navigation } = props;
   const twoOptAlert = () => {
     Alert.alert("Summer Program", "Program fees: 50,000 RWF", [
       {
