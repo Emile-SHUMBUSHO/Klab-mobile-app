@@ -86,30 +86,31 @@ const ParentScreen = (props) => {
           Future Coders we have different programs for children according to
           their availability, Please select one of the following options.
         </Text>
-        <View style={styles.programs}>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            {programs?.map((program, index) => {
-              return (
-                <ChildPogramComponent
-                  key={program.id}
-                  id={program.id}
-                  date={program.programDate}
-                  endDate={program.programEndDate}
-                  time={program.duration}
-                  fees={program.cost}
-                  pId={program.fpro_id}
-                  pStatus={program.fstatus}
-                  title={program.title}
-                  descption={program.description}
-                  image={program.banner}
-                  // navigation={() => {
-                  //   props.navigation.navigate("DetailScreen", movies);
-                  // }}
-                />
-              );
-            })}
-          </ScrollView>
-        </View>
+
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          {programs?.map((program, index) => {
+            return (
+              <ChildPogramComponent
+                key={program.id}
+                id={program.id}
+                date={program.programDate}
+                endDate={program.programEndDate}
+                time={program.duration}
+                fees={program.cost}
+                pId={program.fpro_id}
+                pStatus={program.fstatus}
+                title={program.title}
+                descption={program.description}
+                image={program.banner}
+                // navigation={() => {
+                //   props.navigation.navigate("DetailScreen", movies);
+                // }}
+              />
+            );
+          })}
+        </ScrollView>
+
+        <Text>View More</Text>
       </ScrollView>
     </View>
   );
