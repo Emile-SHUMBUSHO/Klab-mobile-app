@@ -1,4 +1,11 @@
-import { View, ImageBackground, Text, StyleSheet } from "react-native";
+import {
+  View,
+  ImageBackground,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 export const Programs = () => {
   return (
     <View style={styles.content}>
