@@ -43,7 +43,6 @@ export const fetchAllProgram = () => {
         });
       });
     } catch (err) {
-      console.log(err);
       dispatch({ type: "FETCHALLPROGRAM FAILED", payload: err.message });
     }
   };
