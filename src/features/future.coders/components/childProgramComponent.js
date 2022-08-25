@@ -2,24 +2,8 @@ import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { Feather } from "@expo/vector-icons";
 export const ChildPogramComponent = (props) => {
   const { fees, navigation } = props;
-  const twoOptAlert = () => {
-    Alert.alert("Summer Program", "Program fees: 50,000 RWF", [
-      {
-        text: "Yes",
-        onPress: () => {
-          props.navigation.navigate("register");
-        },
-      },
-      {
-        text: "No",
-        onPress: () => {
-          console.log("No pressed");
-        },
-      },
-    ]);
-  };
   return (
-    <TouchableOpacity onPress={twoOptAlert}>
+    <TouchableOpacity onPress={navigation}>
       <View style={styles.programCard}>
         <Text style={{ color: "white" }}>Vacatinal Program</Text>
         <Text style={{ color: "white" }}>FRW: {fees}</Text>
