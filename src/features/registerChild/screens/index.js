@@ -43,6 +43,14 @@ const RegisterScreen = ({ route, navigation }) => {
     email: "",
     id: "",
   });
+
+  const [errors, setErrors] = useState({});
+  const handleOnChange = (text, input) => {
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
+  };
+  const handleErrors = (errorMessage, input) => {
+    setErrors((prevState) => ({ ...prevState, [input]: errorMessage }));
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
