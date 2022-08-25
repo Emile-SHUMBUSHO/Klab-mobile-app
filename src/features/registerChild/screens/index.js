@@ -95,7 +95,6 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
     if (isValid) {
-      register();
     }
   };
 
@@ -157,7 +156,16 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input style={styles.input} placeholder="Age" />
           <Input style={styles.input} placeholder="level of education" />
           <Input style={styles.input} placeholder="School Name" />
-          <Input style={styles.input} placeholder="Email" />
+          <Input
+            style={styles.input}
+            placeholder="Email"
+            iconName={"email"}
+            onChangeText={(text) => handleOnChange(text, "email")}
+            error={errors.email}
+            onFocus={() => {
+              handleErrors(null, "email");
+            }}
+          />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
             <Button title="Save Child Information" onPress={validate} />
           </View>
