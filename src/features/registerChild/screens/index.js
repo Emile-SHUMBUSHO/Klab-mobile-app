@@ -107,7 +107,7 @@ const RegisterScreen = ({ route, navigation }) => {
         >
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={{ color: "white" }}>Register Child</Text>
+        <Text style={{ color: "white" }}>Register Child{id}</Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -157,7 +157,6 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input style={styles.input} placeholder="level of education" />
           <Input style={styles.input} placeholder="School Name" />
           <Input style={styles.input} placeholder="Email" />
-
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
             <Button title="Save Child Information" />
           </View>
