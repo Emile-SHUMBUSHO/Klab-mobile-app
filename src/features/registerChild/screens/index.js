@@ -30,7 +30,7 @@ const RegisterScreen = ({ route, navigation }) => {
     educationLevel: "",
     schoolName: "",
     email: "",
-    id: id,
+    id: `${id}`,
   });
 
   const [errors, setErrors] = useState({});
