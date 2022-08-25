@@ -121,7 +121,13 @@ const RegisterScreen = ({ route, navigation }) => {
         }}
       >
         <View style={styles.content}>
-          <Input style={styles.input} placeholder="First Name" />
+          <Input
+            style={styles.input}
+            placeholder="First Name"
+            onChangeText={(text) => handleOnChange(text, "firstName")}
+            onFocus={() => handleErrors(null, "firstName")}
+            error={errors.firstName}
+          />
           <Input style={styles.input} placeholder="Last Name" />
           <DropDownPicker
             style={styles.dropDownPicker}
