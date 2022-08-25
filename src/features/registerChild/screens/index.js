@@ -75,7 +75,7 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
     if (isValid) {
-      registerChild;
+      registerChild();
     }
   };
 

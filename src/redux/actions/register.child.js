@@ -31,6 +31,7 @@ export const register = (
           id,
         },
       });
+      console.log(response);
       dispatch({
         type: "REGISTERCHILD SUCCESS",
         payload: response,
