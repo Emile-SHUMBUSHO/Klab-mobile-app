@@ -9,9 +9,9 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { UserInfo } from "../../utils/userInfo";
+import { useDispatch, useSelector } from "react-redux";
 
 const HomeScreen = (props) => {
   const [user, setUser] = useState({});
