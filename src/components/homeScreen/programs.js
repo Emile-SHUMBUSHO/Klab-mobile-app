@@ -65,10 +65,6 @@ export const Programs = () => {
 };
 
 const styles = StyleSheet.create({
-  top: {
-    height: "15%",
-    width: "100%",
-  },
   content: {
     backgroundColor: "white",
     shadowColor: "#000",
@@ -82,10 +78,5 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     margin: 20,
-  },
-  container: {
-    backgroundColor: "black",
-    height: "100%",
-    width: "100%",
   },
 });
