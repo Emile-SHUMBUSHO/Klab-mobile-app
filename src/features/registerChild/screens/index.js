@@ -32,6 +32,17 @@ const RegisterScreen = ({ route, navigation }) => {
       ]
     );
   };
+
+  const [inputs, setInputs] = useState({
+    firstName: "",
+    lastName: "",
+    gender: "",
+    age: "",
+    educationLevel: "",
+    schoolName: "",
+    email: "",
+    id: "",
+  });
   return (
     <View style={styles.container}>
       <View style={styles.top}>
