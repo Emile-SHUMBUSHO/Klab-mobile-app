@@ -11,6 +11,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
+import Button from "../../../components/button";
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const [open, setOpen] = useState(false);
@@ -156,6 +157,7 @@ const RegisterScreen = ({ route, navigation }) => {
           <Input style={styles.input} placeholder="level of education" />
           <Input style={styles.input} placeholder="School Name" />
           <Input style={styles.input} placeholder="Email" />
+          <Button title="Save Child Information" />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
             <TouchableOpacity style={styles.submitBtn} onPress={validate}>
               <Text style={{ color: "#FFFF" }}>Save Child Information</Text>
