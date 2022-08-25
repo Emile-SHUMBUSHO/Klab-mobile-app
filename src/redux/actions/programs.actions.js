@@ -18,8 +18,6 @@ export const fetchChildProgram = () => {
         },
       }).then((responseData) => {
         const { data } = responseData;
-        console.log("program data");
-        console.log(data.data);
         dispatch({
           type: "FETCHPROGRAM SUCCESS",
           payload: data.data,
