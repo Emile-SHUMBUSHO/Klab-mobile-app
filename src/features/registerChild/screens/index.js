@@ -12,6 +12,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
 import { useDispatch } from "react-redux";
+import { register } from "../../../redux/actions/register.child";
 
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
@@ -74,11 +75,14 @@ const RegisterScreen = ({ route, navigation }) => {
       isValid = false;
     }
     if (isValid) {
+      registerChild;
     }
   };
 
   const dispatch = useDispatch();
-
+  const registerChild = () => {
+    dispatch(register());
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
