@@ -22,6 +22,9 @@ const HomeScreen = (props) => {
   });
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllProgram());
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
