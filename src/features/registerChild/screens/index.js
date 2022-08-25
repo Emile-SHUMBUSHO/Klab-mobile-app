@@ -5,9 +5,7 @@ import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
 const RegisterScreen = ({ route, navigation }) => {
-  console.log(route);
   const { id } = route.params;
-  console.log(id);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
