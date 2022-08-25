@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UserInfo } from "../../utils/userInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProgram } from "../../redux/actions";
@@ -20,7 +20,9 @@ const HomeScreen = (props) => {
   UserInfo(token).then((response) => {
     setUser(response.email);
   });
-
+  const { programs } = useSelector((state) => state.program);
+  console.log("all programs here");
+  console.log(programs);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllProgram());
