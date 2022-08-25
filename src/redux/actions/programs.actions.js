@@ -29,7 +29,6 @@ export const fetchChildProgram = () => {
 
 export const fetchAllProgram = () => {
   return async (dispatch) => {
-    dispatch({ type: "FETCHALLPROGRAM" });
     try {
       await axios({
         method: "GET",
