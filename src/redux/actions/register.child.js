@@ -18,10 +18,13 @@ export const Register = (
         method: "POST",
         url: `${BASE_URL}/futureCodersregister`,
         data: {
-          name,
+          firstName,
+          lastName,
+          gender,
+          educationLevel,
+          schoolName,
           email,
-          role,
-          password,
+          id,
         },
       });
       dispatch({
