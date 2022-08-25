@@ -39,7 +39,8 @@ export const ChildPogramComponent = (props, navigate) => {
 
 const styles = StyleSheet.create({
   programCard: {
-    width: 250,
+    width: 200,
+    margin: 10,
     height: 150,
     backgroundColor: "#fff",
     borderRadius: 10,
