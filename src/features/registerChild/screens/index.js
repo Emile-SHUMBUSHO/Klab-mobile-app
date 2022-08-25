@@ -4,7 +4,10 @@ import { View, StyleSheet, Text, TouchableOpacity, Alert } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
-const RegisterScreen = (props) => {
+const RegisterScreen = ({ route, navigation }) => {
+  console.log(route);
+  const { id } = route.params;
+  console.log(id);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -36,9 +39,7 @@ const RegisterScreen = (props) => {
       <View style={styles.top}>
         <TouchableOpacity
           style={{ right: 120 }}
-          onPress={() => {
-            props.navigation.navigate("home");
-          }}
+          onPress={() => navigation.goBack("home")}
         >
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
