@@ -158,13 +158,16 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          <Input
-            style={styles.input}
-            placeholder="Age"
-            onChangeText={(text) => handleOnChange(text, "age")}
-            onFocus={() => handleErrors(null, "age")}
-            error={errors.age}
-          />
+          <TouchableOpacity>
+            <Input
+              style={styles.input}
+              placeholder="Age"
+              onChangeText={(text) => handleOnChange(text, "age")}
+              onFocus={() => handleErrors(null, "age")}
+              error={errors.age}
+            />
+          </TouchableOpacity>
+
           <DatePicker
             modal
             open={open}
