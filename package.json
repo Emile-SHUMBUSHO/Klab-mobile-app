@@ -33,6 +33,7 @@
     "react-native": "0.68.2",
     "react-native-app-intro-slider": "4.0.4",
     "react-native-confirmation-code-field": "^7.3.0",
+    "react-native-date-picker": "^4.2.5",
     "react-native-document-picker": "^8.1.1",
     "react-native-dropdown-picker": "^5.4.2",
     "react-native-gesture-handler": "~2.2.1",
