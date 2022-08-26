@@ -165,6 +165,18 @@ const RegisterScreen = ({ route, navigation }) => {
             onFocus={() => handleErrors(null, "age")}
             error={errors.age}
           />
+          <DatePicker
+            modal
+            open={open}
+            date={date}
+            onConfirm={(date) => {
+              setOpen(false);
+              setDate(date);
+            }}
+            onCancel={() => {
+              setOpen(false);
+            }}
+          />
           <Input
             style={styles.input}
             placeholder="level of education"
