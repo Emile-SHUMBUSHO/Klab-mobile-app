@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   Keyboard,
+  Platform,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
@@ -36,10 +37,6 @@ const RegisterScreen = ({ route, navigation }) => {
 
   const showDatepicker = () => {
     showMode("date");
-  };
-
-  const showTimepicker = () => {
-    showMode("time");
   };
 
   const { id } = route.params;
