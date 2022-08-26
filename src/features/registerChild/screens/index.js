@@ -188,7 +188,7 @@ const RegisterScreen = ({ route, navigation }) => {
           </TouchableOpacity>
 
           <DatePicker
-            modal
+            modal="data"
             open={openDate}
             date={date}
             onConfirm={(date) => {
