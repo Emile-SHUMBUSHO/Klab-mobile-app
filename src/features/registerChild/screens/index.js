@@ -174,9 +174,10 @@ const RegisterScreen = ({ route, navigation }) => {
               elevation: 2,
               paddingHorizontal: 5,
               borderRadius: 20,
+              top: 20,
             }}
           >
-            <Text style={{ color: "white", fontWeight: "bold", fontSize: 14 }}>
+            <Text style={{ color: "black", fontWeight: "bold", fontSize: 14 }}>
               Age
             </Text>
           </TouchableOpacity>
