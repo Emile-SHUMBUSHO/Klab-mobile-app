@@ -1720,6 +1720,13 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
+"@react-native-community/datetimepicker@6.1.2":
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/datetimepicker/-/datetimepicker-6.1.2.tgz#a897291bc8ff2394f922721f40692c812f9145a0"
+  integrity sha512-4D21x4eywCY2Ex4BI6tQhUEOOKSruz9uPbGK0azGKZap/etoiPtH3nuG56ACtpmUlu5d1R9zzTlumr02dp39hA==
+  dependencies:
+    invariant "^2.2.4"
+
 "@react-native-picker/picker@2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.4.0.tgz#7ca2e01a3bdf854ee01ca752762ffa73c0e83313"
@@ -5844,6 +5851,13 @@ react-native-pager-view@5.4.15:
   resolved "https://registry.yarnpkg.com/react-native-pager-view/-/react-native-pager-view-5.4.15.tgz#075fef5ae4ba6ecc37e49b6c4a24770131a2a3cc"
   integrity sha512-5NssD840wFCuOL4B1ZRiRADvt+Vx2Dgify4SmAUqHXCx03yiGPnRWmFjYXyQeK6gq/8VY+gPGE4bTy9ahzBbDw==
 
+react-native-paper-datetimepicker@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-paper-datetimepicker/-/react-native-paper-datetimepicker-0.0.2.tgz#d51d99f0ce066542b1fa25bb87dd8896141bbcc6"
+  integrity sha512-iLrmgz7dNErpjAczW6F1yhonTiLUkvLSvycSuIlNjYAgbM86mFDqx0KfitggE1jibkaA3Rve1QxjG79PrD+lbA==
+  dependencies:
+    react-native-web-hover "^0.2.7"
+
 react-native-paper@^4.12.4:
   version "4.12.4"
   resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-4.12.4.tgz#c04ce40d225dc267b7ee32be705dd553f44e0c0c"
@@ -5877,6 +5891,11 @@ react-native-tab-view@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-3.1.1.tgz#1f8d7a835ab4f5b1b1407ec8dddc1053b53fa3c6"
   integrity sha512-M5pRN6utQfytKWoKlKVzg5NbkYu308qNoW1khGTtEOTs1k14p2dHJ/BWOJoJYHKbPVUyZldbG9MFT7gUl4YHnw==
+
+react-native-web-hover@^0.2.7:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/react-native-web-hover/-/react-native-web-hover-0.2.9.tgz#aee61d09cb92fce93f55fa7c9d6ebbd28899fded"
+  integrity sha512-6hXQMLptJPDn67xlgmA6eh42LWlHb2THjaedNqW5N8rwutEqsta/zoCYTAJNz+1U/tGW9ZrZVXitUnoLie/itQ==
 
 react-native-web@0.17.7:
   version "0.17.7"
