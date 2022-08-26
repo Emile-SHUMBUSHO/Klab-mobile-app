@@ -19,7 +19,7 @@ const CompleteProfileScreen = (props) => {
             props.navigation.navigate("home");
           }}
         >
-          <Entypo name="chevron-left" size={24} color="white" />
+          <Entypo name="chevron-left" size={24} color={"white"} />
         </TouchableOpacity>
         <Text style={{ color: "white", fontSize: 18 }}>Complete Profile</Text>
       </View>
