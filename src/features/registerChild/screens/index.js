@@ -16,7 +16,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 const RegisterScreen = ({ route, navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
-
+  const [date, setDate] = useState(null);
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
@@ -26,7 +26,9 @@ const RegisterScreen = ({ route, navigation }) => {
   };
 
   const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
+    chosenDate = date;
+    console.log(chosenDate);
+    setDate(45);
     hideDatePicker();
   };
 
@@ -183,7 +185,7 @@ const RegisterScreen = ({ route, navigation }) => {
             />
           )} */}
           <Button title="Show Date Picker" onPress={showDatePicker} />
-          <Text>selected: {date.toLocaleString()}</Text>
+          <Text>selected: {date}</Text>
           <DateTimePickerModal
             isVisible={isDatePickerVisible}
             mode="date"
