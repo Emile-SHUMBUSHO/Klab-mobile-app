@@ -189,14 +189,14 @@ const RegisterScreen = ({ route, navigation }) => {
 
           <DatePicker
             modal
-            open={open}
+            open={openDate}
             date={date}
             onConfirm={(date) => {
-              setOpen(false);
+              setOpenDate(false);
               setDate(date);
             }}
             onCancel={() => {
-              setOpen(false);
+              setOpenDate(false);
             }}
           />
           <Input
