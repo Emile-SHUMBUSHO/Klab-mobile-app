@@ -158,14 +158,23 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          <TouchableOpacity>
-            <Input
-              style={styles.input}
-              placeholder="Age"
-              onChangeText={(text) => handleOnChange(text, "age")}
-              onFocus={() => handleErrors(null, "age")}
-              error={errors.age}
-            />
+          <TouchableOpacity
+            activeOpacity={0.7}
+            style={{
+              height: 50,
+              width: "50%",
+              borderRadius: 20,
+              backgroundColor: "grey",
+              marginVertical: 20,
+              justifyContent: "flex-start",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{ color: COLORS.white, fontWeight: "bold", fontSize: 14 }}
+            >
+              {title}
+            </Text>
           </TouchableOpacity>
 
           <DatePicker
