@@ -1,5 +1,6 @@
 import { useState } from "react";
-import DropDownPicker from "react-native-dropdown-picker";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { Button } from "react-native-paper";
 import {
   View,
   StyleSheet,
@@ -10,15 +11,39 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+// import Button from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
 import DatePicker from "react-native-date-picker";
-
+import DropDownPicker from "react-native-dropdown-picker";
 const RegisterScreen = ({ route, navigation }) => {
+  const [date, setDate] = useState(new Date(1598051730000));
+  const [mode, setMode] = useState("date");
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    if (Platform.OS === "android") {
+      setShow(false);
+      // for iOS, add a button that closes the picker
+    }
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode("date");
+  };
+
+  const showTimepicker = () => {
+    showMode("time");
+  };
+
   const { id } = route.params;
-  const [date, setDate] = useState(new Date());
-  const [openDate, setOpenDate] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -159,7 +184,7 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => setOpenDate(true)}
             activeOpacity={0.7}
             style={{
@@ -188,7 +213,7 @@ const RegisterScreen = ({ route, navigation }) => {
           </TouchableOpacity>
 
           <DatePicker
-            modal="data"
+            modal
             open={openDate}
             date={date}
             onConfirm={(date) => {
@@ -198,7 +223,19 @@ const RegisterScreen = ({ route, navigation }) => {
             onCancel={() => {
               setOpenDate(false);
             }}
-          />
+          /> */}
+          <Button onPress={showDatepicker} title="Show date picker!" />
+          <Button onPress={showTimepicker} title="Show time picker!" />
+          <Text>selected: {date.toLocaleString()}</Text>
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              onChange={onChange}
+            />
+          )}
           <Input
             style={styles.input}
             placeholder="level of education"
@@ -228,7 +265,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            <Button title="Save Child Information" onPress={validate} />
+            {/* <Button title="Save Child Information" onPress={validate} /> */}
           </View>
         </View>
       </ScrollView>
