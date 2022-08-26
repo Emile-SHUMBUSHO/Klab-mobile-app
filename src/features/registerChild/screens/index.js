@@ -17,6 +17,7 @@ import DatePicker from "react-native-date-picker";
 
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
+  const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
