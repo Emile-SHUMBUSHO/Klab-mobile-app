@@ -162,18 +162,14 @@ const RegisterScreen = ({ route, navigation }) => {
             activeOpacity={0.7}
             style={{
               height: 50,
-              width: "50%",
+              width: "100%",
               borderRadius: 20,
               backgroundColor: "grey",
-              marginVertical: 20,
-              justifyContent: "flex-start",
-              alignItems: "center",
+              marginVertical: 0,
             }}
           >
-            <Text
-              style={{ color: COLORS.white, fontWeight: "bold", fontSize: 14 }}
-            >
-              {title}
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 14 }}>
+              Age
             </Text>
           </TouchableOpacity>
 
