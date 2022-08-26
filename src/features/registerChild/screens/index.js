@@ -18,6 +18,7 @@ import DatePicker from "react-native-date-picker";
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
   const [date, setDate] = useState(new Date());
+  const [openDate, setOpenDate] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -159,7 +160,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <TouchableOpacity
-            onPress={() => setOpen(true)}
+            onPress={() => setOpenDate(true)}
             activeOpacity={0.7}
             style={{
               height: 50,
