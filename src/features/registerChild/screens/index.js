@@ -1,12 +1,10 @@
 import { useState } from "react";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import {
   View,
   StyleSheet,
   Text,
   TouchableOpacity,
   Keyboard,
-  Platform,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
@@ -14,7 +12,7 @@ import Input from "../../../components/input";
 import Button from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
-import DatePicker from "react-native-date-picker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 const RegisterScreen = ({ route, navigation }) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -280,5 +278,3 @@ const styles = StyleSheet.create({
     margin: 3,
   },
 });
-
-import DateTimePickerModal from "react-native-modal-datetime-picker";
