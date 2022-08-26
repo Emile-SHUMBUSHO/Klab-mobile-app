@@ -13,6 +13,7 @@ import Input from "../../../components/input";
 import Button from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
+import DatePicker from "react-native-date-picker";
 
 const RegisterScreen = ({ route, navigation }) => {
   const { id } = route.params;
