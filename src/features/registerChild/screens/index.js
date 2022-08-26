@@ -183,6 +183,7 @@ const RegisterScreen = ({ route, navigation }) => {
             />
           )} */}
           <Button title="Show Date Picker" onPress={showDatePicker} />
+          <Text>selected: {date.toLocaleString()}</Text>
           <DateTimePickerModal
             isVisible={isDatePickerVisible}
             mode="date"
