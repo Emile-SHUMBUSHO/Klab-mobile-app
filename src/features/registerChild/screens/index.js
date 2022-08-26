@@ -163,9 +163,17 @@ const RegisterScreen = ({ route, navigation }) => {
             style={{
               height: 50,
               width: "100%",
+              backgroundColor: "white",
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+              elevation: 2,
+              paddingHorizontal: 5,
               borderRadius: 20,
-              backgroundColor: "grey",
-              marginVertical: 0,
             }}
           >
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 14 }}>
