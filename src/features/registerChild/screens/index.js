@@ -159,6 +159,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <TouchableOpacity
+            onPress={() => setOpen(true)}
             activeOpacity={0.7}
             style={{
               height: 50,
