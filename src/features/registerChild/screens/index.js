@@ -175,9 +175,12 @@ const RegisterScreen = ({ route, navigation }) => {
               paddingHorizontal: 5,
               borderRadius: 20,
               top: 20,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "flex-start",
             }}
           >
-            <Text style={{ color: "black", fontWeight: "bold", fontSize: 14 }}>
+            <Text style={{ color: "black", fontSize: 14, margin: 10 }}>
               Age
             </Text>
           </TouchableOpacity>
