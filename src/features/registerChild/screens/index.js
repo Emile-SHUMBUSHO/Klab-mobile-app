@@ -1,6 +1,5 @@
 import { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { Button } from "react-native-paper";
 import {
   View,
   StyleSheet,
@@ -11,7 +10,7 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
-// import Button from "../../../components/button";
+import Button from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
 import DatePicker from "react-native-date-picker";
