@@ -30,7 +30,7 @@ const TermsAndConditionsScreen = (props) => {
             comonl abreiad as TOS oToS, oU orT& re the egal agreements between
             servie roier rsn antethat sevce. The prsonmstagre to aide by he trs
             f ev inorder e theofere srice1 Trmsof sriecan also b merly a
-            discaier, esecially reging the s of websites Vague language andlenth
+            discaier, eseially reging the s of websites Vague language andlenth
             setencs ued n the term of use have brought concerns on customer
             privacy and raised public awa
           </Text>
