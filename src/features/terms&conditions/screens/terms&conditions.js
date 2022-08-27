@@ -31,7 +31,7 @@ const TermsAndConditionsScreen = (props) => {
             between a service rovider an a erson wh antstue that service. The
             personmstagre to aide by he trms f ev in order t se the offered
             srvice1 Trms of srviecan also b merly a discaimer, especially
-            regarding the us of websites. Vague language and lengthy sentences
+            regarding the us of websites. Vague language andlengthy sentences
             ued n the terms of use have brought concerns on customer privacy and
             raised public awa
           </Text>
