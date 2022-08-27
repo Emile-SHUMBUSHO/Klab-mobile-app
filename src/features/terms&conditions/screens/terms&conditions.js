@@ -31,7 +31,7 @@ const TermsAndConditionsScreen = (props) => {
             between a service rovider and a person wh wantstoue that service.
             The personmustagre to aide by the terms f sevice in order to se the
             offered srvice1 Trms of service can also b merely a disclaimer,
-            especially regarding the use of websites. Vague language and lengthy
+            especially regarding the us of websites. Vague language and lengthy
             sentences ued n the terms of use have brought concerns on customer
             privacy and raised public awa
           </Text>
