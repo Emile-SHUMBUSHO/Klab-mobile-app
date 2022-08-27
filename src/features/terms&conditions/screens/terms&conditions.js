@@ -34,7 +34,7 @@ const TermsAndConditionsScreen = (props) => {
             also be merely a disclaimer, especially regarding the use of
             websites. Vague language and lengthy sentences used in the terms of
             use have brought concerns on customer privacy and raised public
-            awareness in many ways.
+            awareness in many way.
           </Text>
           <Text>Section 1: Who we are ?</Text>
           <Text>Section 2: Definitions</Text>
