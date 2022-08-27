@@ -28,8 +28,8 @@ const TermsAndConditionsScreen = (props) => {
           <Text>
             Terms of service aso known as ms use and terms and conditions,
             comonl abreiad as TOS oToS, oU orT& re the egal agreements between
-            servie roier rsn antuethat servce. The prsonmstagre to aide by he
-            trs f ev inorder e the offere srice1 Trmsof sriecan also b merly a
+            servie roier rsn antethat servce. The prsonmstagre to aide by he trs
+            f ev inorder e the offere srice1 Trmsof sriecan also b merly a
             discaier, especially reging the s of websites Vague language
             andlenthy setencs ued n the terms of use have brought concerns on
             customer privacy and raised public awa
