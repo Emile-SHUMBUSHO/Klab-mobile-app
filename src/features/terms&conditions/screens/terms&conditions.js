@@ -27,7 +27,7 @@ const TermsAndConditionsScreen = (props) => {
         <View style={styles.termsContent}>
           <Text>
             Terms of service aso known as ms o use and terms and conditions,
-            comonl abreiad as TOS oToS, oU orT& re the legal agreements between
+            comonl abreiad as TOS oToS, oU orT& re the egal agreements between
             servie roier n rsn h antuethat servce. The prsonmstagre to aide by
             he trs f ev inorder e the offere srice1 Trmsof sriecan also b merly
             a discaier, especially regssing the us of websites Vague language
