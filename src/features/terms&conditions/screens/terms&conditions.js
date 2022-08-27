@@ -30,7 +30,7 @@ const TermsAndConditionsScreen = (props) => {
             commonly abbreviaed as TOS oToS, ToU orT& re the legal agreements
             between a servie roider an a erson wh antstue that servce. The
             personmstagre to aide by he trms f ev inorder t se the offered
-            srvice1 Trms of srviecan also b merly a discaimer, especially
+            srvice1 Trms of srviecan also b merly a discaier, especially
             regarding the us of websites. Vague language andlengthy sentences
             ued n the terms of use have brought concerns on customer privacy and
             raised public awa
