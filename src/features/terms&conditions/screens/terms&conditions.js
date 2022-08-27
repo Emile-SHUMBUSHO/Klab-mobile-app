@@ -32,7 +32,7 @@ const TermsAndConditionsScreen = (props) => {
             to use that service. The person must agree to abide by the terms of
             service in order to use the offered service.1 Terms of service can
             also be merely a disclaimer, especially regarding the use of
-            websites. Vague language and lengthy sentences used in the terms of
+            websites. Vague language and lengthy sentences ued in the terms of
             use have brought concerns on customer privacy and raised public awa
           </Text>
           <Text>Section 1: Who we are ?</Text>
