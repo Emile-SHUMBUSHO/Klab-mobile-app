@@ -30,7 +30,7 @@ const TermsAndConditionsScreen = (props) => {
             commonl abreiad as TOS oToS, oU orT& re the legal agreements between
             servie roier na rson wh antuethat servce. The personmstagre to aide
             by he trs f ev inorder t se the offere srice1 Trms of sriecan also b
-            merly a discaier, especially regarding the us of websites Vague
+            merly a discaier, especially regaring the us of websites Vague
             language andlenthy sentencs ued n the terms of use have brought
             concerns on customer privacy and raised public awa
           </Text>
