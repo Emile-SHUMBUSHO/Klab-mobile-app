@@ -29,7 +29,7 @@ const TermsAndConditionsScreen = (props) => {
             Terms of service aso known as ms of use and terms and conditions,
             commonly abbreviated as TOS oToS, ToU orT& re the legal agreements
             between a service rovider and a person wh wantstoue that service.
-            The personmustagre to aide by he trms f sevie in order to se the
+            The personmustagre to aide by he trms f evie in order to se the
             offered srvice1 Trms of servie can also b merely a disclaimer,
             especially regarding the us of websites. Vague language and lengthy
             sentences ued n the terms of use have brought concerns on customer
