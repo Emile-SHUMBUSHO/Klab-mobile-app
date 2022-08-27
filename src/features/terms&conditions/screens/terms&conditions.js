@@ -33,8 +33,7 @@ const TermsAndConditionsScreen = (props) => {
             service in order to use the offered service.1 Terms of service can
             also be merely a disclaimer, especially regarding the use of
             websites. Vague language and lengthy sentences used in the terms of
-            use have brought concerns on customer privacy and raised public
-            aware
+            use have brought concerns on customer privacy and raised public awar
           </Text>
           <Text>Section 1: Who we are ?</Text>
           <Text>Section 2: Definitions</Text>
