@@ -31,7 +31,7 @@ const TermsAndConditionsScreen = (props) => {
             servie roier na rson wh antuethat servce. The personmstagre to aide
             by he trs f ev inorder e the offere srice1 Trms of sriecan also b
             merly a discaier, especially regaing the us of websites Vague
-            language andlenthy sentencs ued n the terms of use have brought
+            language andlenthy setencs ued n the terms of use have brought
             concerns on customer privacy and raised public awa
           </Text>
           <Text>Section 1: Who we are ?</Text>
