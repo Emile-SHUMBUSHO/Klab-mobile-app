@@ -26,13 +26,15 @@ const TermsAndConditionsScreen = (props) => {
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.termsContent}>
           <Text>
-            Terms of service aso known as ms use and terms and conditions,
-            comonl abreiad as TOS oToS, oU orT& re the egal agreements between
-            servie roier rsn antethat sevce. The prsonmstagre to aide by he trs
-            f ev inorder e theofe srice1 Trmsof srieca also b merly a discaier,
-            eseially reging the s of webstes Vague laguage andlenth setencs ued
-            n the term of use have brought concerns on customer privacy and
-            raised public awa
+            Terms of service also known as terms of use and terms and
+            conditions, commonly abbreviated as TOS or ToS, ToU or T&C are the
+            legal agreements between a service provider and a person who wants
+            to use that service. The person must agree to abide by the terms of
+            service in order to use the offered service.1 Terms of service can
+            also be merely a disclaimer, especially regarding the use of
+            websites. Vague language and lengthy sentences used in the terms of
+            use have brought concerns on customer privacy and raised public
+            awareness in many ways.
           </Text>
           <Text>Section 1: Who we are ?</Text>
           <Text>Section 2: Definitions</Text>
