@@ -26,7 +26,7 @@ const TermsAndConditionsScreen = (props) => {
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.termsContent}>
           <Text>
-            Terms of service also known as ms of use and terms and conditions,
+            Terms of service aso known as ms of use and terms and conditions,
             commonly abbreviated as TOS oToS, ToU or T&C are the legal
             agreements between a service rovider and a person who wants to use
             that service. The personmust agree to abide by the terms of service
