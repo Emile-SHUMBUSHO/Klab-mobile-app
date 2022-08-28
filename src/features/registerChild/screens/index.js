@@ -240,15 +240,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  submitBtn: {
-    width: "50%",
-    backgroundColor: "black",
-    height: 50,
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-  },
   dropDownPicker: {
     height: 50,
     top: 10,
@@ -266,10 +257,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 20,
   },
-  inputTitle: {
-    color: "#3F3E3C",
-    margin: 3,
-  },
+
   datePickerButton: {
     height: 50,
     backgroundColor: "white",
