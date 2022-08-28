@@ -173,6 +173,7 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
+          <TouchableOpacity style={styles.datePickerButton}></TouchableOpacity>
           <Button title="Show Date Picker" onPress={showDatePicker} />
           <Text>selected: {date}</Text>
           <DateTimePickerModal
