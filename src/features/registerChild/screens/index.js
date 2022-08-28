@@ -173,17 +173,6 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          {/* <Button onPress={showDatepicker} title="Show date picker!" />
-          <Text>selected: {date.toLocaleString()}</Text>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode={mode}
-              is24Hour={true}
-              onChange={onChange}
-            />
-          )} */}
           <Button title="Show Date Picker" onPress={showDatePicker} />
           <Text>selected: {date}</Text>
           <DateTimePickerModal
