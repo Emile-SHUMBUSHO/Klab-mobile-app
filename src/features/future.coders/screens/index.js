@@ -156,9 +156,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    margin: 20,
+    borderRadius: 20,
+    margin: 10,
   },
   programs: {
     height: 220,
