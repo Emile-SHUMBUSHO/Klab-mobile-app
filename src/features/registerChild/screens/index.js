@@ -270,4 +270,20 @@ const styles = StyleSheet.create({
     color: "#3F3E3C",
     margin: 3,
   },
+  datePickerButton: {
+    height: 50,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 2,
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    borderWidth: 0.5,
+    borderRadius: 20,
+  },
 });
