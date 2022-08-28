@@ -173,9 +173,13 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          <TouchableOpacity style={styles.datePickerButton}></TouchableOpacity>
-          <Button title="Show Date Picker" onPress={showDatePicker} />
-          <Text>selected: {date}</Text>
+          <TouchableOpacity
+            style={styles.datePickerButton}
+            onPress={showDatePicker}
+          >
+            <Text>Age</Text>
+          </TouchableOpacity>
+
           <DateTimePickerModal
             isVisible={isDatePickerVisible}
             mode="date"
@@ -236,7 +240,6 @@ const styles = StyleSheet.create({
   content: {
     flexDirection: "column",
     justifyContent: "center",
-
     padding: 10,
   },
 
@@ -271,7 +274,8 @@ const styles = StyleSheet.create({
     elevation: 2,
     flexDirection: "row",
     paddingHorizontal: 15,
-    borderWidth: 0.5,
+    borderWidth: 0,
     borderRadius: 20,
+    top: 20,
   },
 });
