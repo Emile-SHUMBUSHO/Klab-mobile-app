@@ -278,5 +278,8 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 20,
     top: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
