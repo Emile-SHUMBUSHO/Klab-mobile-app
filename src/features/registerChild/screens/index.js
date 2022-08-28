@@ -27,7 +27,6 @@ const RegisterScreen = ({ route, navigation }) => {
 
   const handleConfirm = (date) => {
     chosenDate = new Date(date);
-    console.log(chosenDate.local());
 
     setDate(45);
     hideDatePicker();
