@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Keyboard,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
@@ -178,6 +178,7 @@ const RegisterScreen = ({ route, navigation }) => {
             onPress={showDatePicker}
           >
             <Text>Age</Text>
+            <MaterialIcons name="date-range" size={24} color="black" />
           </TouchableOpacity>
 
           <DateTimePickerModal
