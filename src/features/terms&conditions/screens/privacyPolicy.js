@@ -36,7 +36,7 @@ const PrivacyPolicyScreen = (props) => {
               Personal Information from you, such as your first and last name,
               profile icture, ho or avata, gendr, age, ethnicity, religion,
               marital sttus, caiona lvel, inteests, hobbie precise location-bsd
-              nrmo, email nd ng phone numbers, devic I numbnwodhen crea a acout
+              nrmo, email nd ng pone numbers, devic I numbnwodhen crea a acout
               for our Services “Boost Account, an ay othe you diectly give us
               through the Services incluing, but no limited to messages that you
               send throu
