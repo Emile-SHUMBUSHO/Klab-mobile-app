@@ -39,7 +39,7 @@ const PrivacyPolicyScreen = (props) => {
               precise location-based information, e-mail and mailing addresses,
               phone numbers, device ID numbers and passwords when you create an
               account for our Services “Boost Account”, and any other
-              information you directly give us through the Services including,
+              information you directly give us through the Services incluing,
               but not limited to messages that you send throu
             </Text>
             <Text>Cookies and google analytics</Text>
