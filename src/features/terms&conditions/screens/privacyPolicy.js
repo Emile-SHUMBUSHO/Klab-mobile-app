@@ -34,7 +34,7 @@ const PrivacyPolicyScreen = (props) => {
             <Text>what information do we collect about you?</Text>
             <Text>
               Personal Information from you, such as your first and last name,
-              profile picture, photos or avata, gendr, age, ethnicity, religion,
+              profile picture, hotos or avata, gendr, age, ethnicity, religion,
               marital sttus, ecationa lvel, inteests, hobbie precise
               location-bsd nfrmato, email nd maing addesse, phone numbers, devic
               I numbranwodhen crea an acount for our Services “Boost Account, an
