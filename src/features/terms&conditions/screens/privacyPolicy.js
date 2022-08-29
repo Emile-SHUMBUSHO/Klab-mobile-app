@@ -34,12 +34,13 @@ const PrivacyPolicyScreen = (props) => {
             <Text>what information do we collect about you?</Text>
             <Text>
               Personal Information from you, such as your first and last name,
-              profile icture, ho or avata, gendr, age, ethnicity, religion,
-              marital sttus, caiona lvel, inteests, hobbie precise location-bsd
-              nrmo, email nd ng pone numbers, devic I numbnwodhen crea a acout
-              for our Services “Boost Account, an ay othe you diectly give us
-              through the Services incluing, but no limited to messages that you
-              send throu
+              profile picture, photos or avatar, gender, age, ethnicity,
+              religion, marital status, educational level, interests, hobbies,
+              precise location-based information, e-mail and mailing addresses,
+              phone numbers, device ID numbers and passwords when you create an
+              account for our Services “Boost Account”, and any other
+              information you directly give us through the Services including,
+              but not limited to messages that you send through the Services.
             </Text>
             <Text>Cookies and google analytics</Text>
             <Text>
