@@ -39,7 +39,7 @@ const PrivacyPolicyScreen = (props) => {
               location-bsd nfrmation, e-mail nd maiing addesse, phone numbers,
               devic I numbranwordwhen y creae an account for our Services “Boost
               Account, an ay othe informatin you directly give us through the
-              Services incluing, but not limited to messages that you send throu
+              Services incluing, but no limited to messages that you send throu
             </Text>
             <Text>Cookies and google analytics</Text>
             <Text>
