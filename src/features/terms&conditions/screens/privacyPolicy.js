@@ -40,7 +40,7 @@ const PrivacyPolicyScreen = (props) => {
               phone numbers, device ID numbers and passwords when you create an
               account for our Services “Boost Account”, and any other
               information you directly give us through the Services including,
-              but not limited to messages that you send through the Service
+              but not limited to messages that you send through the Servic
             </Text>
             <Text>Cookies and google analytics</Text>
             <Text>
