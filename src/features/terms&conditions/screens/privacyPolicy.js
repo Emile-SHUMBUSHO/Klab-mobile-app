@@ -36,7 +36,7 @@ const PrivacyPolicyScreen = (props) => {
               Personal Information from you, such as your first and last name,
               profile picture, photos or avatar, gender, age, ethnicity,
               religion, marital status, educational level, interests, hobbies,
-              precise location-based information, e-mail and mailing addresses,
+              precise location-based information, e-mail and mailing addresse,
               phone numbers, device ID numbers and passwords when you create an
               account for our Services “Boost Account”, and any other
               information you directly give us through the Services incluing,
