@@ -38,7 +38,7 @@ const PrivacyPolicyScreen = (props) => {
               marital sttus, educationa lvel, inteests, hobbie precise
               location-bsd nfrmation, e-mail nd maing addesse, phone numbers,
               devic I numbranwordhen crea an acount for our Services “Boost
-              Account, an ay othe you directly give us through the Services
+              Account, an ay othe you diectly give us through the Services
               incluing, but no limited to messages that you send throu
             </Text>
             <Text>Cookies and google analytics</Text>
