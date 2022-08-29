@@ -38,7 +38,7 @@ const PrivacyPolicyScreen = (props) => {
               religion, marital sttus, educational level, inteests, hobbie
               precise location-bsd nfrmation, e-mail and maiing addesse, phone
               numbers, devic I numberanpswordwhen y creae an account for our
-              Services “Boost Account, an any othe information you directly give
+              Services “Boost Account, an ay othe information you directly give
               us through the Services incluing, but not limited to messages that
               you send throu
             </Text>
