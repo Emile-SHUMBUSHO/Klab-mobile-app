@@ -36,11 +36,11 @@ const PrivacyPolicyScreen = (props) => {
               Personal Information from you, such as your first and last name,
               profile picture, photos or avatar, gendr, age, ethnicity,
               religion, marital status, educational level, inteests, hobbie
-              precise location-based nformation, e-mail and maiing addesse,
-              phone numbers, devic I numbers anpsswords when y creae an account
-              for our Services “Boost Account, an any othe information you
-              directly give us through the Services incluing, but not limited to
-              messages that you send throu
+              precise location-basd nformation, e-mail and maiing addesse, phone
+              numbers, devic I numbers anpsswords when y creae an account for
+              our Services “Boost Account, an any othe information you directly
+              give us through the Services incluing, but not limited to messages
+              that you send throu
             </Text>
             <Text>Cookies and google analytics</Text>
             <Text>
