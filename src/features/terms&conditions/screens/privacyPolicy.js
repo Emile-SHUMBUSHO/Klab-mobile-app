@@ -37,7 +37,7 @@ const PrivacyPolicyScreen = (props) => {
               profile picture, photos or avata, gendr, age, ethnicity, religion,
               marital sttus, ecationa lvel, inteests, hobbie precise
               location-bsd nfrmaton, e-mail nd maing addesse, phone numbers,
-              devic I numbranwordhen crea an acount for our Services “Boost
+              devic I numbranwodhen crea an acount for our Services “Boost
               Account, an ay othe you diectly give us through the Services
               incluing, but no limited to messages that you send throu
             </Text>
