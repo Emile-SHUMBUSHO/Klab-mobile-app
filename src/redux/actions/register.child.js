@@ -3,7 +3,7 @@ import { BASE_URL } from "../../config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const register = (
-  firstName,
+  fname,
   lastName,
   gender,
   age,
@@ -24,7 +24,7 @@ export const register = (
           Authorization: `Bearer ${token}`,
         },
         data: {
-          firstName,
+          fname,
           lastName,
           gender,
           age,
