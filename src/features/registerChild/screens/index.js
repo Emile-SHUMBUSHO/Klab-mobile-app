@@ -30,7 +30,8 @@ const RegisterScreen = ({ route, navigation }) => {
     const chosenDate = `${selectedDate.getDate()}-${
       selectedDate.getMonth() + 1
     }-${selectedDate.getFullYear()}`;
-    setDate(4);
+    console.log(chosenDate);
+    setDate();
     hideDatePicker();
   };
 
