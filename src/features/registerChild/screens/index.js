@@ -45,7 +45,7 @@ const RegisterScreen = ({ route, navigation }) => {
     firstName: "",
     lastName: "",
     gender: "",
-    age: "",
+    age: `${date}`,
     educationLevel: "",
     schoolName: "",
     email: "",
@@ -218,7 +218,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            {/* <Button title="Save Child Information" onPress={validate} /> */}
+            <Button title="Save Child Information" onPress={validate} />
           </View>
         </View>
       </ScrollView>
