@@ -34,6 +34,7 @@ export const register = (
           id,
         },
       });
+      console.log(age);
       console.log("child data");
       console.log(response);
       dispatch({
