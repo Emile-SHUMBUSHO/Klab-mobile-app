@@ -30,8 +30,7 @@ const RegisterScreen = ({ route, navigation }) => {
     const chosenDate = `${selectedDate.getDate()}-${
       selectedDate.getMonth() + 1
     }-${selectedDate.getFullYear()}`;
-    console.log(chosenDate);
-    setDate();
+    setDate(chosenDate);
     hideDatePicker();
   };
 
@@ -180,7 +179,7 @@ const RegisterScreen = ({ route, navigation }) => {
             style={styles.datePickerButton}
             onPress={showDatePicker}
           >
-            <Text>Age</Text>
+            <Text>Age {date}</Text>
             <MaterialIcons name="date-range" size={24} color="black" />
           </TouchableOpacity>
 
