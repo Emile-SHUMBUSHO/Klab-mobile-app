@@ -4,13 +4,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const register = (
   fname,
-  lastName,
+  lname,
   gender,
   age,
-  educationLevel,
-  schoolName,
+  level_of_education,
+  school_name,
   email,
-  id
+  program_id
 ) => {
   return async (dispatch) => {
     let token = await AsyncStorage.getItem("token");
@@ -25,13 +25,13 @@ export const register = (
         },
         data: {
           fname,
-          lastName,
+          lname,
           gender,
           age,
-          educationLevel,
-          schoolName,
+          level_of_education,
+          school_name,
           email,
-          id,
+          program_id,
         },
       });
       console.log(age);
