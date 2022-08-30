@@ -26,9 +26,11 @@ const RegisterScreen = ({ route, navigation }) => {
   };
 
   const handleConfirm = (date) => {
-    chosenDate = new Date(date);
-
-    setDate(45);
+    const selectedDate = new Date(date);
+    const chosenDate = `${selectedDate.getDate()}-${
+      selectedDate.getMonth() + 1
+    }-${selectedDate.getFullYear()}`;
+    setDate(4);
     hideDatePicker();
   };
 
