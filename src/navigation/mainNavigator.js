@@ -118,7 +118,7 @@ function MainNavigator() {
               />
             </>
           ) : (
-            <></>
+            <>{user === "member" ? <></> : <></>}</>
           )}
         </>
       )}
