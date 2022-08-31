@@ -20,6 +20,10 @@ import Loader from "../../../components/loader";
 import { Register } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 
+const ModalPoup = ({ visible, children }) => {
+  const [showModal, setShowModal] = useState(visible);
+};
+
 const SignUpScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [open, setOpen] = useState(false);
