@@ -86,31 +86,41 @@ function MainNavigator() {
         </>
       ) : (
         <>
-          {/* {user === "company" ? <></> : <></>} */}
-          <Tab.Screen
-            name="Home"
-            options={{
-              tabBarLabel: "Home",
-              tabBarIcon: ({ focused, size, color }) => (
-                <FontAwesome
-                  name="home"
-                  size={24}
-                  color={focused ? "black" : "grey"}
-                />
-              ),
-            }}
-            component={HomeScreen}
-          />
-          <Tab.Screen
-            name="Profile"
-            options={{
-              tabBarLabel: "Company-Kit",
-              tabBarIcon: ({ color, size }) => (
-                <FontAwesome5 name="business-time" size={24} color="black" />
-              ),
-            }}
-            component={ProfileScreen}
-          />
+          {user === "company" ? (
+            <>
+              <Tab.Screen
+                name="Home"
+                options={{
+                  tabBarLabel: "Home",
+                  tabBarIcon: ({ focused, size, color }) => (
+                    <FontAwesome
+                      name="home"
+                      size={24}
+                      color={focused ? "black" : "grey"}
+                    />
+                  ),
+                }}
+                component={HomeScreen}
+              />
+            </>
+          ) : (
+            <>
+              <Tab.Screen
+                name="Profile"
+                options={{
+                  tabBarLabel: "Company-Kit",
+                  tabBarIcon: ({ color, size }) => (
+                    <FontAwesome5
+                      name="business-time"
+                      size={24}
+                      color="black"
+                    />
+                  ),
+                }}
+                component={ProfileScreen}
+              />
+            </>
+          )}
         </>
       )}
     </Tab.Navigator>
