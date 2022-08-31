@@ -138,7 +138,22 @@ function MainNavigator() {
                   />
                 </>
               ) : (
-                <></>
+                <>
+                  <Tab.Screen
+                    name="Profile"
+                    options={{
+                      tabBarLabel: "Company-Kit",
+                      tabBarIcon: ({ color, size }) => (
+                        <FontAwesome5
+                          name="business-time"
+                          size={24}
+                          color="black"
+                        />
+                      ),
+                    }}
+                    component={ProfileScreen}
+                  />
+                </>
               )}
             </>
           )}
