@@ -136,6 +136,16 @@ function MainNavigator() {
                     }}
                     component={KlabMembersHomeScreen}
                   />
+                  <Tab.Screen
+                    name="Profile"
+                    options={{
+                      tabBarLabel: "Me",
+                      tabBarIcon: ({ color, size }) => (
+                        <FontAwesome5 name="user-alt" size={24} color="grey" />
+                      ),
+                    }}
+                    component={ProfileScreen}
+                  />
                 </>
               ) : (
                 <>
