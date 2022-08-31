@@ -61,6 +61,7 @@ const ModalPoup = ({ visible, children }) => {
 
 const SignUpScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -117,13 +118,39 @@ const SignUpScreen = (props) => {
       Register(inputs.fullName, inputs.email, inputs.role, inputs.password)
     );
     setIsLoading(true);
-    props.navigation.navigate("signIn");
+    setVisible(true);
     setIsLoading(false);
   };
 
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("signIn");
+              }}
+            >
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
+
+        <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
+          Congratulations registration was successful
+        </Text>
+      </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
