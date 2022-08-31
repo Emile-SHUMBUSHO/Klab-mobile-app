@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Checkbox } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 import DropDownPicker from "react-native-dropdown-picker";
@@ -22,6 +22,7 @@ import { useDispatch } from "react-redux";
 
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = useState(visible);
+  const scaleValue = useRef(new Animated.Value(0)).current;
 };
 
 const SignUpScreen = (props) => {
