@@ -86,6 +86,7 @@ function MainNavigator() {
         </>
       ) : (
         <>
+          {/* {user === "company" ? <></> : <></>} */}
           <Tab.Screen
             name="Home"
             options={{
@@ -112,7 +113,6 @@ function MainNavigator() {
           />
         </>
       )}
-      {user === "company" ? <></> : <></>}
     </Tab.Navigator>
   );
 }
