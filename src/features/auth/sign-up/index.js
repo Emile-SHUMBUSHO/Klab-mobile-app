@@ -42,6 +42,16 @@ const ModalPoup = ({ visible, children }) => {
         useNativeDriver: true,
       }).start();
     }
+    return (
+      <Modal transparent visible={showModal}>
+        <View style={styles.modalBackGround}>
+          <Animated.View
+            style={[styles.modalContainer, {transform: [{scale: scaleValue}]}]}>
+            {children}
+          </Animated.View>
+        </View>
+      </Modal>
+    );
 };
 
 const SignUpScreen = (props) => {
