@@ -102,9 +102,6 @@ function MainNavigator() {
                 }}
                 component={HomeScreen}
               />
-            </>
-          ) : (
-            <>
               <Tab.Screen
                 name="Profile"
                 options={{
@@ -120,6 +117,8 @@ function MainNavigator() {
                 component={ProfileScreen}
               />
             </>
+          ) : (
+            <></>
           )}
         </>
       )}
