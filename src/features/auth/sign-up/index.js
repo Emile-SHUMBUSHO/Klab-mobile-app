@@ -23,6 +23,9 @@ import { useDispatch } from "react-redux";
 const ModalPoup = ({ visible, children }) => {
   const [showModal, setShowModal] = useState(visible);
   const scaleValue = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    toggleModal();
+  }, [visible]);
 };
 
 const SignUpScreen = (props) => {
