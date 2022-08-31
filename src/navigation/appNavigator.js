@@ -10,12 +10,13 @@ import CompleteProfileScreen from "../features/complete-profile/screens";
 import PrivacyPolicyScreen from "../features/terms&conditions/screens/privacyPolicy";
 import TermsAndConditionsScreen from "../features/terms&conditions/screens/terms&conditions";
 import PaymentScreen from "../features/payment/screens";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import { useState, useEffect } from "react";
 import RegisterAnotherScreen from "../features/registerChild/screens/otherChild";
 import EditProfileScreen from "../features/edit-profile/screens";
 import JoinScreen from "../features/joinProgram";
+import KlabMembersHomeScreen from "../features/klab-members";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
@@ -79,6 +80,7 @@ function AppNavigator() {
             />
             <Stack.Screen name="join" component={JoinScreen} />
             <Stack.Screen name="notifications" component={Notifications} />
+            <Stack.Screen name="members" component={KlabMembersHomeScreen} />
           </>
         )}
       </Stack.Navigator>
