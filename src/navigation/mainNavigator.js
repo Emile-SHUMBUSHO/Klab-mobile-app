@@ -112,6 +112,7 @@ function MainNavigator() {
           />
         </>
       )}
+      {user === "company" ? <></> : <></>}
     </Tab.Navigator>
   );
 }
