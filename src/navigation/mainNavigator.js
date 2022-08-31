@@ -4,6 +4,7 @@ import ProfileScreen from "../components/profileScreen";
 import HomeScreen from "../components/homeScreen";
 import ParentScreen from "../features/future.coders/screens";
 import ChildScreen from "../components/ChildScreen";
+import KlabMembersHomeScreen from "../features/klab-members";
 import { useState } from "react";
 import { UserInfo } from "../utils/userInfo";
 import { useSelector } from "react-redux";
@@ -118,7 +119,28 @@ function MainNavigator() {
               />
             </>
           ) : (
-            <>{user === "member" ? <></> : <></>}</>
+            <>
+              {user === "member" ? (
+                <>
+                  <Tab.Screen
+                    name="Home"
+                    options={{
+                      tabBarLabel: "Home",
+                      tabBarIcon: ({ focused, size, color }) => (
+                        <FontAwesome
+                          name="home"
+                          size={24}
+                          color={focused ? "black" : "grey"}
+                        />
+                      ),
+                    }}
+                    component={KlabMembersHomeScreen}
+                  />
+                </>
+              ) : (
+                <></>
+              )}
+            </>
           )}
         </>
       )}
