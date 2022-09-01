@@ -39,3 +39,5 @@ const ModalPoup = ({ visible, children }) => {
     </Modal>
   );
 };
+
+export default ModalPoup;
