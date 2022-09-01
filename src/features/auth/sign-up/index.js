@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { Checkbox } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 import DropDownPicker from "react-native-dropdown-picker";
@@ -10,8 +10,6 @@ import {
   Image,
   Keyboard,
   ScrollView,
-  Animated,
-  Modal,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
