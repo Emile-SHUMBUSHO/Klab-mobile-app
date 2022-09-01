@@ -15,6 +15,7 @@ import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
 import Loader from "../../../components/loader";
+import ModalPoup from "../../../components/modalPoup";
 import { Register } from "../../../redux/actions";
 import { useDispatch } from "react-redux";
 
