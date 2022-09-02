@@ -133,7 +133,7 @@ const RegisterScreen = ({ route, navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View>
+        <View style={{ alignItems: "center" }}>
           <Image
             source={require("../../../../assets/success.png")}
             style={{ height: 150, width: 150, marginVertical: 10 }}
