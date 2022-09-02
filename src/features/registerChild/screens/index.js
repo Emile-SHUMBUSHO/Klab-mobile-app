@@ -124,7 +124,7 @@ const RegisterScreen = ({ route, navigation }) => {
       <Loader visible={isLoading} />
       <ModalPoup visible={visible}>
         <View style={{ alignItems: "center" }}>
-          <View>
+          <View style={styles.header}>
             <TouchableOpacity>
               <Image
                 source={require("../../../../assets/x.png")}
