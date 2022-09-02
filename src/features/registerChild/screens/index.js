@@ -134,7 +134,10 @@ const RegisterScreen = ({ route, navigation }) => {
           </View>
         </View>
         <View>
-          <Image source={require("../../../../assets/success.png")} />
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
         </View>
       </ModalPoup>
       <View style={styles.top}>
