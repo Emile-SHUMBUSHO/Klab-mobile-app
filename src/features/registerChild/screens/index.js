@@ -117,7 +117,7 @@ const RegisterScreen = ({ route, navigation }) => {
   };
   return (
     <View style={styles.container}>
-      <Loader visible={}/>
+      <Loader visible={isLoading} />
       <View style={styles.top}>
         <TouchableOpacity
           style={{ right: 120 }}
