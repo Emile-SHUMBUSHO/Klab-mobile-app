@@ -18,6 +18,7 @@ import Loader from "../../../components/loader";
 import ModalPoup from "../../../components/modalPoup";
 const RegisterScreen = ({ route, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [date, setDate] = useState(null);
   const showDatePicker = () => {
@@ -116,11 +117,12 @@ const RegisterScreen = ({ route, navigation }) => {
       )
     );
     setIsLoading(true);
+    setVisible(true);
   };
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
-      <ModalPoup />
+      <ModalPoup visible={visible}></ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ right: 120 }}
