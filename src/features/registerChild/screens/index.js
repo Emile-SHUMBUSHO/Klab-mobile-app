@@ -133,6 +133,9 @@ const RegisterScreen = ({ route, navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+        <View>
+          <Image source={require("../../../../assets/success.png")} />
+        </View>
       </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
