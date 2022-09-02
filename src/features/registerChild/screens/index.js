@@ -122,7 +122,15 @@ const RegisterScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
-      <ModalPoup visible={visible}></ModalPoup>
+      <ModalPoup visible={visible}>
+        <View>
+          <View>
+            <TouchableOpacity>
+              <Image />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ right: 120 }}
