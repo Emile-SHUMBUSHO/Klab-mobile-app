@@ -139,6 +139,7 @@ const RegisterScreen = ({ route, navigation }) => {
             style={{ height: 150, width: 150, marginVertical: 10 }}
           />
         </View>
+        <Text>Conguratulations child registered successful</Text>
       </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity

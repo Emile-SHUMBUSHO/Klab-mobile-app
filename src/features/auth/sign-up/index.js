@@ -108,7 +108,7 @@ const SignUpScreen = (props) => {
         </View>
 
         <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
-          Congratulations registration was successful
+          Congratulations registered was successful
         </Text>
       </ModalPoup>
       <View style={styles.top}>
