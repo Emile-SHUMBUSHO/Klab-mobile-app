@@ -123,7 +123,7 @@ const RegisterScreen = ({ route, navigation }) => {
     <View style={styles.container}>
       <Loader visible={isLoading} />
       <ModalPoup visible={visible}>
-        <View>
+        <View style={{ alignItems: "center" }}>
           <View>
             <TouchableOpacity>
               <Image
