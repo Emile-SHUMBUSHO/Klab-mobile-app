@@ -12,8 +12,7 @@ export const Programs = (props) => {
     <View style={styles.content}>
       <ImageBackground
         source={require("../../../assets/s2.jpg")}
-        borderTopRightRadius={20}
-        borderTopLeftRadius={20}
+        borderRadius={10}
       >
         <View style={{ height: 200 }} />
       </ImageBackground>
