@@ -113,6 +113,7 @@ const RegisterScreen = ({ route, navigation }) => {
         inputs.id
       )
     );
+    setIsLoading(true);
   };
   return (
     <View style={styles.container}>
