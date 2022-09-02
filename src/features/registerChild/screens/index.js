@@ -15,7 +15,7 @@ import { register } from "../../../redux/actions/register.child";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 const RegisterScreen = ({ route, navigation }) => {
-  const [loading, isLoading] = useState(false);
+  const [loading, setIsLoading] = useState(false);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [date, setDate] = useState(null);
   const showDatePicker = () => {
