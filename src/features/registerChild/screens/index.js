@@ -126,7 +126,10 @@ const RegisterScreen = ({ route, navigation }) => {
         <View>
           <View>
             <TouchableOpacity>
-              <Image source={require("../../../../assets/x.png")} />
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
             </TouchableOpacity>
           </View>
         </View>
