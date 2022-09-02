@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
   Keyboard,
+  Image,
 } from "react-native";
 import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
