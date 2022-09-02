@@ -15,6 +15,7 @@ import { register } from "../../../redux/actions/register.child";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import Loader from "../../../components/loader";
+import ModalPoup from "../../../components/modalPoup";
 const RegisterScreen = ({ route, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -119,6 +120,7 @@ const RegisterScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
+      <ModalPoup />
       <View style={styles.top}>
         <TouchableOpacity
           style={{ right: 120 }}

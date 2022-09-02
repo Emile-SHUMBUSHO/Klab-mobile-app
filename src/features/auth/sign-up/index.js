@@ -85,7 +85,6 @@ const SignUpScreen = (props) => {
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
-      <ModalPoup />
       <ModalPoup visible={visible}>
         <View style={{ alignItems: "center" }}>
           <View style={styles.header}>
