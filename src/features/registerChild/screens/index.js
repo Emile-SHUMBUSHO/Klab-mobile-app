@@ -126,7 +126,11 @@ const RegisterScreen = ({ route, navigation }) => {
       <ModalPoup visible={visible}>
         <View style={{ alignItems: "center" }}>
           <View style={styles.header}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack("home");
+              }}
+            >
               <Image
                 source={require("../../../../assets/x.png")}
                 style={{ height: 30, width: 30 }}
@@ -141,7 +145,7 @@ const RegisterScreen = ({ route, navigation }) => {
           />
         </View>
         <Text style={{ marginVertical: 30, textAlign: "center", fontSize: 20 }}>
-          Conguratulations child registered successful
+          Registered successful
         </Text>
       </ModalPoup>
       <View style={styles.top}>
