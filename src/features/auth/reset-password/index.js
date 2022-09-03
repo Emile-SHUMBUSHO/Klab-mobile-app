@@ -16,7 +16,7 @@ import { useDispatch } from "react-redux";
 const TypeNewPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
-    email: "",
+    password: "",
   });
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
@@ -28,11 +28,11 @@ const TypeNewPasswordScreen = (props) => {
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
-    if (!inputs.email) {
-      handleErrors("please input email address", "email");
+    if (!inputs.password) {
+      handleErrors("please input password", "password");
       isValid = false;
-    } else if (!inputs.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
-      handleErrors("please input valid email address", "email");
+    } else if (inputs.password.length < 5) {
+      handleErrors("Weak password", "password");
       isValid = false;
     }
     if (isValid) {
