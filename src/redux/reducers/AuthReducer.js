@@ -54,6 +54,18 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case "VALID CODE":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case "INVALID CODE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
