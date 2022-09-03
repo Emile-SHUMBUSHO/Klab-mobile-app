@@ -121,7 +121,7 @@ const SignInScreen = (props) => {
           >
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate("recovery");
+                props.navigation.navigate("codeVerification");
               }}
             >
               <Text style={{ fontWeight: "bold", margin: 10 }}>
