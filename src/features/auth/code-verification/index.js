@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   CodeField,
   Cursor,
