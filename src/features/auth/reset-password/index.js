@@ -36,6 +36,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
       isValid = false;
     }
     if (isValid) {
+      TypeNewPasswordFunc();
     }
   };
   const dispatch = useDispatch();

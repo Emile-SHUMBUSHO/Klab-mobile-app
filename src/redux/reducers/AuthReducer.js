@@ -66,6 +66,18 @@ export default (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    case "PASSWORD CHANGED":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case "PASSWORD DID NOT CHANGED":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
