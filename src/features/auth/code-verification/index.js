@@ -25,7 +25,6 @@ const CodeVerficationScreen = (navigator) => {
   };
   CheckCodeFunction();
   const code = value;
-  console.log(code);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
