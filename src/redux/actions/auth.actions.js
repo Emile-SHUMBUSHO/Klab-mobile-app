@@ -56,22 +56,6 @@ export const PasswordRest = (email) => {
   };
 };
 
-export const ResetPassword = (code) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: `${BASE_URL}/password/code/check`,
-        data: {
-          code,
-        },
-      });
-      console.log("code to reset password");
-      console.log(response);
-    } catch (err) {}
-  };
-};
-
 export const Login = (email, password) => {
   return async (dispatch) => {
     try {
