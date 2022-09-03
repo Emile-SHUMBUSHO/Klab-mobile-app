@@ -1,20 +1,31 @@
 import * as React from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CodeField,
   Cursor,
   useBlurOnFulfill,
   useClearByFocusCell,
 } from "react-native-confirmation-code-field";
+
+import { useDispatch } from "react-redux";
+import { CheckCode } from "../../../redux/actions";
+
 const CodeVerficationScreen = (navigator) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState({
+    code: "",
+  });
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
+  const dispatch = useDispatch();
+  const CheckCodeFunction = () => {
+    dispatch(CheckCode(value.code));
+  };
+  CheckCodeFunction();
   return (
     <View style={styles.container}>
       <View style={styles.top}>
