@@ -90,7 +90,7 @@ const TypeNewPasswordScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <Button title="Reset Password" onPress={validate} />
+            <Button title="Reset Password" />
           </View>
         </View>
       </View>
