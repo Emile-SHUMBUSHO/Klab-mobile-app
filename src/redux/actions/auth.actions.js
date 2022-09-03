@@ -66,6 +66,8 @@ export const ResetPassword = (code) => {
           code,
         },
       });
+      console.log("code to reset password");
+      console.log(response);
     } catch (err) {}
   };
 };
