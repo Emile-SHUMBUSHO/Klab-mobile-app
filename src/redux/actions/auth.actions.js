@@ -112,10 +112,10 @@ export const CheckCode = (code) => {
 export const PasswordReset = (code, password) => {
   return async (dispatch) => {
     try {
-      console.log(`code for change${code}`);
+      console.log(`code for change${password}`);
       const response = await axios({
         method: "POST",
-        url: `${BASE_URL}/passsword/reset`,
+        url: `${BASE_URL}/password/reset`,
         data: {
           code,
           password,
