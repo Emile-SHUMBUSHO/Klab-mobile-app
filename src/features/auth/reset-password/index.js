@@ -73,20 +73,16 @@ const TypeNewPasswordScreen = (props) => {
         />
         <View style={styles.content}>
           <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-            Password Recovery
-          </Text>
-          <Text style={{ fontSize: 15, margin: 1 }}>
-            We will send password recovery code on this email
+            Type New Password
           </Text>
           <Input
-            style={styles.input}
-            placeholder="Enter Your Email"
-            iconName="email-outline"
-            onChangeText={(text) => handleOnChange(text, "email")}
-            error={errors.email}
-            onFocus={() => {
-              handleErrors(null, "email");
-            }}
+            onChangeText={(text) => handleOnChange(text, "password")}
+            onFocus={() => handleErrors(null, "password")}
+            iconName="lock-outline"
+            label="Password"
+            placeholder="Enter your password"
+            error={errors.password}
+            password
           />
           <View
             style={{
@@ -94,7 +90,7 @@ const TypeNewPasswordScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <Button title="Send Code Recovery" onPress={validate} />
+            <Button title="Reset Password" onPress={validate} />
           </View>
         </View>
       </View>
