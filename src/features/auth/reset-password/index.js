@@ -54,7 +54,7 @@ const TypeNewPasswordScreen = (props) => {
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            props.navigation.navigate("signIn");
+            props.navigation.navigate("recovery");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
@@ -90,7 +90,7 @@ const TypeNewPasswordScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <Button title="Reset Password" />
+            <Button title="Reset Password" onPress={validate} />
           </View>
         </View>
       </View>

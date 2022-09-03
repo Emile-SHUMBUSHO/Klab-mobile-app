@@ -22,6 +22,7 @@ const CodeVerficationScreen = (navigator) => {
   const dispatch = useDispatch();
   const CheckCodeFunction = () => {
     dispatch(CheckCode(value));
+    navigator.navigation.navigate("newPassword");
   };
   CheckCodeFunction();
   return (
