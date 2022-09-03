@@ -13,7 +13,7 @@ import Button from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
 
-const NewPasswordScreen = (props) => {
+const TypeNewPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     email: "",
@@ -41,7 +41,7 @@ const NewPasswordScreen = (props) => {
   };
 
   const dispatch = useDispatch();
-  const RestPasswordFunc = () => {
+  const TypeNewPasswordFunc = () => {
     dispatch(PasswordRest(inputs.email));
     setLoading(true);
     props.navigation.navigate("codeVerification");
@@ -102,7 +102,7 @@ const NewPasswordScreen = (props) => {
   );
 };
 
-export default NewPasswordScreen;
+export default TypeNewPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {
