@@ -22,9 +22,10 @@ const CodeVerficationScreen = (navigator) => {
   const dispatch = useDispatch();
   const CheckCodeFunction = () => {
     dispatch(CheckCode(value));
-    navigator.navigation.navigate("newPassword");
   };
   CheckCodeFunction();
+  const code = value;
+  console.log(code);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -76,11 +77,11 @@ const CodeVerficationScreen = (navigator) => {
             )}
           />
           <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
-            This code will expire in 5 minutes
+            This code will expire in 5 minutes{code}
           </Text>
           <TouchableOpacity
             onPress={() => {
-              navigator.navigation.navigate("newPassword");
+              navigator.navigation.navigate("newPassword", code);
             }}
           >
             <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
