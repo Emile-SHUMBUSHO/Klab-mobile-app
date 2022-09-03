@@ -69,7 +69,7 @@ export const Login = (email, password) => {
   };
 };
 
-export const PasswordRest = (email) => {
+export const EmailToResetPassword = (email) => {
   return async (dispatch) => {
     try {
       const response = await axios({
@@ -105,6 +105,29 @@ export const CheckCode = (code) => {
       });
     } catch (err) {
       dispatch({ type: "INVALID CODE", payload: err.message });
+    }
+  };
+};
+
+export const PasswordReset = (code, password) => {
+  return async () => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${BASE_URL}/passsword/reset`,
+        date: {
+          code,
+          password,
+        },
+      });
+      console.log("New password");
+      console.log(response);
+      dispatch({
+        type: "PASSWORD CHANGED",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "PASSWORD DID NOT CHANGED", payload: err.message });
     }
   };
 };
