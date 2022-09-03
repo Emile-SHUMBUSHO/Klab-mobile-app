@@ -87,7 +87,7 @@ export const PasswordRest = (email) => {
   };
 };
 
-export const ResetPassword = (code) => {
+export const CheckCode = (code) => {
   return async (dispatch) => {
     try {
       const response = await axios({
@@ -99,7 +99,13 @@ export const ResetPassword = (code) => {
       });
       console.log("code to reset password");
       console.log(response);
-    } catch (err) {}
+      dispatch({
+        type: "CODE IS VALID",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "INVALID CODE", payload: err.message });
+    }
   };
 };
 
