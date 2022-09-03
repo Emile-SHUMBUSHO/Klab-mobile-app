@@ -13,7 +13,7 @@ import Button from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
 
-const TypeNewPasswordScreen = (props) => {
+const TypeNewPasswordScreen = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     password: "",
@@ -31,15 +31,13 @@ const TypeNewPasswordScreen = (props) => {
     if (!inputs.password) {
       handleErrors("please input password", "password");
       isValid = false;
-    } else if (inputs.password.length < 5) {
+    } else if (inputs) {
       handleErrors("Weak password", "password");
       isValid = false;
     }
     if (isValid) {
-      RestPasswordFunc();
     }
   };
-
   const dispatch = useDispatch();
   const TypeNewPasswordFunc = () => {
     dispatch(PasswordRest(inputs.email));
@@ -47,6 +45,7 @@ const TypeNewPasswordScreen = (props) => {
     props.navigation.navigate("codeVerification");
     setLoading(false);
   };
+  const code = route.params;
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
@@ -54,7 +53,7 @@ const TypeNewPasswordScreen = (props) => {
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            props.navigation.navigate("recovery");
+            navigation.goBack("recovery");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
