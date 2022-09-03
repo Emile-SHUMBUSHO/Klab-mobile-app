@@ -69,6 +69,24 @@ export const Login = (email, password) => {
   };
 };
 
+export const PasswordRest = (email) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${BASE_URL}/password/email`,
+        data: { email },
+      });
+      dispatch({
+        type: "EMAIL SENT SUCCESSFUL",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "EMAIL NOT SENT", payload: err.message });
+    }
+  };
+};
+
 export const ResetPassword = (code) => {
   return async (dispatch) => {
     try {
