@@ -13,9 +13,7 @@ import { useDispatch } from "react-redux";
 import { CheckCode } from "../../../redux/actions";
 
 const CodeVerficationScreen = (navigator) => {
-  const [value, setValue] = useState({
-    code: "",
-  });
+  const [value, setValue] = useState();
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
@@ -23,7 +21,7 @@ const CodeVerficationScreen = (navigator) => {
   });
   const dispatch = useDispatch();
   const CheckCodeFunction = () => {
-    dispatch(CheckCode(value.code));
+    dispatch(CheckCode(value));
   };
   CheckCodeFunction();
   return (
