@@ -14,6 +14,7 @@ import RegisterAnotherScreen from "../features/registerChild/screens/otherChild"
 import EditProfileScreen from "../features/edit-profile/screens";
 import JoinScreen from "../features/joinProgram";
 import KlabMembersHomeScreen from "../features/klab-members";
+import TypeNewPasswordScreen from "../features/auth/reset-password";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useState, useEffect } from "react";
@@ -65,6 +66,10 @@ function AppNavigator() {
             <Stack.Screen
               name="codeVerification"
               component={CodeVerificationScreen}
+            />
+            <Stack.Screen
+              name="newPassword"
+              component={TypeNewPasswordScreen}
             />
           </>
         ) : (

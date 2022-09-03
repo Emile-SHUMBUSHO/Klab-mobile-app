@@ -77,7 +77,11 @@ const CodeVerficationScreen = (navigator) => {
           <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
             This code will expire in 5 minutes
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigator.navigation.navigate("newPassword");
+            }}
+          >
             <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
           </TouchableOpacity>
         </View>
