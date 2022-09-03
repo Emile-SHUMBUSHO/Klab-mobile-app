@@ -110,12 +110,13 @@ export const CheckCode = (code) => {
 };
 
 export const PasswordReset = (code, password) => {
-  return async () => {
+  return async (dispatch) => {
     try {
+      console.log(code);
       const response = await axios({
         method: "POST",
         url: `${BASE_URL}/passsword/reset`,
-        date: {
+        data: {
           code,
           password,
         },

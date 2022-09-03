@@ -12,10 +12,12 @@ import Input from "../../../components/input";
 import Button from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
+import { PasswordReset } from "../../../redux/actions";
 
 const TypeNewPasswordScreen = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
+    code: `${code}`,
     password: "",
   });
   const [errors, setErrors] = useState({});
@@ -31,7 +33,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
     if (!inputs.password) {
       handleErrors("please input password", "password");
       isValid = false;
-    } else if (inputs) {
+    } else if (inputs.password.length < 5) {
       handleErrors("Weak password", "password");
       isValid = false;
     }
@@ -39,14 +41,14 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
       TypeNewPasswordFunc();
     }
   };
+  const code = route.params;
   const dispatch = useDispatch();
   const TypeNewPasswordFunc = () => {
-    dispatch(PasswordRest(inputs.email));
-    setLoading(true);
-    props.navigation.navigate("codeVerification");
-    setLoading(false);
+    dispatch(PasswordReset(inputs.code, inputs.password));
+    // setLoading(true);
+    // props.navigation.navigate("codeVerification");
+    // setLoading(false);
   };
-  const code = route.params;
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
