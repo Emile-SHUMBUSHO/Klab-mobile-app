@@ -13,8 +13,10 @@ import Button from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
 import { EmailToResetPassword } from "../../../redux/actions";
+import ModalPoup from "../../../components/modalPoup";
 const ForgotPasswordScreen = (props) => {
   const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [inputs, setInputs] = useState({
     email: "",
   });
@@ -44,12 +46,38 @@ const ForgotPasswordScreen = (props) => {
   const RestPasswordFunc = () => {
     dispatch(EmailToResetPassword(inputs.email));
     setLoading(true);
-    props.navigation.navigate("codeVerification");
+    setVisible(true);
     setLoading(false);
   };
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("codeVerification");
+              }}
+            >
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
+
+        <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
+          Verification code sent to your email
+        </Text>
+      </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
@@ -76,7 +104,7 @@ const ForgotPasswordScreen = (props) => {
             Password Recovery
           </Text>
           <Text style={{ fontSize: 15, margin: 1 }}>
-            We will send password recovery code on this email
+            Recovery code will be send on your email
           </Text>
           <Input
             style={styles.input}
@@ -136,5 +164,11 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 40,
+  },
+  header: {
+    width: "100%",
+    height: 40,
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });
