@@ -55,7 +55,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            navigation.goBack("recovery");
+            navigation.goBack("signIn");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />

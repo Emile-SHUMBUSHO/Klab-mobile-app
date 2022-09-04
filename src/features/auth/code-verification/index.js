@@ -24,15 +24,14 @@ const CodeVerficationScreen = ({ route, navigation }) => {
     dispatch(CheckCode(value));
   };
   CheckCodeFunction();
-  const email = route.params;
-  console.log(email);
+  const email = route.params.email;
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            navigator.navigation.navigate("signIn");
+            navigation.goBack();
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
@@ -53,9 +52,7 @@ const CodeVerficationScreen = ({ route, navigation }) => {
           <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
             Enter Recovery code
           </Text>
-          <Text style={{ fontSize: 15, margin: 1 }}>
-            we have sent recovery code on summilef1@gmail.com
-          </Text>
+          <Text style={{ fontSize: 15, margin: 1 }}>Code sent on {email}</Text>
           <CodeField
             ref={ref}
             {...props}
@@ -66,6 +63,7 @@ const CodeVerficationScreen = ({ route, navigation }) => {
             rootStyle={styles.codeFieldRoot}
             keyboardType="number-pad"
             textContentType="oneTimeCode"
+            secureTextEntry={true}
             renderCell={({ index, symbol, isFocused }) => (
               <Text
                 key={index}
@@ -77,11 +75,11 @@ const CodeVerficationScreen = ({ route, navigation }) => {
             )}
           />
           <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
-            This code will expire in 5 minutes{code}
+            This code will expire in 5 minutes
           </Text>
           <TouchableOpacity
             onPress={() => {
-              navigator.navigation.navigate("newPassword", value);
+              navigation.push("newPassword", value);
             }}
           >
             <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50,
     color: "white",
   },
-  root: { flex: 1, padding: 20 },
+  root: { flex: 1, padding: 10 },
   title: { textAlign: "center", fontSize: 30 },
   codeFieldRoot: { marginTop: 20 },
   cell: {
@@ -140,9 +138,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     borderWidth: 2,
     borderColor: "#00000030",
+    borderRadius: 10,
     textAlign: "center",
   },
   focusCell: {
-    borderColor: "#000",
+    borderColor: "green",
   },
 });
