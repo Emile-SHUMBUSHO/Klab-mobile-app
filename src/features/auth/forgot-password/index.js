@@ -57,7 +57,7 @@ const ForgotPasswordScreen = (props) => {
           <View style={styles.header}>
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate("codeVerification");
+                props.navigation.navigate("codeVerification", inputs);
               }}
             >
               <Image

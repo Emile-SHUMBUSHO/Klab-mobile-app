@@ -12,7 +12,7 @@ import {
 import { useDispatch } from "react-redux";
 import { CheckCode } from "../../../redux/actions";
 
-const CodeVerficationScreen = (navigator) => {
+const CodeVerficationScreen = ({ route, navigation }) => {
   const [value, setValue] = useState();
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -31,7 +31,7 @@ const CodeVerficationScreen = (navigator) => {
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            navigator.navigation.navigate("recovery");
+            navigator.navigation.navigate("signIn");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
