@@ -17,7 +17,6 @@ import { PasswordReset } from "../../../redux/actions";
 const TypeNewPasswordScreen = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
-    code: `${code}`,
     password: "",
   });
   const [errors, setErrors] = useState({});
@@ -44,7 +43,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
   const code = route.params;
   const dispatch = useDispatch();
   const TypeNewPasswordFunc = () => {
-    dispatch(PasswordReset(inputs.code, inputs.password));
+    dispatch(PasswordReset(code, inputs.password));
     // setLoading(true);
     // props.navigation.navigate("codeVerification");
     // setLoading(false);
