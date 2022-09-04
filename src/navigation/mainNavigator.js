@@ -54,7 +54,7 @@ function MainNavigator() {
           />
 
           <Tab.Screen
-            name="Parent"
+            name="Programs"
             options={{
               tabBarLabel: "Programs",
               tabBarIcon: ({ size, color }) => (
@@ -77,7 +77,7 @@ function MainNavigator() {
           <Tab.Screen
             name="Profile"
             options={{
-              tabBarLabel: "Me",
+              tabBarLabel: "Profile",
               tabBarIcon: ({ color, size }) => (
                 <FontAwesome5 name="user-alt" size={24} color="grey" />
               ),
