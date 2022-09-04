@@ -24,7 +24,8 @@ const CodeVerficationScreen = ({ route, navigation }) => {
     dispatch(CheckCode(value));
   };
   CheckCodeFunction();
-  const code = value;
+  const email = route.params;
+  console.log(email);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -80,7 +81,7 @@ const CodeVerficationScreen = ({ route, navigation }) => {
           </Text>
           <TouchableOpacity
             onPress={() => {
-              navigator.navigation.navigate("newPassword", code);
+              navigator.navigation.navigate("newPassword", value);
             }}
           >
             <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
