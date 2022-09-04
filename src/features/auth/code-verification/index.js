@@ -31,7 +31,7 @@ const CodeVerficationScreen = ({ route, navigation }) => {
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            navigation.goBack();
+            navigation.push("signIn");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
@@ -48,42 +48,45 @@ const CodeVerficationScreen = ({ route, navigation }) => {
             backgroundColor: "black",
           }}
         />
-        <View style={styles.content}>
-          <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-            Enter Recovery code
-          </Text>
-          <Text style={{ fontSize: 15, margin: 1 }}>Code sent on {email}</Text>
-          <CodeField
-            ref={ref}
-            {...props}
-            // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
-            value={value}
-            onChangeText={setValue}
-            cellCount={CELL_COUNT}
-            rootStyle={styles.codeFieldRoot}
-            keyboardType="number-pad"
-            textContentType="oneTimeCode"
-            secureTextEntry={true}
-            renderCell={({ index, symbol, isFocused }) => (
-              <Text
-                key={index}
-                style={[styles.cell, isFocused && styles.focusCell]}
-                onLayout={getCellOnLayoutHandler(index)}
-              >
-                {symbol || (isFocused ? <Cursor /> : null)}
-              </Text>
-            )}
-          />
-          <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
-            This code will expire in 5 minutes
-          </Text>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.push("newPassword", value);
-            }}
-          >
-            <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
-          </TouchableOpacity>
+        <View style={styles.boxContainer}>
+          <View style={styles.content}>
+            <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
+              Enter Recovery code
+            </Text>
+            <Text style={{ fontSize: 15, margin: 1 }}>
+              Code sent on {email}
+            </Text>
+            <CodeField
+              ref={ref}
+              {...props}
+              value={value}
+              onChangeText={setValue}
+              cellCount={CELL_COUNT}
+              rootStyle={styles.codeFieldRoot}
+              keyboardType="number-pad"
+              textContentType="oneTimeCode"
+              secureTextEntry={true}
+              renderCell={({ index, symbol, isFocused }) => (
+                <Text
+                  key={index}
+                  style={[styles.cell, isFocused && styles.focusCell]}
+                  onLayout={getCellOnLayoutHandler(index)}
+                >
+                  {symbol || (isFocused ? <Cursor /> : null)}
+                </Text>
+              )}
+            />
+            <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
+              This code will expire in 5 minutes
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push("newPassword", value);
+              }}
+            >
+              <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
@@ -108,13 +111,21 @@ const styles = StyleSheet.create({
   footer: {
     height: "75%",
   },
-  content: {
+  boxContainer: {
     flex: 1,
     backgroundColor: "white",
     borderTopRightRadius: 50,
     flexDirection: "column",
+    justifyContent: "center",
+    padding: 20,
+  },
+
+  content: {
+    flex: 1,
+    flexDirection: "column",
     justifyContent: "flex-start",
     padding: 20,
+    top: 20,
   },
   logo: {
     width: 100,
@@ -130,7 +141,9 @@ const styles = StyleSheet.create({
   },
   root: { flex: 1, padding: 10 },
   title: { textAlign: "center", fontSize: 30 },
-  codeFieldRoot: { marginTop: 20 },
+  codeFieldRoot: {
+    marginTop: 20,
+  },
   cell: {
     width: 40,
     height: 40,
@@ -142,6 +155,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   focusCell: {
-    borderColor: "green",
+    borderColor: "black",
   },
 });

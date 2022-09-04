@@ -99,30 +99,32 @@ const ForgotPasswordScreen = (props) => {
             backgroundColor: "black",
           }}
         />
-        <View style={styles.content}>
-          <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-            Password Recovery
-          </Text>
-          <Text style={{ fontSize: 15, margin: 1 }}>
-            Recovery code will be send on your email
-          </Text>
-          <Input
-            style={styles.input}
-            placeholder="Enter Your Email"
-            iconName="email-outline"
-            onChangeText={(text) => handleOnChange(text, "email")}
-            error={errors.email}
-            onFocus={() => {
-              handleErrors(null, "email");
-            }}
-          />
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button title="Send Code Recovery" onPress={validate} />
+        <View style={styles.boxContainer}>
+          <View style={styles.content}>
+            <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
+              Password Recovery
+            </Text>
+            <Text style={{ fontSize: 15, margin: 1 }}>
+              Recovery code will be send on your email
+            </Text>
+            <Input
+              style={styles.input}
+              placeholder="Enter Your Email"
+              iconName="email-outline"
+              onChangeText={(text) => handleOnChange(text, "email")}
+              error={errors.email}
+              onFocus={() => {
+                handleErrors(null, "email");
+              }}
+            />
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button title="Submit" onPress={validate} />
+            </View>
           </View>
         </View>
       </View>
@@ -152,13 +154,21 @@ const styles = StyleSheet.create({
   footer: {
     height: "75%",
   },
-  content: {
+  boxContainer: {
     flex: 1,
     backgroundColor: "white",
     borderTopRightRadius: 50,
     flexDirection: "column",
+    justifyContent: "center",
+    padding: 20,
+  },
+
+  content: {
+    flex: 1,
+    flexDirection: "column",
     justifyContent: "flex-start",
     padding: 20,
+    top: 20,
   },
 
   logo: {

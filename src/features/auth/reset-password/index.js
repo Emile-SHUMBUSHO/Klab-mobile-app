@@ -11,10 +11,12 @@ import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import Button from "../../../components/button";
 import Loader from "../../../components/loader";
+import ModalPoup from "../../../components/modalPoup";
 import { useDispatch } from "react-redux";
 import { PasswordReset } from "../../../redux/actions";
 
 const TypeNewPasswordScreen = ({ route, navigation }) => {
+  const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
     password: "",
@@ -44,13 +46,40 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
   const dispatch = useDispatch();
   const TypeNewPasswordFunc = () => {
     dispatch(PasswordReset(code, inputs.password));
-    // setLoading(true);
+    setLoading(true);
+    setVisible(true);
     // props.navigation.navigate("codeVerification");
     // setLoading(false);
   };
   return (
     <View style={styles.container}>
       <Loader visible={loading} />
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push("signIn");
+              }}
+            >
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
+
+        <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
+          Your passwordchanged Successful
+        </Text>
+      </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
@@ -72,26 +101,28 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
             backgroundColor: "black",
           }}
         />
-        <View style={styles.content}>
-          <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-            Type New Password
-          </Text>
-          <Input
-            onChangeText={(text) => handleOnChange(text, "password")}
-            onFocus={() => handleErrors(null, "password")}
-            iconName="lock-outline"
-            label="Password"
-            placeholder="Enter your password"
-            error={errors.password}
-            password
-          />
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button title="Reset Password" onPress={validate} />
+        <View style={styles.boxContainer}>
+          <View style={styles.content}>
+            <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
+              Type New Password
+            </Text>
+            <Input
+              onChangeText={(text) => handleOnChange(text, "password")}
+              onFocus={() => handleErrors(null, "password")}
+              iconName="lock-outline"
+              label="Password"
+              placeholder="Enter your password"
+              error={errors.password}
+              password
+            />
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Button title="Reset Password" onPress={validate} />
+            </View>
           </View>
         </View>
       </View>
@@ -121,17 +152,30 @@ const styles = StyleSheet.create({
   footer: {
     height: "75%",
   },
-  content: {
+  boxContainer: {
     flex: 1,
     backgroundColor: "white",
     borderTopRightRadius: 50,
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     padding: 20,
   },
 
+  content: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    padding: 20,
+    top: 20,
+  },
   logo: {
     width: 100,
     height: 40,
+  },
+  header: {
+    width: "100%",
+    height: 40,
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });
