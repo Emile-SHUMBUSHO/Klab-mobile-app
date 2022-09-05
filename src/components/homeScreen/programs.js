@@ -6,7 +6,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 export const Programs = (props) => {
+  const navigation = useNavigation();
   const { title, description } = props;
   return (
     <View style={styles.content}>
@@ -48,6 +50,7 @@ export const Programs = (props) => {
                 flexDirection: "row",
                 borderRadius: 25,
               }}
+              onPress={() => navigation.navigate("join")}
             >
               <Text style={{ color: "white" }}>Join</Text>
             </TouchableOpacity>

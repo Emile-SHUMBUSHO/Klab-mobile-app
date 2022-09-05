@@ -34,7 +34,9 @@ const SignInScreen = (props) => {
     if (!inputs.email) {
       handleErrors("please input email address", "email");
       isValid = false;
-    } else if (!inputs.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+    } else if (
+      !inputs.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/)
+    ) {
       handleErrors("please input valid email address", "email");
       isValid = false;
     }
