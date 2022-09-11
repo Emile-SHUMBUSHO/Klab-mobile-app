@@ -21,9 +21,6 @@ const SignInScreen = (props) => {
     email: "",
     password: "",
   });
-  const { error } = useSelector((state) => state.Auth);
-  console.log("unauthorized user");
-  console.log(error);
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));

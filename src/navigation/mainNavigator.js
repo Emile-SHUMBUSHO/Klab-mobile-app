@@ -225,7 +225,7 @@ function MainNavigator() {
                         <MaterialIcons name="event" size={24} color="black" />
                       ),
                     }}
-                    component={KlabMembersHomeScreen}
+                    component={EventScreen}
                   />
                   <Tab.Screen
                     name="settings"

@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import Loader from "../../../components/loader";
 import { useDispatch } from "react-redux";
 import { EmailToResetPassword } from "../../../redux/actions";
@@ -123,7 +123,7 @@ const ForgotPasswordScreen = (props) => {
                 alignItems: "center",
               }}
             >
-              <Button title="Submit" onPress={validate} />
+              <Button1 title="Submit" onPress={validate} />
             </View>
           </View>
         </View>

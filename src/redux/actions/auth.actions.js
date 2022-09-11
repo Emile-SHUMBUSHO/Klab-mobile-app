@@ -107,8 +107,6 @@ export const CheckCode = (code) => {
           code,
         },
       });
-      console.log("code to reset password");
-      console.log(response);
       dispatch({
         type: "CODE IS VALID",
         payload: response,

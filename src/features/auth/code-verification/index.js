@@ -13,17 +13,24 @@ import { useDispatch } from "react-redux";
 import { CheckCode } from "../../../redux/actions";
 
 const CodeVerficationScreen = ({ route, navigation }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
+  const code = [];
+  code.push(value);
+  if (code[0].length === 6) {
+    const dispatch = useDispatch();
+    const CheckCodeFunction = () => {
+      dispatch(CheckCode(code[0]));
+      navigation.push("newPassword", code[0]);
+    };
+    CheckCodeFunction();
+  }
+
   const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
-  const dispatch = useDispatch();
-  const CheckCodeFunction = () => {
-    dispatch(CheckCode(value));
-  };
-  CheckCodeFunction();
+
   const email = route.params.email;
   return (
     <View style={styles.container}>
@@ -79,11 +86,7 @@ const CodeVerficationScreen = ({ route, navigation }) => {
             <Text style={{ fontWeight: "bold", fontSize: 15, margin: 1 }}>
               This code will expire in 5 minutes
             </Text>
-            <TouchableOpacity
-              onPress={() => {
-                navigation.push("newPassword", value);
-              }}
-            >
+            <TouchableOpacity>
               <Text style={{ fontWeight: "bold", fontSize: 15 }}>Next</Text>
             </TouchableOpacity>
           </View>

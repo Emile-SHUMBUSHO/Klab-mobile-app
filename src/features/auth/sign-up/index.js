@@ -39,7 +39,6 @@ const SignUpScreen = (props) => {
     password: "",
   });
 
-  const { error } = useSelector((state) => state.Auth);
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
@@ -86,69 +85,32 @@ const SignUpScreen = (props) => {
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
-      {error ? (
-        <>
-          <ModalPoup visible={visible}>
-            <View style={{ alignItems: "center" }}>
-              <View style={styles.header}>
-                <TouchableOpacity
-                  onPress={() => {
-                    props.navigation.navigate("signUp");
-                  }}
-                >
-                  <Image
-                    source={require("../../../../assets/x.png")}
-                    style={{ height: 30, width: 30 }}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={{ alignItems: "center" }}>
-              <Image
-                source={require("../../../../assets/success.png")}
-                style={{ height: 150, width: 150, marginVertical: 10 }}
-              />
-            </View>
-
-            <Text
-              style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("signUp");
+              }}
             >
-              Congratulations registered was successful
-            </Text>
-          </ModalPoup>
-        </>
-      ) : (
-        <>
-          <ModalPoup visible={visible}>
-            <View style={{ alignItems: "center" }}>
-              <View style={styles.header}>
-                <TouchableOpacity
-                  onPress={() => {
-                    props.navigation.navigate("signIn");
-                  }}
-                >
-                  <Image
-                    source={require("../../../../assets/x.png")}
-                    style={{ height: 30, width: 30 }}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={{ alignItems: "center" }}>
               <Image
-                source={require("../../../../assets/success.png")}
-                style={{ height: 150, width: 150, marginVertical: 10 }}
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
               />
-            </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
 
-            <Text
-              style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}
-            >
-              Congratulations registered was successful
-            </Text>
-          </ModalPoup>
-        </>
-      )}
+        <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
+          Congratulations registered was successful
+        </Text>
+      </ModalPoup>
 
       <View style={styles.top}>
         <TouchableOpacity

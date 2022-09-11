@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import Loader from "../../../components/loader";
 import ModalPoup from "../../../components/modalPoup";
 import { useDispatch } from "react-redux";
@@ -43,6 +43,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
     }
   };
   const code = route.params;
+  console.log(code);
   const dispatch = useDispatch();
   const TypeNewPasswordFunc = () => {
     dispatch(PasswordReset(code, inputs.password));
@@ -121,7 +122,7 @@ const TypeNewPasswordScreen = ({ route, navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Button title="Reset Password" onPress={validate} />
+              <Button1 title="Reset Password" onPress={validate} />
             </View>
           </View>
         </View>
