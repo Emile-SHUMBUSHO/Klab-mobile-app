@@ -9,7 +9,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 export const Programs = (props) => {
   const navigation = useNavigation();
-  const { title, description } = props;
+  const { title, description, id } = props;
   return (
     <View style={styles.content}>
       <ImageBackground
@@ -50,7 +50,7 @@ export const Programs = (props) => {
                 flexDirection: "row",
                 borderRadius: 25,
               }}
-              onPress={() => navigation.navigate("join")}
+              onPress={() => navigation.navigate("join", { id, title })}
             >
               <Text style={{ color: "white" }}>Join</Text>
             </TouchableOpacity>

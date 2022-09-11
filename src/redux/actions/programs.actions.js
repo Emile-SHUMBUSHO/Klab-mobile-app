@@ -57,7 +57,7 @@ export const join = (data) => async (dispatch) => {
     data: data,
     headers: {
       "Content-Type": "multipart/form-data",
-      Authorization: `Bearer ${token}`,
+      Authorization: `bearer ${token}`,
     },
   })
     .then((res) => {
@@ -66,6 +66,6 @@ export const join = (data) => async (dispatch) => {
     })
     .catch((err) => {
       console.error(err.response);
-      dispatch({ type: "FAILED TO JOIN", payload: err.response.data });
+      dispatch({ type: "FAILED TO JOIN", payload: err.response.data.message });
     });
 };

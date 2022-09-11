@@ -22,6 +22,14 @@ import { join } from "../../redux/actions";
 const JoinScreen = (props) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+  const { params } = props.route;
+  const birthdate = (date) => {
+    // if(!date.match(/^\d{4}-\d{1,2}-\d{1,2}$/)) return handleErrors("Follow this format 1970-12-12", "age");
+    const dTime = new Date(date);
+    const d = dTime.getTime();
+    if (!d && d !== 0) return handleErrors("Enter a valid date", "age");
+    return dTime.toISOString().slice(0, 10) === date;
+  };
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
@@ -48,6 +56,8 @@ const JoinScreen = (props) => {
     about: "",
     haveProject: "",
     projectLink: "",
+    description: "",
+    program: params.id,
   });
   const [resume, setResume] = useState(null);
   const [projectImage, setProjectImage] = useState(null);
@@ -85,6 +95,7 @@ const JoinScreen = (props) => {
     Keyboard.dismiss();
     setIsLoading(true);
     let isValid = true;
+
     if (!inputs.email) {
       handleErrors("please input email address", "email");
       isValid = false;
@@ -100,32 +111,91 @@ const JoinScreen = (props) => {
       isValid = false;
     }
 
+    if (!inputs.province) {
+      handleErrors("please input province name", "province");
+      isValid = false;
+    }
+
+    if (!inputs.district) {
+      handleErrors("please input district name", "district");
+      isValid = false;
+    }
+
+    if (!inputs.sector) {
+      handleErrors("please input sector name", "sector");
+      isValid = false;
+    }
+
+    if (!inputs.cell) {
+      handleErrors("please input cell name", "cell");
+      isValid = false;
+    }
+
+    if (!inputs.village) {
+      handleErrors("please input village name", "village");
+      isValid = false;
+    }
+
+    if (!inputs.age) {
+      handleErrors("Please input Birthdate", "age");
+      isValid = false;
+    } else if (!inputs.age.match(/^\d{4}-\d{1,2}-\d{1,2}$/)) {
+      handleErrors("Follow this format 1970-12-12", "age");
+      // birthdate(inputs.age);
+      isValid = false;
+    }
+
+    if (!inputs.fullName) {
+      handleErrors("please input full name", "fullName");
+      isValid = false;
+    }
+
+    if (!inputs.fullName) {
+      handleErrors("please input full name", "fullName");
+      isValid = false;
+    }
+
+    if (!inputs.fullName) {
+      handleErrors("please input full name", "fullName");
+      isValid = false;
+    }
+
     if (isValid) {
       register();
     }
   };
 
   const register = () => {
-    const data = {
-      fullName: inputs.fullName,
-      email: inputs.email,
-      age: inputs.age,
-      gender: inputs.gender,
-      phone: inputs.phone,
-      province: inputs.province,
-      district: inputs.district,
-      sector: inputs.sector,
-      cell: inputs.cell,
-      village: inputs.village,
-      attended_school: inputs.attended,
-      have_you_graduated: inputs.graduated,
-      // program_id: inputs.,
-      resume,
-      project_screenshot: projectImage,
-    };
     const formdata = new FormData();
-    formdata.append({ ...data });
-    console.log(formdata);
+    formdata.append("fullname", inputs.fullName);
+    formdata.append("email", inputs.email);
+    formdata.append("phone", inputs.phone);
+    formdata.append("province", inputs.province);
+    formdata.append("district", inputs.district);
+    formdata.append("sector", inputs.sector);
+    formdata.append("cell", inputs.cell);
+    formdata.append("village", inputs.village);
+    formdata.append("age", inputs.age);
+    formdata.append("gender", inputs.gender);
+    formdata.append("have_you_graduated", inputs.graduated);
+    formdata.append("attended_school", inputs.attended);
+    formdata.append("field_of_study", inputs.studyField);
+    formdata.append("tallus_about_you", inputs.about);
+    formdata.append("do_you_have_project", inputs.haveProject);
+    formdata.append("project_link", inputs.projectLink);
+    formdata.append("project_description", inputs.description);
+    formdata.append("program_id", inputs.program);
+    formdata.append("resume", {
+      uri: resume.uri,
+      type: "application/pdf",
+      name: "resume/" + inputs.fullName,
+    });
+    formdata.append("project_screenshot", {
+      uri: projectImage.uri,
+      type: "image/*",
+      name: "projectScreenshots/" + inputs.fullName,
+    });
+
     setIsLoading(false);
     dispatch(join(formdata));
     // navigation.goBack();
@@ -220,7 +290,7 @@ const JoinScreen = (props) => {
               />
               <Input
                 style={styles.input}
-                placeholder="Age"
+                placeholder="Birthdate"
                 onChangeText={(text) => handleOnChange(text, "age")}
                 onFocus={() => handleErrors(null, "age")}
                 error={errors.age}
@@ -258,7 +328,7 @@ const JoinScreen = (props) => {
               <Input
                 style={styles.input}
                 placeholder="Have you graduated"
-                onChangeText={(text) => handleOnChange(text)}
+                onChangeText={(text) => handleOnChange(text, "graduated")}
                 onFocus={() => handleErrors(null, "graduated")}
                 error={errors.graduated}
               />
@@ -303,10 +373,18 @@ const JoinScreen = (props) => {
                 error={errors.projectLink}
               />
 
+              <Input
+                style={styles.input}
+                placeholder="Project description"
+                onChangeText={(text) => handleOnChange(text, "description")}
+                onFocus={() => handleErrors(null, "description")}
+                error={errors.description}
+              />
+
               <TextInput
                 style={[styles.dropDownPicker]}
                 editable={false}
-                defaultValue={"Program"}
+                defaultValue={params.title}
               />
               <View style={[styles.dropDownPicker, styles.select]}>
                 {resume ? (
