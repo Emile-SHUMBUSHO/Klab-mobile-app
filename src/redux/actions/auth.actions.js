@@ -2,17 +2,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../config";
-export const Init = () => {
-  return async (dispatch) => {
-    let token = await AsyncStorage.getItem("token");
-    if (token !== null) {
-      dispatch({
-        type: "LOGIN",
-        payload: token,
-      });
-    }
-  };
-};
 
 export const Register = (name, email, role, password) => {
   return async (dispatch) => {
@@ -33,7 +22,7 @@ export const Register = (name, email, role, password) => {
         payload: response,
       });
     } catch (err) {
-      dispatch({ type: "REGISTER FAILED", payload: err.message });
+      dispatch({ type: "REGISTER FAILED", payload: err.response.data.error });
     }
   };
 };
@@ -64,8 +53,29 @@ export const Login = (email, password) => {
       });
       await AsyncStorage.setItem("user", decoded);
     } catch (err) {
-      console.log(err);
+      dispatch({ type: "LOGIN FAIL", payload: err.message });
     }
+  };
+};
+
+export const Init = () => {
+  return async (dispatch) => {
+    let token = await AsyncStorage.getItem("token");
+    if (token !== null) {
+      dispatch({
+        type: "LOGIN",
+        payload: token,
+      });
+    }
+  };
+};
+
+export const Logout = () => {
+  return async (dispatch) => {
+    await AsyncStorage.clear();
+    dispatch({
+      type: "LOGOUT",
+    });
   };
 };
 
@@ -130,14 +140,5 @@ export const PasswordReset = (code, password) => {
     } catch (err) {
       dispatch({ type: "PASSWORD DID NOT CHANGED", payload: err.message });
     }
-  };
-};
-
-export const Logout = () => {
-  return async (dispatch) => {
-    await AsyncStorage.clear();
-    dispatch({
-      type: "LOGOUT",
-    });
   };
 };

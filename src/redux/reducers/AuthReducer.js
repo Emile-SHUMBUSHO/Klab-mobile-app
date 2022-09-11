@@ -37,6 +37,13 @@ export default (state = initialState, action) => {
         ...state, //copy all previous states
         userInfo: action.payload,
       };
+
+    case "LOGIN FAIL":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case "LOGOUT":
       return {
         authToken: null,

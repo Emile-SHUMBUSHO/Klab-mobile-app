@@ -7,16 +7,17 @@ import {
   Keyboard,
   Image,
 } from "react-native";
-import { Entypo, MaterialIcons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import Loader from "../../../components/loader";
 import ModalPoup from "../../../components/modalPoup";
+
 const RegisterScreen = ({ route, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -149,13 +150,9 @@ const RegisterScreen = ({ route, navigation }) => {
         </Text>
       </ModalPoup>
       <View style={styles.top}>
-        <TouchableOpacity
-          style={{ right: 120 }}
-          onPress={() => navigation.goBack("home")}
-        >
-          <Entypo name="chevron-left" size={24} color="white" />
-        </TouchableOpacity>
-        <Text style={{ color: "white" }}>Register Child</Text>
+        <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
+          Register Child
+        </Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -251,7 +248,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            <Button title="Save Child Information" onPress={validate} />
+            <Button1 title="Save Child Information" onPress={validate} />
           </View>
         </View>
       </ScrollView>

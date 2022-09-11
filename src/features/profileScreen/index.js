@@ -5,10 +5,18 @@ import {
   FontAwesome5,
   AntDesign,
 } from "@expo/vector-icons";
-
-import { useDispatch } from "react-redux";
+import { Notification } from "../../components/notification";
+import { UserInfo } from "../../utils/userInfo";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Logout } from "../../redux/actions";
+
 const ProfileScreen = (props) => {
+  const [user, setUser] = useState("");
+  const token = useSelector((state) => state.Auth.authToken);
+  UserInfo(token).then((response) => {
+    setUser(response.name);
+  });
   const dispatch = useDispatch();
   const logoutFunc = () => {
     dispatch(Logout());
@@ -16,7 +24,13 @@ const ProfileScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{ color: "white", fontSize: 18 }}>Ryan Fabrice</Text>
+        <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
+          {user}
+        </Text>
+        <Notification
+          title="5"
+          onPress={() => props.navigation.navigate("notifications")}
+        />
       </View>
       <View style={styles.content}>
         <TouchableOpacity
@@ -67,11 +81,6 @@ const ProfileScreen = (props) => {
           <Feather name="share-2" size={24} color="black" />
           <Text style={{ left: 10 }}>Share</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.touchableOpacity}>
-          <Feather name="unlock" size={24} color="black" />
-          <Text style={{ left: 10 }}>Change Password</Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.touchableOpacity} onPress={logoutFunc}>
           <MaterialIcons name="logout" size={24} color="black" />
           <Text style={{ left: 10 }}>Log Out</Text>
@@ -91,8 +100,10 @@ const styles = StyleSheet.create({
   },
   top: {
     height: "15%",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
+    padding: 20,
   },
   content: {
     borderTopLeftRadius: 20,

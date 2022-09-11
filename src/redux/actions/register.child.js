@@ -14,8 +14,6 @@ export const register = (
 ) => {
   return async (dispatch) => {
     let token = await AsyncStorage.getItem("token");
-    console.log("token to be authorized");
-    console.log(token);
     try {
       const response = await axios({
         method: "POST",
@@ -44,6 +42,21 @@ export const register = (
     } catch (err) {
       console.log(err);
       dispatch({ type: "REGISTERCHILD FAILED", payload: err.message });
+    }
+  };
+};
+
+export const fetchChild = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: `${BASE_URL}/`,
+      });
+      console.log(response);
+      dispatch({ type: "FECTCH CHILD SUCCESSFUL", payload: response });
+    } catch (err) {
+      dispatch({ type: "FETCH CHILD FAILED", payload: err.message });
     }
   };
 };

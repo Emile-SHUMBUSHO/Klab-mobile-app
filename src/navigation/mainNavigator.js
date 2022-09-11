@@ -1,13 +1,21 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { FontAwesome, FontAwesome5, Entypo } from "@expo/vector-icons";
-import ProfileScreen from "../components/profileScreen";
-import HomeScreen from "../components/homeScreen";
+import {
+  FontAwesome,
+  FontAwesome5,
+  Entypo,
+  Ionicons,
+  MaterialIcons,
+} from "@expo/vector-icons";
+import ProfileScreen from "../features/profileScreen";
+import HomeScreen from "../features/homeScreen";
 import ParentScreen from "../features/future.coders/screens";
-import ChildScreen from "../components/ChildScreen";
+import ChildScreen from "../features/ChildScreen";
 import KlabMembersHomeScreen from "../features/klab-members";
+import EventScreen from "../features/events";
 import { useState } from "react";
 import { UserInfo } from "../utils/userInfo";
 import { useSelector } from "react-redux";
+import { CompanyScreen } from "../features/company";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +27,7 @@ function MainNavigator() {
   });
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
@@ -57,19 +66,42 @@ function MainNavigator() {
             name="Programs"
             options={{
               tabBarLabel: "Programs",
-              tabBarIcon: ({ size, color }) => (
-                <Entypo name="list" size={24} color="grey" />
+              tabBarIcon: ({ size, color, focused }) => (
+                <Entypo
+                  name="list"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
               ),
             }}
             component={ParentScreen}
           />
 
           <Tab.Screen
+            name="Events"
+            options={{
+              tabBarLabel: "Events",
+              tabBarIcon: ({ focused, size, color }) => (
+                <MaterialIcons
+                  name="event"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
+              ),
+            }}
+            component={EventScreen}
+          />
+
+          <Tab.Screen
             name="Child"
             options={{
               tabBarLabel: "Child",
-              tabBarIcon: ({ size, color }) => (
-                <FontAwesome name="child" size={24} color="grey" />
+              tabBarIcon: ({ size, color, focused }) => (
+                <FontAwesome
+                  name="child"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
               ),
             }}
             component={ChildScreen}
@@ -78,8 +110,12 @@ function MainNavigator() {
             name="Profile"
             options={{
               tabBarLabel: "Profile",
-              tabBarIcon: ({ color, size }) => (
-                <FontAwesome5 name="user-alt" size={24} color="grey" />
+              tabBarIcon: ({ color, size, focused }) => (
+                <FontAwesome5
+                  name="user-alt"
+                  size={24}
+                  color={focused ? "black" : "grey"}
+                />
               ),
             }}
             component={ProfileScreen}
@@ -104,14 +140,42 @@ function MainNavigator() {
                 component={HomeScreen}
               />
               <Tab.Screen
+                name="Register"
+                options={{
+                  tabBarLabel: "Register",
+                  tabBarIcon: ({ color, size, focused }) => (
+                    <Ionicons
+                      name="business"
+                      size={24}
+                      color={focused ? "black" : "grey"}
+                    />
+                  ),
+                }}
+                component={CompanyScreen}
+              />
+              <Tab.Screen
+                name="Events"
+                options={{
+                  tabBarLabel: "Events",
+                  tabBarIcon: ({ color, size, focused }) => (
+                    <MaterialIcons
+                      name="event"
+                      size={24}
+                      color={focused ? "black" : "grey"}
+                    />
+                  ),
+                }}
+                component={EventScreen}
+              />
+              <Tab.Screen
                 name="Profile"
                 options={{
                   tabBarLabel: "Company-Kit",
-                  tabBarIcon: ({ color, size }) => (
+                  tabBarIcon: ({ color, size, focused }) => (
                     <FontAwesome5
                       name="business-time"
                       size={24}
-                      color="black"
+                      color={focused ? "black" : "grey"}
                     />
                   ),
                 }}
@@ -140,8 +204,12 @@ function MainNavigator() {
                     name="Profile"
                     options={{
                       tabBarLabel: "Me",
-                      tabBarIcon: ({ color, size }) => (
-                        <FontAwesome5 name="user-alt" size={24} color="grey" />
+                      tabBarIcon: ({ color, size, focused }) => (
+                        <FontAwesome5
+                          name="user-alt"
+                          size={24}
+                          color={focused ? "black" : "grey"}
+                        />
                       ),
                     }}
                     component={ProfileScreen}
@@ -150,15 +218,21 @@ function MainNavigator() {
               ) : (
                 <>
                   <Tab.Screen
-                    name="Profile"
+                    name="Events"
                     options={{
-                      tabBarLabel: "Company-Kit",
+                      tabBarLabel: "Events",
+                      tabBarIcon: ({ focused, size, color }) => (
+                        <MaterialIcons name="event" size={24} color="black" />
+                      ),
+                    }}
+                    component={KlabMembersHomeScreen}
+                  />
+                  <Tab.Screen
+                    name="settings"
+                    options={{
+                      tabBarLabel: "settings",
                       tabBarIcon: ({ color, size }) => (
-                        <FontAwesome5
-                          name="business-time"
-                          size={24}
-                          color="black"
-                        />
+                        <FontAwesome5 name="user-alt" size={24} color="grey" />
                       ),
                     }}
                     component={ProfileScreen}

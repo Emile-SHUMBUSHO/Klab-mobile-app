@@ -15,6 +15,9 @@ import EditProfileScreen from "../features/edit-profile/screens";
 import JoinScreen from "../features/joinProgram";
 import KlabMembersHomeScreen from "../features/klab-members";
 import TypeNewPasswordScreen from "../features/auth/reset-password";
+import EventScreen from "../features/events";
+import { CompanyScreen } from "../features/company";
+import { RegisterCompanyScreen } from "../features/company/company-register";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useState, useEffect } from "react";
@@ -75,7 +78,6 @@ function AppNavigator() {
         ) : (
           <>
             <Stack.Screen name="home" component={MainNavigator} />
-            <Stack.Screen name="profile" component={CompleteProfileScreen} />
             <Stack.Screen name="payment" component={PaymentScreen} />
             <Stack.Screen name="register" component={RegisterScreen} />
             <Stack.Screen name="edit" component={EditProfileScreen} />
@@ -86,6 +88,13 @@ function AppNavigator() {
             <Stack.Screen name="join" component={JoinScreen} />
             <Stack.Screen name="notifications" component={Notifications} />
             <Stack.Screen name="members" component={KlabMembersHomeScreen} />
+            <Stack.Screen name="profile" component={CompleteProfileScreen} />
+            <Stack.Screen name="company" component={CompanyScreen} />
+            <Stack.Screen
+              name="companyRegistration"
+              component={RegisterCompanyScreen}
+            />
+            <Stack.Screen name="events" component={EventScreen} />
           </>
         )}
       </Stack.Navigator>

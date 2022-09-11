@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -8,12 +8,12 @@ import {
   Keyboard,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import Input from "../../../components/input";
 import Loader from "../../../components/loader";
 
 import { Login } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignInScreen = (props) => {
   const [loading, setLoading] = useState(false);
@@ -21,6 +21,9 @@ const SignInScreen = (props) => {
     email: "",
     password: "",
   });
+  const { error } = useSelector((state) => state.Auth);
+  console.log("unauthorized user");
+  console.log(error);
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
@@ -136,7 +139,7 @@ const SignInScreen = (props) => {
               alignItems: "center",
             }}
           >
-            <Button title="Sign In" onPress={validate} />
+            <Button1 title="Sign In" onPress={validate} />
             <View
               style={{
                 justifyContent: "center",
