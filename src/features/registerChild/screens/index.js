@@ -1,45 +1,43 @@
 import { useState } from "react";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import {
   View,
   StyleSheet,
   Text,
   TouchableOpacity,
   Keyboard,
+  Image,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import { useDispatch } from "react-redux";
 import { register } from "../../../redux/actions/register.child";
-import DatePicker from "react-native-date-picker";
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
+import Loader from "../../../components/loader";
+import ModalPoup from "../../../components/modalPoup";
+
 const RegisterScreen = ({ route, navigation }) => {
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
-
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setShow(false);
-    setDate(currentDate);
+  const [isLoading, setIsLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [date, setDate] = useState(null);
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
   };
 
-  const showMode = (currentMode) => {
-    if (Platform.OS === "android") {
-      setShow(false);
-      // for iOS, add a button that closes the picker
-    }
-    setMode(currentMode);
+  const hideDatePicker = () => {
+    setDatePickerVisibility(false);
   };
 
-  const showDatepicker = () => {
-    showMode("date");
-  };
-
-  const showTimepicker = () => {
-    showMode("time");
+  const handleConfirm = (date) => {
+    const selectedDate = new Date(date);
+    const chosenDate = `${selectedDate.getDate()}-${
+      selectedDate.getMonth() + 1
+    }-${selectedDate.getFullYear()}`;
+    setInputs({ ...inputs, age: chosenDate });
+    hideDatePicker();
   };
 
   const { id } = route.params;
@@ -53,7 +51,7 @@ const RegisterScreen = ({ route, navigation }) => {
     firstName: "",
     lastName: "",
     gender: "",
-    age: "",
+    age: `${date}`,
     educationLevel: "",
     schoolName: "",
     email: "",
@@ -120,17 +118,41 @@ const RegisterScreen = ({ route, navigation }) => {
         inputs.id
       )
     );
+    setIsLoading(true);
+    setVisible(true);
   };
   return (
     <View style={styles.container}>
+      <Loader visible={isLoading} />
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack("home");
+              }}
+            >
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
+        <Text style={{ marginVertical: 30, textAlign: "center", fontSize: 20 }}>
+          Registered successful
+        </Text>
+      </ModalPoup>
       <View style={styles.top}>
-        <TouchableOpacity
-          style={{ right: 120 }}
-          onPress={() => navigation.goBack("home")}
-        >
-          <Entypo name="chevron-left" size={24} color="white" />
-        </TouchableOpacity>
-        <Text style={{ color: "white" }}>Register Child</Text>
+        <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
+          Register Child
+        </Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -183,57 +205,20 @@ const RegisterScreen = ({ route, navigation }) => {
               borderRadius: 20,
             }}
           />
-          {/* <TouchableOpacity
-            onPress={() => setOpenDate(true)}
-            activeOpacity={0.7}
-            style={{
-              height: 50,
-              width: "100%",
-              backgroundColor: "white",
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 4,
-              elevation: 2,
-              paddingHorizontal: 5,
-              borderRadius: 20,
-              top: 20,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "flex-start",
-            }}
+          <TouchableOpacity
+            style={styles.datePickerButton}
+            onPress={showDatePicker}
           >
-            <Text style={{ color: "black", fontSize: 14, margin: 10 }}>
-              Age
-            </Text>
+            <Text>Age {date}</Text>
+            <MaterialIcons name="date-range" size={24} color="black" />
           </TouchableOpacity>
 
-          <DatePicker
-            modal
-            open={openDate}
-            date={date}
-            onConfirm={(date) => {
-              setOpenDate(false);
-              setDate(date);
-            }}
-            onCancel={() => {
-              setOpenDate(false);
-            }}
-          /> */}
-          <Button onPress={showDatepicker} title="Show date picker!" />
-          <Text>selected: {date.toLocaleString()}</Text>
-          {show && (
-            <DateTimePicker
-              testID="dateTimePicker"
-              value={date}
-              mode={mode}
-              is24Hour={true}
-              onChange={onChange}
-            />
-          )}
+          <DateTimePickerModal
+            isVisible={isDatePickerVisible}
+            mode="date"
+            onConfirm={handleConfirm}
+            onCancel={hideDatePicker}
+          />
           <Input
             style={styles.input}
             placeholder="level of education"
@@ -263,7 +248,7 @@ const RegisterScreen = ({ route, navigation }) => {
             }}
           />
           <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            {/* <Button title="Save Child Information" onPress={validate} /> */}
+            <Button1 title="Save Child Information" onPress={validate} />
           </View>
         </View>
       </ScrollView>
@@ -288,19 +273,9 @@ const styles = StyleSheet.create({
   content: {
     flexDirection: "column",
     justifyContent: "center",
-
     padding: 10,
   },
 
-  submitBtn: {
-    width: "50%",
-    backgroundColor: "black",
-    height: 50,
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-  },
   dropDownPicker: {
     height: 50,
     top: 10,
@@ -318,8 +293,31 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderRadius: 20,
   },
-  inputTitle: {
-    color: "#3F3E3C",
-    margin: 3,
+
+  datePickerButton: {
+    height: 50,
+    backgroundColor: "white",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 2,
+    flexDirection: "row",
+    paddingHorizontal: 15,
+    borderWidth: 0,
+    borderRadius: 20,
+    top: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  header: {
+    width: "100%",
+    height: 40,
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });

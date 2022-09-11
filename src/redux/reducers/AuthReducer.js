@@ -37,6 +37,13 @@ export default (state = initialState, action) => {
         ...state, //copy all previous states
         userInfo: action.payload,
       };
+
+    case "LOGIN FAIL":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case "LOGOUT":
       return {
         authToken: null,
@@ -49,6 +56,30 @@ export default (state = initialState, action) => {
         error: null,
       };
     case "EMAIL NOT SENT":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "VALID CODE":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case "INVALID CODE":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "PASSWORD CHANGED":
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case "PASSWORD DID NOT CHANGED":
       return {
         ...state,
         loading: false,

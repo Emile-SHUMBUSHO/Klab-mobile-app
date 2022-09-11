@@ -1,7 +1,8 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import COLORS from "../infrastructure/theme/colors";
-const Button = ({ title, onPress = () => {} }) => {
+
+export const Button1 = ({ title, onPress = () => {} }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -23,4 +24,21 @@ const Button = ({ title, onPress = () => {} }) => {
   );
 };
 
-export default Button;
+export const Button2 = ({ title, onPress = () => {} }) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      style={{
+        width: 100,
+        height: 30,
+        backgroundColor: "black",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "row",
+        borderRadius: 15,
+      }}
+    >
+      <Text style={{ color: "white" }}>{title}</Text>
+    </TouchableOpacity>
+  );
+};

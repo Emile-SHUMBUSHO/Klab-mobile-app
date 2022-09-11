@@ -2,17 +2,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { BASE_URL } from "../../config";
-export const Init = () => {
-  return async (dispatch) => {
-    let token = await AsyncStorage.getItem("token");
-    if (token !== null) {
-      dispatch({
-        type: "LOGIN",
-        payload: token,
-      });
-    }
-  };
-};
 
 export const Register = (name, email, role, password) => {
   return async (dispatch) => {
@@ -33,27 +22,7 @@ export const Register = (name, email, role, password) => {
         payload: response,
       });
     } catch (err) {
-      dispatch({ type: "REGISTER FAILED", payload: err.message });
-    }
-  };
-};
-
-export const PasswordRest = (email) => {
-  return async (dispatch) => {
-    try {
-      const response = await axios({
-        method: "POST",
-        url: `${BASE_URL}/password/email`,
-        data: { email },
-      });
-      console.log("here is a data to reset");
-      console.log(response);
-      dispatch({
-        type: "EMAIL SENT SUCCESSFUL",
-        payload: response,
-      });
-    } catch (err) {
-      dispatch({ type: "EMAIL NOT SENT", payload: err.message });
+      dispatch({ type: "REGISTER FAILED", payload: err.response.data.error });
     }
   };
 };
@@ -84,7 +53,19 @@ export const Login = (email, password) => {
       });
       await AsyncStorage.setItem("user", decoded);
     } catch (err) {
-      console.log(err);
+      dispatch({ type: "LOGIN FAIL", payload: err.message });
+    }
+  };
+};
+
+export const Init = () => {
+  return async (dispatch) => {
+    let token = await AsyncStorage.getItem("token");
+    if (token !== null) {
+      dispatch({
+        type: "LOGIN",
+        payload: token,
+      });
     }
   };
 };
@@ -95,5 +76,67 @@ export const Logout = () => {
     dispatch({
       type: "LOGOUT",
     });
+  };
+};
+
+export const EmailToResetPassword = (email) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${BASE_URL}/password/email`,
+        data: { email },
+      });
+      dispatch({
+        type: "EMAIL SENT SUCCESSFUL",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "EMAIL NOT SENT", payload: err.message });
+    }
+  };
+};
+
+export const CheckCode = (code) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${BASE_URL}/password/code/check`,
+        data: {
+          code,
+        },
+      });
+      dispatch({
+        type: "CODE IS VALID",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "INVALID CODE", payload: err.message });
+    }
+  };
+};
+
+export const PasswordReset = (code, password) => {
+  return async (dispatch) => {
+    try {
+      console.log(`code for change${code}`);
+      const response = await axios({
+        method: "POST",
+        url: `${BASE_URL}/password/reset`,
+        data: {
+          code,
+          password,
+        },
+      });
+      console.log("New password");
+      console.log(response);
+      dispatch({
+        type: "PASSWORD CHANGED",
+        payload: response,
+      });
+    } catch (err) {
+      dispatch({ type: "PASSWORD DID NOT CHANGED", payload: err.message });
+    }
   };
 };

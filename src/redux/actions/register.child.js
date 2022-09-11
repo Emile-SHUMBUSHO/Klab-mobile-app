@@ -3,38 +3,36 @@ import { BASE_URL } from "../../config";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const register = (
-  firstName,
-  lastName,
+  fname,
+  lname,
   gender,
   age,
-  educationLevel,
-  schoolName,
+  level_of_education,
+  school_name,
   email,
-  id
+  program_id
 ) => {
   return async (dispatch) => {
     let token = await AsyncStorage.getItem("token");
-    console.log("token to be authorized");
-    console.log(token);
     try {
       const response = await axios({
         method: "POST",
         url: `${BASE_URL}/futureCodersregister`,
         headers: {
           Authorization: `Bearer ${token}`,
-          accept: "application/json",
         },
         data: {
-          firstName,
-          lastName,
+          fname,
+          lname,
           gender,
           age,
-          educationLevel,
-          schoolName,
+          level_of_education,
+          school_name,
           email,
-          id,
+          program_id,
         },
       });
+      console.log(age);
       console.log("child data");
       console.log(response);
       dispatch({
@@ -44,6 +42,21 @@ export const register = (
     } catch (err) {
       console.log(err);
       dispatch({ type: "REGISTERCHILD FAILED", payload: err.message });
+    }
+  };
+};
+
+export const fetchChild = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios({
+        method: "GET",
+        url: `${BASE_URL}/`,
+      });
+      console.log(response);
+      dispatch({ type: "FECTCH CHILD SUCCESSFUL", payload: response });
+    } catch (err) {
+      dispatch({ type: "FETCH CHILD FAILED", payload: err.message });
     }
   };
 };

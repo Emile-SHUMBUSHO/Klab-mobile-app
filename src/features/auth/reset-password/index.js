@@ -11,14 +11,15 @@ import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
 import { Button1 } from "../../../components/button";
 import Loader from "../../../components/loader";
-import { useDispatch } from "react-redux";
-import { EmailToResetPassword } from "../../../redux/actions";
 import ModalPoup from "../../../components/modalPoup";
-const ForgotPasswordScreen = (props) => {
-  const [loading, setLoading] = useState(false);
+import { useDispatch } from "react-redux";
+import { PasswordReset } from "../../../redux/actions";
+
+const TypeNewPasswordScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [inputs, setInputs] = useState({
-    email: "",
+    password: "",
   });
   const [errors, setErrors] = useState({});
   const handleOnChange = (text, input) => {
@@ -30,24 +31,26 @@ const ForgotPasswordScreen = (props) => {
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
-    if (!inputs.email) {
-      handleErrors("please input email address", "email");
+    if (!inputs.password) {
+      handleErrors("please input password", "password");
       isValid = false;
-    } else if (!inputs.email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
-      handleErrors("please input valid email address", "email");
+    } else if (inputs.password.length < 5) {
+      handleErrors("Weak password", "password");
       isValid = false;
     }
     if (isValid) {
-      RestPasswordFunc();
+      TypeNewPasswordFunc();
     }
   };
-
+  const code = route.params;
+  console.log(code);
   const dispatch = useDispatch();
-  const RestPasswordFunc = () => {
-    dispatch(EmailToResetPassword(inputs.email));
+  const TypeNewPasswordFunc = () => {
+    dispatch(PasswordReset(code, inputs.password));
     setLoading(true);
     setVisible(true);
-    setLoading(false);
+    // props.navigation.navigate("codeVerification");
+    // setLoading(false);
   };
   return (
     <View style={styles.container}>
@@ -57,7 +60,7 @@ const ForgotPasswordScreen = (props) => {
           <View style={styles.header}>
             <TouchableOpacity
               onPress={() => {
-                props.navigation.navigate("codeVerification", inputs);
+                navigation.push("signIn");
               }}
             >
               <Image
@@ -75,14 +78,14 @@ const ForgotPasswordScreen = (props) => {
         </View>
 
         <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
-          Verification code sent to your email
+          Your passwordchanged Successful
         </Text>
       </ModalPoup>
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
           onPress={() => {
-            props.navigation.navigate("signIn");
+            navigation.goBack("signIn");
           }}
         >
           <Entypo name="chevron-left" size={24} color="#FFFFFF" />
@@ -102,20 +105,16 @@ const ForgotPasswordScreen = (props) => {
         <View style={styles.boxContainer}>
           <View style={styles.content}>
             <Text style={{ fontWeight: "bold", fontSize: 18, margin: 1 }}>
-              Password Recovery
-            </Text>
-            <Text style={{ fontSize: 15, margin: 1 }}>
-              Recovery code will be send on your email
+              Type New Password
             </Text>
             <Input
-              style={styles.input}
-              placeholder="Enter Your Email"
-              iconName="email-outline"
-              onChangeText={(text) => handleOnChange(text, "email")}
-              error={errors.email}
-              onFocus={() => {
-                handleErrors(null, "email");
-              }}
+              onChangeText={(text) => handleOnChange(text, "password")}
+              onFocus={() => handleErrors(null, "password")}
+              iconName="lock-outline"
+              label="Password"
+              placeholder="Enter your password"
+              error={errors.password}
+              password
             />
             <View
               style={{
@@ -123,7 +122,7 @@ const ForgotPasswordScreen = (props) => {
                 alignItems: "center",
               }}
             >
-              <Button1 title="Submit" onPress={validate} />
+              <Button1 title="Reset Password" onPress={validate} />
             </View>
           </View>
         </View>
@@ -132,7 +131,7 @@ const ForgotPasswordScreen = (props) => {
   );
 };
 
-export default ForgotPasswordScreen;
+export default TypeNewPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -170,7 +169,6 @@ const styles = StyleSheet.create({
     padding: 20,
     top: 20,
   },
-
   logo: {
     width: 100,
     height: 40,

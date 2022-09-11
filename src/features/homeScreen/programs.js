@@ -12,8 +12,7 @@ export const Programs = (props) => {
     <View style={styles.content}>
       <ImageBackground
         source={require("../../../assets/s2.jpg")}
-        borderTopRightRadius={20}
-        borderTopLeftRadius={20}
+        borderRadius={10}
       >
         <View style={{ height: 200 }} />
       </ImageBackground>
@@ -77,8 +76,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
+    borderRadius: 10,
     margin: 20,
   },
 });

@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import { fetchChildProgram } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Notification } from "../../../components/notification";
+
 const ParentScreen = (props) => {
   const { programs } = useSelector((state) => state.program);
   const dispatch = useDispatch();
@@ -36,7 +38,13 @@ const ParentScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text style={{ color: "#fff", fontSize: 18 }}>Register Child</Text>
+        <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
+          Register Child
+        </Text>
+        <Notification
+          title="15"
+          onPress={() => props.navigation.navigate("notifications")}
+        />
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.content}>
@@ -137,8 +145,9 @@ const styles = StyleSheet.create({
     height: "15%",
     width: "100%",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    padding: 20,
   },
   content: {
     backgroundColor: "#fff",
@@ -156,9 +165,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-    margin: 20,
+    borderRadius: 20,
+    margin: 10,
   },
   programs: {
     height: 220,

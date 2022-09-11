@@ -13,13 +13,15 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Input from "../../../components/input";
-import Button from "../../../components/button";
+import { Button1 } from "../../../components/button";
 import Loader from "../../../components/loader";
+import ModalPoup from "../../../components/modalPoup";
 import { Register } from "../../../redux/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUpScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState([
@@ -76,13 +78,40 @@ const SignUpScreen = (props) => {
       Register(inputs.fullName, inputs.email, inputs.role, inputs.password)
     );
     setIsLoading(true);
-    props.navigation.navigate("signIn");
+    setVisible(true);
     setIsLoading(false);
   };
 
   return (
     <View style={styles.container}>
       <Loader visible={isLoading} />
+      <ModalPoup visible={visible}>
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.header}>
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate("signUp");
+              }}
+            >
+              <Image
+                source={require("../../../../assets/x.png")}
+                style={{ height: 30, width: 30 }}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={{ alignItems: "center" }}>
+          <Image
+            source={require("../../../../assets/success.png")}
+            style={{ height: 150, width: 150, marginVertical: 10 }}
+          />
+        </View>
+
+        <Text style={{ marginVertical: 30, fontSize: 20, textAlign: "center" }}>
+          Congratulations registered was successful
+        </Text>
+      </ModalPoup>
+
       <View style={styles.top}>
         <TouchableOpacity
           style={{ margin: 10, right: 100 }}
@@ -218,7 +247,7 @@ const SignUpScreen = (props) => {
                 alignItems: "center",
               }}
             >
-              <Button title="Sign Up" onPress={validate} />
+              <Button1 title="Sign Up" onPress={validate} />
 
               <View
                 style={{
@@ -306,5 +335,11 @@ const styles = StyleSheet.create({
   },
   selectedValue: {
     color: "#BABBC3",
+  },
+  header: {
+    width: "100%",
+    height: 40,
+    alignItems: "flex-end",
+    justifyContent: "center",
   },
 });
