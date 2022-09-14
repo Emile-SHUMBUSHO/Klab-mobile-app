@@ -23,6 +23,7 @@ const RegisterScreen = ({ route, navigation }) => {
   const [visible, setVisible] = useState(false);
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [date, setDate] = useState(null);
+  console.log(date);
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
@@ -36,6 +37,7 @@ const RegisterScreen = ({ route, navigation }) => {
     const chosenDate = `${selectedDate.getDate()}-${
       selectedDate.getMonth() + 1
     }-${selectedDate.getFullYear()}`;
+    setDate(chosenDate);
     setInputs({ ...inputs, age: chosenDate });
     hideDatePicker();
   };

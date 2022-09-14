@@ -100,7 +100,7 @@ const ChildScreen = (props) => {
                   justifyContent: "space-between",
                   backgroundColor: "#F0F7F4",
                   borderRadius: 10,
-                  width: "50%",
+                  width: "20%",
                   height: 70,
                   padding: 10,
                 }}
@@ -109,7 +109,6 @@ const ChildScreen = (props) => {
                   source={require("../../../assets/profile.jpg")}
                   style={{ width: 70, height: 60, borderRadius: 10 }}
                 />
-                <Text>Nice Manzi</Text>
               </View>
 
               <View
@@ -119,12 +118,12 @@ const ChildScreen = (props) => {
                   justifyContent: "center",
                   backgroundColor: "#F0F7F4",
                   borderRadius: 10,
-                  width: "48%",
+                  width: "70%",
                   height: 70,
                   padding: 5,
                 }}
               >
-                <Text style={{ fontWeight: "700" }}>Program Details</Text>
+                <Text style={{ fontWeight: "700" }}>Child: Nice Manzi</Text>
                 <Text>Cost:50,000Rwf</Text>
                 <Text style={{ color: "green" }}>Account activated</Text>
               </View>
@@ -166,16 +165,15 @@ const ChildScreen = (props) => {
                   justifyContent: "space-between",
                   backgroundColor: "#F0F7F4",
                   borderRadius: 10,
-                  width: "50%",
+                  width: "20%",
                   height: 70,
                   padding: 10,
                 }}
               >
                 <Image
-                  source={require("../../../assets/profile.jpg")}
+                  source={require("../../../assets/fab.jpg")}
                   style={{ width: 70, height: 60, borderRadius: 10 }}
                 />
-                <Text>Nice Manzi</Text>
               </View>
 
               <View
@@ -185,12 +183,14 @@ const ChildScreen = (props) => {
                   justifyContent: "center",
                   backgroundColor: "#F0F7F4",
                   borderRadius: 10,
-                  width: "48%",
+                  width: "70%",
                   height: 70,
                   padding: 5,
                 }}
               >
-                <Text style={{ fontWeight: "700" }}>Program Details</Text>
+                <Text style={{ fontWeight: "700" }}>
+                  Child: Nzayisenga Fabrice
+                </Text>
                 <Text>Cost:50,000Rwf</Text>
                 <Text style={{ color: "red" }}>Account not activated</Text>
               </View>

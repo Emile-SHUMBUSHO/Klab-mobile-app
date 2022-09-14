@@ -47,3 +47,24 @@ export const fetchAllProgram = () => {
     }
   };
 };
+
+export const join = (data) => async (dispatch) => {
+  let token = await AsyncStorage.getItem("token");
+  axios({
+    method: "post",
+    url: `${BASE_URL}/register/submitInformation`,
+    data: data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      console.log(res.data);
+      dispatch({ type: "SUCCESSFUL JOINED", payload: res.data });
+    })
+    .catch((err) => {
+      console.error(err.response);
+      dispatch({ type: "FAILED TO JOIN", payload: err.response.data.message });
+    });
+};

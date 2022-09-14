@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 
@@ -23,28 +24,26 @@ export const fetchEvents = () => {
   };
 };
 
-export const bookEvent = (names, email) => {
-  return async (dispatch) => {
-    dispatch({ type: "BOOK EVENT" });
-    try {
-      await axios({
-        method: "POST",
-        url: `${BASE_URL}/events/UpcomingEvents`,
-        data: {
-          names,
-          email,
-        },
-      }).then((response) => {
-        const { data } = response;
-        console.log("booing event data");
-        console.log(data);
-        dispatch({
-          type: "BOOK EVENT SUCCESSFUL",
-          payload: data.data,
-        });
+export const bookEvent = (data) => async (dispatch) => {
+  let token = await AsyncStorage.getItem("token");
+  axios({
+    method: "POST",
+    url: `${BASE_URL}/events/event/register`,
+    data: data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      console.log(res.data);
+      dispatch({ type: "BOOK EVENT SUCCESSFUL", payload: res.data });
+    })
+    .catch((err) => {
+      console.error(err.response);
+      dispatch({
+        type: "BOOK EVENT FAILED",
+        payload: err.response.data.message,
       });
-    } catch (err) {
-      dispatch({ type: "BOOK EVENT FAILED", payload: err.message });
-    }
-  };
+    });
 };

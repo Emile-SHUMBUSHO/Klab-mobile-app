@@ -3,6 +3,7 @@ const initialState = {
   error: null,
   programs: [],
   allPrograms: [],
+  joinInfo: {},
 };
 
 export default (state = initialState, action) => {
@@ -38,6 +39,20 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        error: action.payload,
+      };
+    case "SUCCESSFUL JOINED":
+      return {
+        ...state,
+        // loading: true,
+        error: null,
+        joinInfo: action.payload,
+      };
+
+    case "FAILED TO JOIN":
+      return {
+        ...state,
+        // loading: false,
         error: action.payload,
       };
 

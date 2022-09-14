@@ -2,6 +2,7 @@ const initialState = {
   loading: false,
   error: null,
   events: [],
+  bookEventInfo: {},
 };
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -24,18 +25,12 @@ export default (state = initialState, action) => {
         error: action.payload,
       };
 
-    case "BOOK EVENT":
-      return {
-        ...state,
-        loading: true,
-        error: action.payload,
-      };
-
     case "BOOK EVENT SUCCESSFUL":
       return {
         ...state,
         loading: false,
-        error: action.payload,
+        error: null,
+        bookEventInfo: action.payload,
       };
 
     case "BOOK EVENT FAILED":

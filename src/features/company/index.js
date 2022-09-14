@@ -16,7 +16,7 @@ export const CompanyScreen = (props) => {
         <Text style={{ color: "white", fontSize: 18 }}>Register Company</Text>
       </View>
       <View style={styles.content}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.insideContent}>
             <ImageBackground
               source={require("../../../assets/s4.jpg")}
@@ -25,12 +25,69 @@ export const CompanyScreen = (props) => {
               borderTopLeftRadius={15}
               borderTopRightRadius={15}
             >
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.navigate("companyRegistration");
+                }}
+              >
                 <AntDesign name="forward" size={34} color="white" />
               </TouchableOpacity>
             </ImageBackground>
             <View style={styles.bottomContent}>
-              <Text>Are you looking for interns</Text>
+              <Text>Looking for interns?</Text>
+              <Button2
+                onPress={() => {
+                  props.navigation.navigate("companyRegistration");
+                }}
+                title="Register"
+              />
+            </View>
+          </View>
+
+          <View style={styles.insideContent}>
+            <ImageBackground
+              source={require("../../../assets/projects.jpg")}
+              style={styles.imagebg}
+              resizeMode="cover"
+              borderTopLeftRadius={15}
+              borderTopRightRadius={15}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.navigate("companyRegistration");
+                }}
+              >
+                <AntDesign name="forward" size={34} color="white" />
+              </TouchableOpacity>
+            </ImageBackground>
+            <View style={styles.bottomContent}>
+              <Text>Have a project to work on?</Text>
+              <Button2
+                onPress={() => {
+                  props.navigation.navigate("companyRegistration");
+                }}
+                title="Register"
+              />
+            </View>
+          </View>
+          <View style={styles.insideContent}>
+            <ImageBackground
+              source={require("../../../assets/developer.jpg")}
+              style={styles.imagebg}
+              resizeMode="cover"
+              borderTopLeftRadius={15}
+              borderTopRightRadius={15}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  props.navigation.navigate("companyRegistration");
+                }}
+              >
+                <AntDesign name="forward" size={34} color="white" />
+              </TouchableOpacity>
+            </ImageBackground>
+            <View style={styles.bottomContent}>
+              <Text>Hire Software Developers</Text>
               <Button2
                 onPress={() => {
                   props.navigation.navigate("companyRegistration");

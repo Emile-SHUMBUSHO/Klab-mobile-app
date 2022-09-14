@@ -17,7 +17,7 @@ import { Button1 } from "../../../components/button";
 import Loader from "../../../components/loader";
 import ModalPoup from "../../../components/modalPoup";
 import { Register } from "../../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const SignUpScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
