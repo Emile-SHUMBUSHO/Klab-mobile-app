@@ -8,11 +8,11 @@ app users themselves to start projects of their own. Users would also get the op
 find people who share the same interest as them and build strong relationships with fellow techies. Intended Audience
 
 ## The app is intended
-● for parents who’d like to enroll their children in programs in advance,
-● companies who have projects that need to be worked on,
-● internationals who plan on visiting Rwanda,
-● Graduates who’d like to venture into something new or even gain new experience, and
-● members who’d just like to use the space.
+1. for parents who’d like to enroll their children in programs in advance,
+2. companies who have projects that need to be worked on,
+3. internationals who plan on visiting Rwanda,
+4. Graduates who’d like to venture into something new or even gain new experience, and
+5. members who’d just like to use the space.
 
 ## Intended Use
 When downloaded users are then asked to register themselves or a child. They can then
