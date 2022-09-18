@@ -86,3 +86,8 @@ what they need help with etc ..
 4. There should be a space to upload further files about their project
 5. After this, if paid option is picked they’ll be redirected to a transaction page
 6. User should have access to a page to view project status
+
+## Some App Authentication Screens
+![8](https://user-images.githubusercontent.com/49757277/190900212-87958987-b173-4ca5-83e5-071645644e02.jpeg)
+![1](https://user-images.githubusercontent.com/49757277/190900221-35e1c47e-5406-458c-95b6-94087c6fae2f.jpeg)
+
