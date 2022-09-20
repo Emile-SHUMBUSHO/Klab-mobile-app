@@ -11,8 +11,6 @@ export const fetchEvents = () => {
         url: `${BASE_URL}/events/UpcomingEvents`,
       }).then((response) => {
         const { data } = response;
-        console.log("Events data");
-        console.log(data);
         dispatch({
           type: "FETCH EVENTS SUCCESSFUL",
           payload: data.data,

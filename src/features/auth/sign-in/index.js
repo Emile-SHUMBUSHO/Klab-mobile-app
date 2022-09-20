@@ -95,6 +95,7 @@ const SignInScreen = (props) => {
             label="Email Address"
             placeholder="Enter your email address"
             iconName="email-outline"
+            returnKey="next"
             onChangeText={(text) => handleOnChange(text, "email")}
             error={errors.email}
             onFocus={() => {
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "black",
     height: "25%",
-    borderBottomLeftRadius: 50,
+    borderBottomLeftRadius: 40,
   },
   footer: {
     height: "75%",
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     backgroundColor: "white",
-    borderTopRightRadius: 50,
+    borderTopRightRadius: 40,
     flexDirection: "column",
     justifyContent: "flex-start",
     padding: 20,

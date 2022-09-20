@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProgram } from "../../redux/actions";
 import { Programs } from "./programs";
 import { Notification } from "../../components/notification";
+import { globalStyles } from "../../styles";
 
 const HomeScreen = (props) => {
-  const [user, setUser] = useState("");
+  const [userName, setUserName] = useState("");
   const token = useSelector((state) => state.Auth.authToken);
   UserInfo(token).then((response) => {
-    setUser(response.name);
+    setUserName(response.name);
+    setUserEmail(response.email);
   });
   const { programs } = useSelector((state) => state.program);
   const dispatch = useDispatch();
@@ -19,89 +21,65 @@ const HomeScreen = (props) => {
     dispatch(fetchAllProgram());
   }, []);
   return (
-    <View style={styles.container}>
-      <View style={styles.top}>
-        <Text style={{ color: "#fff", fontSize: 18, fontWeight: "700" }}>
-          {user}
-        </Text>
-
+    <View style={globalStyles.container}>
+      <View style={globalStyles.top}>
+        <Text style={globalStyles.topText}>{userName}</Text>
         <Notification
           title="3"
           onPress={() => props.navigation.navigate("notifications")}
         />
       </View>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{
-          width: "100%",
-          height: "85%",
-          backgroundColor: "white",
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-        }}
-      >
+      <View style={globalStyles.footer}>
         <View
           style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
+            ...StyleSheet.absoluteFillObject,
+            backgroundColor: "black",
+          }}
+        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{
+            width: "100%",
+            height: "85%",
+            backgroundColor: "white",
+            borderTopRightRadius: 40,
           }}
         >
-          <Text
+          <View
             style={{
-              fontSize: 20,
-              fontWeight: "bold",
-              maxWidth: 200,
-              textAlign: "center",
-              margin: 10,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            kLab| Open Innovation Space | Tech |Creativity.
-          </Text>
-        </View>
-        {programs?.map((program, index) => {
-          return (
-            <Programs
-              key={program.id}
-              id={program.id}
-              title={program.title}
-              descrption={program.description}
-            />
-          );
-        })}
-      </ScrollView>
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "bold",
+                maxWidth: 200,
+                textAlign: "center",
+                margin: 10,
+              }}
+            >
+              kLab| Open Innovation Space | Tech |Creativity.
+            </Text>
+          </View>
+          {programs?.map((program, index) => {
+            return (
+              <Programs
+                key={program.id}
+                id={program.id}
+                title={program.title}
+                descrption={program.description}
+              />
+            );
+          })}
+        </ScrollView>
+      </View>
+
       <StatusBar style="light" />
     </View>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  top: {
-    height: "15%",
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 20,
-  },
-  content: {
-    backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-
-    margin: 20,
-  },
-  container: {
-    backgroundColor: "black",
-    height: "100%",
-    width: "100%",
-  },
-});

@@ -10,8 +10,9 @@ import ProfileScreen from "../features/profileScreen";
 import HomeScreen from "../features/homeScreen";
 import ParentScreen from "../features/future.coders/screens";
 import ChildScreen from "../features/ChildScreen";
-import KlabMembersHomeScreen from "../features/klab-members";
 import EventScreen from "../features/events";
+import GuestUserEventScreen from "../features/guest-user/event";
+import GuestMenuScreen from "../features/guest-user/menu";
 import { useState } from "react";
 import { UserInfo } from "../utils/userInfo";
 import { useSelector } from "react-redux";
@@ -198,7 +199,7 @@ function MainNavigator() {
                         />
                       ),
                     }}
-                    component={KlabMembersHomeScreen}
+                    component={EventScreen}
                   />
                   <Tab.Screen
                     name="Profile"
@@ -225,17 +226,17 @@ function MainNavigator() {
                         <MaterialIcons name="event" size={24} color="black" />
                       ),
                     }}
-                    component={EventScreen}
+                    component={GuestUserEventScreen}
                   />
                   <Tab.Screen
-                    name="settings"
+                    name="Menu"
                     options={{
-                      tabBarLabel: "settings",
+                      tabBarLabel: "Menu",
                       tabBarIcon: ({ color, size }) => (
-                        <FontAwesome5 name="user-alt" size={24} color="grey" />
+                        <Entypo name="menu" size={24} color="grey" />
                       ),
                     }}
-                    component={ProfileScreen}
+                    component={GuestMenuScreen}
                   />
                 </>
               )}

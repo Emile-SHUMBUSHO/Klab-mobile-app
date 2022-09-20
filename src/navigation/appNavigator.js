@@ -26,6 +26,7 @@ import { ActivityIndicator } from "react-native-paper";
 import { View } from "react-native";
 import { Init } from "../redux/actions";
 import { UserInfo } from "../utils/userInfo";
+import GuestMenuScreen from "../features/guest-user/menu.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,7 @@ function AppNavigator() {
         {token === null ? (
           <>
             <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+            <Stack.Screen name="guest" component={GuestMenuScreen} />
             <Stack.Screen name="signUp" component={SignUpScreen} />
             <Stack.Screen name="policy" component={PrivacyPolicyScreen} />
             <Stack.Screen name="terms" component={TermsAndConditionsScreen} />

@@ -48,13 +48,18 @@ export const register = (
 
 export const fetchChild = () => {
   return async (dispatch) => {
+    let token = await AsyncStorage.getItem("token");
     try {
       const response = await axios({
         method: "GET",
-        url: `${BASE_URL}/`,
+        url: `${BASE_URL}/futureKoder/childWithProgram`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then((response) => {
+        const { data } = response;
+        dispatch({ type: "FECTCH CHILD SUCCESSFUL", payload: data.data });
       });
-      console.log(response);
-      dispatch({ type: "FECTCH CHILD SUCCESSFUL", payload: response });
     } catch (err) {
       dispatch({ type: "FETCH CHILD FAILED", payload: err.message });
     }

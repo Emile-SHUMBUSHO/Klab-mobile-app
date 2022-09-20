@@ -10,10 +10,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEvents, bookEvent } from "../../redux/actions";
 import { EventCard } from "./event-card";
-import { Notification } from "../../components/notification";
 import { globalStyles } from "../../styles";
 
-const EventScreen = (props) => {
+const GuestUserEventScreen = (props) => {
   const { events } = useSelector((state) => state.event);
   const dispatchEvent = useDispatch();
   useEffect(() => {
@@ -22,12 +21,8 @@ const EventScreen = (props) => {
 
   return (
     <View style={globalStyles.container}>
-      <View style={globalStyles.top}>
+      <View style={[globalStyles.top, { justifyContent: "center" }]}>
         <Text style={globalStyles.topText}>Klab Events</Text>
-        <Notification
-          title="8"
-          onPress={() => props.navigation.navigate("notifications")}
-        />
       </View>
       <View style={globalStyles.footer}>
         <View
@@ -106,7 +101,7 @@ const EventScreen = (props) => {
   );
 };
 
-export default EventScreen;
+export default GuestUserEventScreen;
 
 const styles = StyleSheet.create({
   container: {

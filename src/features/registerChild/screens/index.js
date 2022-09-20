@@ -7,7 +7,7 @@ import {
   Keyboard,
   Image,
 } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import Input from "../../../components/input";
 import { Button1 } from "../../../components/button";
@@ -17,6 +17,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import DropDownPicker from "react-native-dropdown-picker";
 import Loader from "../../../components/loader";
 import ModalPoup from "../../../components/modalPoup";
+import { globalStyles } from "../../../styles";
+import { OverContentView } from "../../../components/view";
 
 const RegisterScreen = ({ route, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,9 +36,9 @@ const RegisterScreen = ({ route, navigation }) => {
 
   const handleConfirm = (date) => {
     const selectedDate = new Date(date);
-    const chosenDate = `${selectedDate.getDate()}-${
+    const chosenDate = `${selectedDate.getFullYear()}-${
       selectedDate.getMonth() + 1
-    }-${selectedDate.getFullYear()}`;
+    }-${selectedDate.getDate()}`;
     setDate(chosenDate);
     setInputs({ ...inputs, age: chosenDate });
     hideDatePicker();
@@ -124,7 +126,7 @@ const RegisterScreen = ({ route, navigation }) => {
     setVisible(true);
   };
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.container}>
       <Loader visible={isLoading} />
       <ModalPoup visible={visible}>
         <View style={{ alignItems: "center" }}>
@@ -151,109 +153,126 @@ const RegisterScreen = ({ route, navigation }) => {
           Registered successful
         </Text>
       </ModalPoup>
-      <View style={styles.top}>
-        <Text style={{ color: "white", fontSize: 18, fontWeight: "700" }}>
+      <View style={globalStyles.top}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack("home");
+          }}
+          style={{ margin: 20 }}
+        >
+          <Entypo name="chevron-left" size={24} color="white" left={20} />
+        </TouchableOpacity>
+        <Text
+          style={{
+            color: "white",
+            fontSize: 18,
+            fontWeight: "700",
+            right: 120,
+          }}
+        >
           Register Child
         </Text>
       </View>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{
-          backgroundColor: "white",
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-        }}
-      >
-        <View style={styles.content}>
-          <Input
-            style={styles.input}
-            placeholder="First Name"
-            onChangeText={(text) => handleOnChange(text, "firstName")}
-            onFocus={() => handleErrors(null, "firstName")}
-            error={errors.firstName}
-          />
-          <Input
-            style={styles.input}
-            placeholder="Last Name"
-            onChangeText={(text) => handleOnChange(text, "lastName")}
-            onFocus={() => handleErrors(null, "lastName")}
-            error={errors.lastName}
-          />
-          <DropDownPicker
-            style={styles.dropDownPicker}
-            placeholder="Choose your Gender"
-            onChangeValue={(value) => handleOnChange(value, "gender")}
-            open={open}
-            value={value}
-            items={items}
-            setOpen={setOpen}
-            setValue={setValue}
-            setItems={setItems}
-            zIndex={1000}
-            borderWidth={0}
-            dropDownContainerStyle={{
-              borderWidth: 0,
-              height: 100,
-              backgroundColor: "white",
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 4,
-              elevation: 2,
-              paddingHorizontal: 5,
-              borderRadius: 20,
-            }}
-          />
-          <TouchableOpacity
-            style={styles.datePickerButton}
-            onPress={showDatePicker}
-          >
-            <Text>Age {date}</Text>
-            <MaterialIcons name="date-range" size={24} color="black" />
-          </TouchableOpacity>
+      <View style={globalStyles.footer}>
+        <OverContentView />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{
+            backgroundColor: "white",
+            borderTopRightRadius: 40,
+          }}
+        >
+          <View style={styles.content}>
+            <Input
+              style={styles.input}
+              placeholder="First Name"
+              onChangeText={(text) => handleOnChange(text, "firstName")}
+              onFocus={() => handleErrors(null, "firstName")}
+              error={errors.firstName}
+            />
+            <Input
+              style={styles.input}
+              placeholder="Last Name"
+              onChangeText={(text) => handleOnChange(text, "lastName")}
+              onFocus={() => handleErrors(null, "lastName")}
+              error={errors.lastName}
+            />
+            <DropDownPicker
+              style={styles.dropDownPicker}
+              placeholder="Choose your Gender"
+              onChangeValue={(value) => handleOnChange(value, "gender")}
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+              zIndex={1000}
+              borderWidth={0}
+              dropDownContainerStyle={{
+                borderWidth: 0,
+                height: 100,
+                backgroundColor: "white",
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 4,
+                elevation: 2,
+                paddingHorizontal: 5,
+                borderRadius: 20,
+              }}
+            />
+            <TouchableOpacity
+              style={styles.datePickerButton}
+              onPress={showDatePicker}
+            >
+              <Text>Age {date}</Text>
+              <MaterialIcons name="date-range" size={24} color="black" />
+            </TouchableOpacity>
 
-          <DateTimePickerModal
-            isVisible={isDatePickerVisible}
-            mode="date"
-            onConfirm={handleConfirm}
-            onCancel={hideDatePicker}
-          />
-          <Input
-            style={styles.input}
-            placeholder="level of education"
-            onChangeText={(text) => handleOnChange(text, "educationLevel")}
-            error={errors.educationLevel}
-            onFocus={() => {
-              handleErrors(null, "educationLevel");
-            }}
-          />
-          <Input
-            style={styles.input}
-            placeholder="School Name"
-            onChangeText={(text) => handleOnChange(text, "schoolName")}
-            error={errors.schoolName}
-            onFocus={() => {
-              handleErrors(null, "schoolName");
-            }}
-          />
-          <Input
-            style={styles.input}
-            placeholder="Email"
-            iconName={"email"}
-            onChangeText={(text) => handleOnChange(text, "email")}
-            error={errors.email}
-            onFocus={() => {
-              handleErrors(null, "email");
-            }}
-          />
-          <View style={{ justifyContent: "center", flexDirection: "row" }}>
-            <Button1 title="Save Child Information" onPress={validate} />
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
+            <Input
+              style={styles.input}
+              placeholder="level of education"
+              onChangeText={(text) => handleOnChange(text, "educationLevel")}
+              error={errors.educationLevel}
+              onFocus={() => {
+                handleErrors(null, "educationLevel");
+              }}
+            />
+            <Input
+              style={styles.input}
+              placeholder="School Name"
+              onChangeText={(text) => handleOnChange(text, "schoolName")}
+              error={errors.schoolName}
+              onFocus={() => {
+                handleErrors(null, "schoolName");
+              }}
+            />
+            <Input
+              style={styles.input}
+              placeholder="Email"
+              iconName={"email"}
+              onChangeText={(text) => handleOnChange(text, "email")}
+              error={errors.email}
+              onFocus={() => {
+                handleErrors(null, "email");
+              }}
+            />
+            <View style={{ justifyContent: "center", flexDirection: "row" }}>
+              <Button1 title="Register Child" onPress={validate} />
+            </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </View>
   );
 };

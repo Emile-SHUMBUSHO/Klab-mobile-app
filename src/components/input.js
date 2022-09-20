@@ -7,6 +7,7 @@ const Input = ({
   iconName,
   error,
   password,
+  returnKey,
   onFocus = () => {},
   ...props
 }) => {
@@ -33,6 +34,7 @@ const Input = ({
           style={{ color: COLORS.darkBlue, fontSize: 22, marginRight: 10 }}
         />
         <TextInput
+          returnKeyType={returnKey}
           autoCorrect={false}
           onFocus={() => {
             onFocus();

@@ -9,7 +9,7 @@ export const Button1 = ({ title, onPress = () => {} }) => {
       activeOpacity={0.7}
       style={{
         height: 50,
-        width: "50%",
+        width: "40%",
         borderRadius: 20,
         backgroundColor: "black",
         marginVertical: 20,

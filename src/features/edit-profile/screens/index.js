@@ -11,6 +11,8 @@ import * as ImagePicker from "expo-image-picker";
 import { useState, useEffect } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
 import Input from "../../../components/input";
+import { OverContentView } from "../../../components/view";
+import { globalStyles } from "../../../styles";
 
 const EditProfileScreen = (props) => {
   const [image, setImage] = useState(null);
@@ -31,72 +33,78 @@ const EditProfileScreen = (props) => {
     }
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.top}>
+    <View style={globalStyles.container}>
+      <View style={globalStyles.top}>
         <TouchableOpacity
-          style={{ right: 100 }}
+          style={{ left: 20 }}
           onPress={() => {
             props.navigation.navigate("home");
           }}
         >
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
-        <Text style={{ color: "white", fontSize: 18 }}>Edit Profile</Text>
+        <Text style={{ color: "white", fontSize: 18, right: 150 }}>
+          Edit Profile
+        </Text>
       </View>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{
-          backgroundColor: "white",
-          borderTopRightRadius: 20,
-          borderTopLeftRadius: 20,
-        }}
-      >
-        <View style={styles.content}>
-          {/* Profile card info.. */}
-          <View style={styles.profile_card}>
-            {image && (
-              <Image
-                source={{ uri: image }}
-                style={{ width: 70, height: 70, borderRadius: 50 }}
-              />
-            )}
-
-            <TouchableOpacity
-              onPress={pickImage}
-              style={{
-                top: -50,
-              }}
-            >
-              <Feather name="camera" size={24} color="black" />
-            </TouchableOpacity>
-
-            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              Lissa Magrette
-            </Text>
-          </View>
-
-          <Input
-            style={styles.input}
-            label="Telphone"
-            placeholder="Change phone number"
-          />
-
-          <Input
-            style={styles.input}
-            label="Address"
-            placeholder="Email address"
-          />
-
-          <TouchableOpacity
-            style={styles.submitBtn}
-            onPress={() => {
-              props.navigation.navigate("home");
+      <View>
+        <View style={globalStyles.footer}>
+          <OverContentView />
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{
+              backgroundColor: "white",
+              borderTopRightRadius: 20,
             }}
           >
-            <Text style={{ color: "#FFFF" }}>Save Information</Text>
-          </TouchableOpacity>
+            <View style={styles.content}>
+              {/* Profile card info.. */}
+              <View style={styles.profile_card}>
+                {image && (
+                  <Image
+                    source={{ uri: image }}
+                    style={{ width: 70, height: 70, borderRadius: 50 }}
+                  />
+                )}
+
+                <TouchableOpacity
+                  onPress={pickImage}
+                  style={{
+                    top: -50,
+                  }}
+                >
+                  <Feather name="camera" size={24} color="black" />
+                </TouchableOpacity>
+
+                <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+                  Lissa Magrette
+                </Text>
+              </View>
+
+              <Input
+                style={styles.input}
+                label="Telphone"
+                placeholder="Change phone number"
+              />
+
+              <Input
+                style={styles.input}
+                label="Address"
+                placeholder="Email address"
+              />
+
+              <TouchableOpacity
+                style={styles.submitBtn}
+                onPress={() => {
+                  props.navigation.navigate("home");
+                }}
+              >
+                <Text style={{ color: "#FFFF" }}>Save Information</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
         </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };

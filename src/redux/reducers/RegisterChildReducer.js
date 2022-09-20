@@ -12,7 +12,8 @@ export default (state = initialState, action) => {
         loading: false,
         error: null,
       };
-    case "FETCHPROGRAM FAILED":
+
+    case "REGISTERCHILD FAILED":
       return {
         ...state,
         loading: false,
@@ -24,7 +25,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         error: null,
-        child: action.payload,
+        children: action.payload,
       };
     case "FETCH CHILD FAILED":
       return {
